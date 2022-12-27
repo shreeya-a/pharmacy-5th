@@ -15,7 +15,7 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="#">NePharma</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2022 <a href="#">NePharma</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
