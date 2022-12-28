@@ -8,7 +8,12 @@ class HomeController extends Controller
 {
     //
     
-    //
+    
+    public  function homepage()
+    {
+        return view('user.index');
+    }
+
     public  function login()
     {
         return view('login');

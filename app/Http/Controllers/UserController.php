@@ -17,7 +17,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' =>  'required|unique:users',
             'password' => 'required|min:4',
-            're-password' => 'required|same:password',
+            'confirm-password' => 'required|same:password',
 
         ]);
 
@@ -42,16 +42,16 @@ class UserController extends Controller
         if (Auth::attempt($req->only(['email', 'password']))) {
             // dd('you are Logged In');
 
-            return redirect()->route('dashboard');
+            return redirect()->route('homepage');
         } else {
             return back()->with('fail', 'User not found');
         }
     }
-    // public function logout()
-    // {
+    public function logout()
+    {
 
-    //     auth()->logout();
+        auth()->logout();
 
-    //     return redirect()->route('login');
-    //  }
+        return redirect()->route('login');
+    }
 }

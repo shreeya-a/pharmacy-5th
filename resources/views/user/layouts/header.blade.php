@@ -127,7 +127,7 @@
                             <!-- navbar top left Start -->
                             <div class="navbar-top-left">
                                 <ul class="navbar-top-link">
-                                    <li><a href="about-page.html">Home</a></li>
+                                    <li><a href="{{route('homepage')}}">Home</a></li>
                                     <li><a href="about-page.html">About</a></li>
                                     <li><a href="contact-page.html">Contact</a></li>
                                     <li>
@@ -140,13 +140,25 @@
                             </div>
                             <!-- navbar top left Ends -->
                             <!-- navbar top right Start -->
+                            @guest
                             <div class="navbar-top-right">
                                 <ul class="navbar-top-link">
 
 
-                                    <li><a href="login-page.html"><i class="mdi mdi-account"></i>Login</a></li>
+                                    <li><a href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>Login</a></li>
                                 </ul>
                             </div>
+                            @endguest
+
+
+                            @auth
+                            <div class="navbar-top-right">
+                                <ul class="navbar-top-link">
+                                    <li>{{auth()->user()->name}}</li>
+                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-account"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                            @endauth
                             <!-- navbar top right Ends -->
                         </div>
                     </div>
@@ -160,7 +172,7 @@
                             <!-- desktop logo Start -->
                             <div class="desktop-logo d-none d-lg-block">
                                 <!-- <a href="index.html"><img src="{{asset('userpanel/assets/images/nepharma-logo.png')}}" alt="Logo" height="60px" width="80px"></a> -->
-                                <a href="index.html"><img src="{{asset('userpanel/assets/images/logo-pharma.png')}}" alt="Logo" height="60px" width="200px"></a>
+                                <a href="{{route('homepage')}}"><img src="{{asset('userpanel/assets/images/logo-pharma.png')}}" alt="Logo" height="60px" width="200px"></a>
                             </div>
                             <!-- desktop logo Ends -->
                             <!-- navbar menu Start -->
