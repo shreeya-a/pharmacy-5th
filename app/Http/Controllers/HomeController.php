@@ -25,4 +25,7 @@ class HomeController extends Controller
         return view('register');
 
     }
+
+    // return redirect()->route('login');
+
 }

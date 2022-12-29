@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+
 use GuzzleHttp\Middleware;
 use Illuminate\Routing\Route as RoutingRoute;
 
@@ -51,3 +53,9 @@ Route::post('/login', [UserController::class, 'loginUser'])->name('loginUser');
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
 
 
+Route::post('/add-category', [CategoryController::class,'addCategory'])->name('addCategory');
+Route::get('/category', [CategoryController::class,'category'])->name('category');
+
+Route::get('/edit/{id}', [CategoryController::class,'edit'])->name('edit');
+Route::get('/delete/{id}', [CategoryController::class,'deleteCategory'])->name('deleteCategory');
+Route::post('/edit-category', [CategoryController::class,'editCategory'])->name('editCategory');
