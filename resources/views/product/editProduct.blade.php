@@ -40,6 +40,28 @@
                         </select>
                     </div>
                     <div class="mb-2">
+                        <label for="section" class="form-label">section:</label>
+                        <select class=" form-control" name="section" id="section">
+
+                            <option value="{{$product->section_id }}">{{$product->section_id }}</option>
+                            @foreach($section as $section)
+                            <option value="{{$section ->id }}">{{$section ->section }}</option>
+                            @endforeach
+
+
+
+
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                <label for="featured" class="form-label">featured</label>
+                <input type="checkbox"  {{$product->featured =="1"? 'checked':''}} class="form-control" id="featured" name="featured">
+            </div>
+            <div class="mb-2">
+                <label for="popular" class="form-label">popular</label>
+                <input type="checkbox" {{$product->popular =="1"? 'checked':''}} class="form-control" id="popular" name="popular">
+            </div>
+                    <div class="mb-2">
                         <label for="price" class="form-label">Price</label>
                         <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}">
                     </div>

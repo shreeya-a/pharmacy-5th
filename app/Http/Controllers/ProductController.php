@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Section;
 
 use Illuminate\Support\Facades\File;
 
@@ -20,8 +21,9 @@ class ProductController extends Controller
     public  function addProduct()
     {
         $category = Category::all();
+        $section = Section::all();
 
-        return view('product.addProduct', ['category' => $category]);
+        return view('product.addProduct', ['category' => $category], ['section' => $section]);
     }
     public function saveProduct(Request $req)
     {
@@ -47,6 +49,9 @@ class ProductController extends Controller
             $productObj->price = $req->price;
             $productObj->description = $req->description;
             $productObj->category_id = $req->category;
+            $productObj->section_id = $req->section;
+            $productObj->featured = $req->input('featured')==TRUE? '1':'0';
+            $productObj->popular = $req->input('popular')==TRUE? '1':'0';
 
             $productObj->save();
         return redirect()->route('product');
@@ -74,7 +79,8 @@ class ProductController extends Controller
         {
             $product= Product::find($id);
             $category = Category::all();
-            return view('product.editProduct', ['product' => $product,'category' => $category]);
+            $section = Section::all();
+            return view('product.editProduct', ['product' => $product,'category' => $category,'section' => $section]);
         
             
         }
@@ -99,9 +105,12 @@ class ProductController extends Controller
             $productObj->price = $req->price;
             $productObj->description = $req->description;
             $productObj->category_id = $req->category;
+            $productObj->section_id = $req->section;
+            $productObj->featured = $req->input('featured')==TRUE? '1':'0';
+            $productObj->popular = $req->input('popular')==TRUE? '1':'0';
             $productObj->update();
 
-        return redirect()->route('product')->with('status',"Product updated successfully");
+        return redirect()->route('product');
         
     }
 }

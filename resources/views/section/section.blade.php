@@ -6,22 +6,22 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-        <h1 class="mt-8">Category page</h1>
+        <h1 class="mt-8">Section page</h1>
 
     </div>
     <!-- /.content header -->
 
     <div class="container">
 
-        <!-- category content -->
+        <!-- section content -->
         <div class="d-flex justify-content-center">
 
-            <form action="{{route('addCategory')}}" method="post">
+            <form action="{{route('addSection')}}" method="post">
                 @csrf
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Enter new category" name="category" aria-describedby="basic-addon2">
+                    <input class="form-control" type="text" placeholder="Enter new section" name="section" aria-describedby="basic-addon2">
                     <div class="input-group-append" style="margin-left: 5px;">
-                        <button type="submit" class="btn btn-primary">Add Category</button>
+                        <button type="submit" class="btn btn-primary">Add section</button>
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
@@ -44,18 +44,18 @@
         <thead class="align-middle">
             <th>SN</th>
             <th>ID</th>
-            <th>Category</th>
+            <th>Section</th>
             <th colspan="2">Action</th>
         </thead>
         <tbody>
-            @foreach ($categorys as $category)
+            @foreach ($section as $section)
             <tr>
                 <td>{{$SN++}}</td>
-                <td>{{$category->id}}</td>
-                <td>{{$category->category}}</td>
+                <td>{{$section->id}}</td>
+                <td>{{$section->section}}</td>
                 <td>
-                    <a href="{{url('/edit-category/'.$category->id)}}" class="btn btn-warning">Edit</a>
-                    <a href="{{url('/delete-category/'.$category->id)}}" class="btn btn-danger">Delete</a>
+                    <a href="{{url('/edit-section/'.$section->id)}}" class="btn btn-warning">Edit</a>
+                    <a href="{{url('/delete-section/'.$section->id)}}" class="btn btn-danger">Delete</a>
                 </td>
              
             </tr>

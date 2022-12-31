@@ -20,6 +20,7 @@
             <th>ID</th>
             <th>Product</th>
             <th>Category</th>
+            <th>Section</th>
             <th>Price</th>
             <th>Description</th>
             <th>Image</th>
@@ -38,15 +39,16 @@
                 <td>{{$value->id}}</td>
                 <td>{{$value->product}}</td>
                 <td>{{$value->category->category}}</td>
+                <td>{{$value->section->section}}</td>
                 <td>{{$value->price}}</td>
                 <td>{{$value->description}}</td>
 
-                <td>
+                <td class="text-left">
                     <img src="{{asset('/storage/'.$value->image)}}" alt="product"  width="50 rem" height="50 rem" >
                 </td>
                 <td>
-                    <a href="{{url('/edit/'.$value->id)}}" class="btn btn-warning">Edit</a>
-                    <a href="{{url('/delete/'.$value->id)}}" class="btn btn-danger">Delete</a>
+                    <a href="{{url('/edit-product/'.$value->id)}}" class="btn btn-warning">Edit</a>
+                    <a href="{{url('/delete-product/'.$value->id)}}" class="btn btn-danger">Delete</a>
            
                 </td>
             </tr>

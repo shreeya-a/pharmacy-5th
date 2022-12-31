@@ -9,12 +9,17 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable= ['product','price','image','description','category_id'];
+    protected $fillable= ['product','price','image','description','category_id','section_id'];
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id','id');
                                                 // foreign key  //primary key value of used foreign key
+    }
+    public function section()
+    {
+        return $this->belongsTo(Section::class, 'section_id','id');
+                                              
     }
 
 
