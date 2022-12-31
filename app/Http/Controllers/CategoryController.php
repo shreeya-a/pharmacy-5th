@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     //
+    public  function category()
+    {
+        $categorys =Category::all();
+        return view('category.category', compact('categorys'));
+    }
+    
     public function addCategory(Request $req)
     {
         $req->validate([
@@ -23,11 +29,7 @@ class CategoryController extends Controller
         return view('category.category');
 
     } 
-    public  function category()
-    {
-        $categorys =Category::all();
-        return view('category.category', compact('categorys'));
-    }
+   
     public function edit($id)
     {
         $category= Category::find($id);

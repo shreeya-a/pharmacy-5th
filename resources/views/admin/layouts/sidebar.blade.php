@@ -51,7 +51,7 @@
             </a>
           </li> -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('category')}}" class="nav-link">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             <i class="nav-icon fas fa-th"></i>
               <p>
@@ -61,8 +61,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class=" nav-icon fab fa-product-hunt"></i>
+            <a href="{{route('product')}}" class="nav-link">
+            <i class=" nav-icon fab fa-product-hunt" aria-hidden="true"></i>
               <p>
                Product
                 <!-- <span class="right badge badge-danger">New</span> -->
