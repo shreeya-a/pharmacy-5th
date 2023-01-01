@@ -2,6 +2,19 @@
 
 @section('content')
 
+@php
+    if(isset($_COOKIE['login_email']) && isset($_COOKIE['login_pass'])){
+        $log_email = $_COOKIE['login_email'];
+        $log_pass = $_COOKIE['login_pass'];
+        $is_active ='checked';
+    }else{
+        $log_email = '';
+        $log_pass = '';
+        $is_active ='';
+    }
+@endphp
+
+
 <section class="vh-100">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -26,7 +39,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="email" name="email" id="form3Example3c" class="form-control  @error('email') is-invalid @enderror" />
+                                            <input type="email" name="email" id="form3Example3c" class="form-control  @error('email') is-invalid @enderror" value="{{$log_email}}"/>
                                             @error('email')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -40,7 +53,7 @@
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="password" name="password" id="form3Example4c" class="form-control @error('password') is-invalid @enderror" />
+                                            <input type="password" name="password" id="form3Example4c" class="form-control @error('password') is-invalid @enderror" value="{{$log_pass}}"/>
                                             @error('password')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -53,7 +66,7 @@
                                      {{-- remember me code --}}
 
                                     <div class="my-2">
-                                        <input type="checkbox" name="remember" id="remember">
+                                        <input type="checkbox" name="remember" id="remember" {{$is_active}}>
                                         <label for="remember">Remember Me</label>
                                     </div>
 
