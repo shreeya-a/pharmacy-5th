@@ -20,7 +20,7 @@
                         <tr>
                             <div class="mb-2">
                                 <td> <label for="product" class="form-label">Product</label></td>
-                                <td> <input type="text" class="form-control" name="product" id="product" placeholder="Product name"></td>
+                                <td> <input type="text" class="form-control text-capitalize" name="product" id="product" placeholder="Product name"></td>
                             </div>
                         </tr>
                         <tr>
@@ -64,15 +64,17 @@
                             </div>
                         </tr>
                         <tr>
-                            <div class="mb-2">
+                            <div class="input-group mb-2">
                               <td>  <label for="image" class="form-label">Image</label></td>
                                 <div class="custom-file">
 
-                                 <td>   <input type="file" name="image" class="form-control"></td>
+                                 <td>   <input type="file" name="image" class="form-control p-1"></td>
                                 </div>
 
                             </div>
                         </tr>
+                        <div class="input-group mb-3">
+
                         <tr>
                             <div class="mb-2">
                               <td>  <label for="description" class="form-label">Description</label></td>
@@ -81,6 +83,7 @@
                         </tr>
                         <tr>
                         <div class="d-flex justify-content-center">
+                            <td></td>
                            <td> <button type="submit" class="btn btn-primary">Add Product</button></td>
                         </div>
                         </tr>

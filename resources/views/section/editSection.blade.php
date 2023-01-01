@@ -15,10 +15,10 @@
             @csrf
             <input type="hidden" name="id" value={{$section->id}}>
             <div>
-            <label for="section">section:</label>
+            <label for="section">Section:</label>
             </div>
             
-            <input type="text" name="section" class="form-control" id="section" placeholder="{{$section->section}}">
+            <input type="text" name="section" class="form-control text-capitalize" id="section" placeholder="{{$section->section}}">
             <button type="submit" class="btn btn-primary mt-3 mb-3">Save Changes</button>
         </form>
     </div>

@@ -23,7 +23,7 @@
 
                     <div class="mb-2">
                         <label for="product" class="form-label">Product</label>
-                        <input type="text" class="form-control" name="product" id="product" value="{{$product->product}}">
+                        <input type="text" class="form-control text-capitalize" name="product" id="product" value="{{$product->product}}">
                     </div>
                     <div class="mb-2">
                         <label for="category" class="form-label">Category:</label>
@@ -54,50 +54,50 @@
                         </select>
                     </div>
                     <div class="mb-2">
-                <label for="featured" class="form-label">featured</label>
-                <input type="checkbox"  {{$product->featured =="1"? 'checked':''}} class="form-control" id="featured" name="featured">
-            </div>
-            <div class="mb-2">
-                <label for="popular" class="form-label">popular</label>
-                <input type="checkbox" {{$product->popular =="1"? 'checked':''}} class="form-control" id="popular" name="popular">
-            </div>
+                        <label for="featured" class="form-label">featured</label>
+                        <input type="checkbox" {{$product->featured =="1"? 'checked':''}} class="form-control" id="featured" name="featured">
+                    </div>
+                    <div class="mb-2">
+                        <label for="popular" class="form-label">popular</label>
+                        <input type="checkbox" {{$product->popular =="1"? 'checked':''}} class="form-control" id="popular" name="popular">
+                    </div>
                     <div class="mb-2">
                         <label for="price" class="form-label">Price</label>
                         <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}">
                     </div>
 
                     <!-- <span><img src="{{asset('/storage/'.$product->image)}}" alt="product" width="100" height="100"></span> -->
-                <!-- </label> -->
-                <table>
-                    <tr>
+                    <!-- </label> -->
+                    <table>
+                        <tr>
 
-                        <label for="image" class="form-label">Image </label>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-11">
-    
+                            <label for="image" class="form-label">Image </label>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-11">
+
                                 <div class="custom-file">
                                     <!-- <label for="image" class="form-label">Image</label> -->
                                     <input type="file" name="image" class="form-control">
                                 </div>
-                                
-                       
-                        </td>
-                        <td>
-                    <div class="card" style="width: 6rem; height:5rem;">
-                        <img class="card-img-top"src="{{asset('/storage/'.$product->image)}}" alt="Card image cap">
-                    </div>
-                    </td>
+
+
+                            </td>
+                            <td>
+                                <div class="card" style="width: 6rem; height:5rem;">
+                                    <img class="card-img-top" src="{{asset('/storage/'.$product->image)}}" alt="Card image cap">
+                                </div>
+                            </td>
                         </tr>
-                        </table>
-                        <div class="mb-4">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea rows="3" class="form-control" name="description" id="description" value=""> {{$product->description}}</textarea>
-                        </div>
-                        <div class="d-flex justify-content-center ">
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                        </div>
-                        <!-- </fieldset> -->
+                    </table>
+                    <div class="mb-4">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea rows="3" class="form-control" name="description" id="description" value=""> {{$product->description}}</textarea>
+                    </div>
+                    <div class="d-flex justify-content-center ">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                    <!-- </fieldset> -->
                 </form>
             </div>
         </div>
