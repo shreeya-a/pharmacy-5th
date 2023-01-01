@@ -49,6 +49,16 @@
                                             <label class="form-label" for="form3Example4c">Password</label>
                                         </div>
                                     </div>
+
+                                     {{-- remember me code --}}
+
+                                    <div class="my-2">
+                                        <input type="checkbox" name="remember" id="remember">
+                                        <label for="remember">Remember Me</label>
+                                    </div>
+
+
+
                                     <div class="d-flex justify-content-between align-items-center">
 
                                         <a href="#!" class="text-body">Forgot password?</a>

@@ -39,7 +39,7 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($req->only(['email', 'password']))) {
+        if (Auth::attempt($req->only(['email', 'password']), $req->remember)) {
             // dd('you are Logged In');
 
             return redirect()->route('homepage');
