@@ -179,7 +179,7 @@
                             <div class="navbar-menu">
                                 <ul class="main-menu">
                                     <li><a href="#">Ayurveda</a></li>
-                                    <li><a href="category.html">Skin Care</a></li>
+                                    <li><a href="#">Skin Care</a></li>
                                     <li><a href="category.html">Baby Care</a></li>
                                     <li><a href="category.html">Personal Care</a></li>
                                     <li><a href="category.html">Hair Care</a></li>

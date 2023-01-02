@@ -50,6 +50,7 @@ Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 
 Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
+Route::get('/sectionnav', [HomeController::class, 'section'])->name('section');
 
 
 

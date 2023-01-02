@@ -34,6 +34,13 @@ class HomeController extends Controller
         return view('register');
 
     }
+    public  function section()
+    {
+    $section = Section::all();
+
+        return view('section');
+
+    }
 
     // return redirect()->route('login');
 
