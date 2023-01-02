@@ -6,7 +6,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header bg-white">
-        <h1 class="mt-8 text-center">Category page</h1>
+        <h1 class="mt-8 text-center">Category</h1>
 
     </div>
     <!-- /.content header -->

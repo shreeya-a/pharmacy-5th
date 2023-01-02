@@ -48,6 +48,6 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return redirect()->route('category')->with('success', "Category updated successfully");
+        return redirect()->route('category')->with('success', "Category deleted successfully");
     }
 }

@@ -1,7 +1,7 @@
    <!-- Font Awesome Icons -->
    <!-- <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}"> -->
    <!-- <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}"> -->
- 
+
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary  elevation-4">
     <!-- Brand Logo -->
@@ -40,18 +40,18 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-          
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
+
+          <li class="nav-item">
+            <a href="{{url('dashboard')}}" class="nav-link  {{ Request::is('dashboard') ? 'active':''; }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
+               Dashboard
+                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
-          </li> -->
-          <li class="nav-item">
-            <a href="{{route('category')}}" class="nav-link">
+          </li>
+          <li class="nav-item  ">
+            <a href="{{route('category')}}" class="nav-link {{ Request::is('category') ? 'active':''; }} ">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             <i class="nav-icon fas fa-th"></i>
               <p>
@@ -61,7 +61,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('section')}}" class="nav-link">
+            <a href="{{route('section')}}" class="nav-link {{ Request::is('section') ? 'active':''; }}">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             <i class="nav-icon fas fa-th"></i>
               <p>
@@ -71,7 +71,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('product')}}" class="nav-link">
+            <a href="{{route('product')}}" class="nav-link {{ Request::is('product') ? 'active':''; }}">
             <i class=" nav-icon fab fa-product-hunt" aria-hidden="true"></i>
               <p>
                Product
@@ -80,7 +80,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ Request::is('contact') ? 'active':''; }}">
               <i class="nav-icon  fas sign-out"></i>
               <p>
                 Contact
@@ -89,7 +89,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ Request::is('admin') ? 'active':''; }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                Admin
@@ -98,7 +98,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link {{ Request::is('settings') ? 'active':''; }}">
             <i class="nav-icon fas fa-cog"></i>
               <p>
                Settings
@@ -107,9 +107,9 @@
             </a>
           </li>
 
-          
+
         </ul>
-        
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>

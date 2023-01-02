@@ -4,7 +4,7 @@
 <div class="content-wrapper">
 
     <div class="content-header bg-white">
-        <h1 class=" text-center">Product page</h1>
+        <h1 class=" text-center">Product</h1>
 
     </div>
 
