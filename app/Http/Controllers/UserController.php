@@ -39,9 +39,35 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($req->only(['email', 'password']))) {
+        if (Auth::attempt($req->only(['email', 'password']), $req->remember)) {
             // dd('you are Logged In');
 
+            // remember me cookie setting
+            if ($req->remember === null) {
+                setcookie(
+                    'login_email',
+                    $req->email,
+                    10
+                );
+                setcookie(
+                    'login_pass',
+                    $req->email,
+                    10
+                );
+            } else {
+                setcookie(
+                    'login_email',
+                    $req->email,
+                    time() + 60 * 60 * 24 * 20
+                );
+                setcookie(
+                    'login_pass',
+                    $req->password,
+                    time() + 60 * 60 * 24 * 20
+                );
+            }
+
+            // remember me cookie setting ends
             return redirect()->route('homepage');
         } else {
             return back()->with('fail', 'User not found');
