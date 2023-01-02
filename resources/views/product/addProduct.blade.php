@@ -5,9 +5,12 @@
 
 
     <div class="content-header">
-        <!-- <h1 class="mt-8">Edit Product</h1> -->
-
+        <div class="content-header bg-white">
+        <h1 class="mt-8 text-center"> Product</h1>
     </div>
+
+
+    
 
     <div class="container d-flex justify-content-center">
         <div class="card " style=" width: 40rem;height: 43rem;">

@@ -3,8 +3,8 @@
 @section('content')
 <div class="content-wrapper">
 
-    <div class="content-header">
-        <!-- <h1 class="mt-8">Edit Product</h1> -->
+    <div class="content-header bg-white">
+        <h1 class="mt-8 text-center"> Product</h1>
 
     </div>
 
