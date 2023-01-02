@@ -26,7 +26,9 @@ class SectionController extends Controller
 
         ]);
         // return redirect()->route('dashboard');
-        return view('section.section');
+        // return view('section.section');
+        return redirect()->route('section')->with('success',"Section added successfully");
+
     }
     public function edit($id)
     {
@@ -39,12 +41,12 @@ class SectionController extends Controller
         $section->update([
             'section' => $req->section,
         ]);
-        return redirect()->route('section');
+        return redirect()->route('section')->with('success',"Section updated successfully");
     }
     public function deletesection($id)
     {
         $section = Section::find($id);
         $section->delete();
-        return redirect()->route('section');
+        return redirect()->route('section')->with('success',"Section updated successfully");
     }
 }

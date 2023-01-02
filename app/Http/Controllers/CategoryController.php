@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Category;
 
 
@@ -11,10 +12,10 @@ class CategoryController extends Controller
     //
     public  function category()
     {
-        $categorys =Category::all();
+        $categorys = Category::all();
         return view('category.category', compact('categorys'));
     }
-    
+
     public function addCategory(Request $req)
     {
         $req->validate([
@@ -26,29 +27,27 @@ class CategoryController extends Controller
 
         ]);
         // return redirect()->route('dashboard');
-        return view('category.category');
+        // return view('category.category');
+        return redirect()->route('category')->with('success', "Category added successfully");
+    }
 
-    } 
-   
     public function edit($id)
     {
-        $category= Category::find($id);
+        $category = Category::find($id);
         return view('category.editCategory', ['category' => $category]);
     }
     public function editCategory(Request $req)
     {
         $category = Category::find($req->id);
         $category->update([
-            'category' =>$req->category,
+            'category' => $req->category,
         ]);
-return redirect()->route('category');
-
+        return redirect()->route('category')->with('success', "Category updated successfully");
     }
     public function deleteCategory($id)
     {
-        $category= Category::find($id);
+        $category = Category::find($id);
         $category->delete();
-        return redirect()->route('category');
-
+        return redirect()->route('category')->with('success', "Category updated successfully");
     }
 }

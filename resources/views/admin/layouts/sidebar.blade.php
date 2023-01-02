@@ -61,6 +61,16 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{route('section')}}" class="nav-link">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <i class="nav-icon fas fa-th"></i>
+              <p>
+              Section
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{route('product')}}" class="nav-link">
             <i class=" nav-icon fab fa-product-hunt" aria-hidden="true"></i>
               <p>

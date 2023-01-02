@@ -5,16 +5,27 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <h1 class="mt-8">Section page</h1>
+    <div class="content-header bg-white">
+        <h1 class="mt-8 text-center">Section page</h1>
 
     </div>
     <!-- /.content header -->
 
     <div class="container">
+    <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center mt-5">
+                @if(Session::has('success'))
+
+                <div class="alert alert-success" role="alert">
+                    {{Session::get('success')}}
+                </div>
+                @endif
+            </div>
+        </div>
 
         <!-- section content -->
-        <div class="d-flex justify-content-center">
+        <!-- <div class="d-flex justify-content-center"> -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
 
             <form action="{{route('addSection')}}" method="post">
                 @csrf
@@ -23,8 +34,6 @@
                     <div class="input-group-append" style="margin-left: 5px;">
                         <button type="submit" class="btn btn-primary">Add section</button>
                     </div>
-                </div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                 </div>
             </form>
         </div>

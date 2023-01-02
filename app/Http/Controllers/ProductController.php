@@ -54,7 +54,7 @@ class ProductController extends Controller
             $productObj->popular = $req->input('popular')==TRUE? '1':'0';
 
             $productObj->save();
-        return redirect()->route('product');
+        return redirect()->route('product')->with('success',"Product added successfully");
 
         }
     }
@@ -71,7 +71,7 @@ class ProductController extends Controller
                 }
             
             $productObj->delete();
-            return redirect()->route('product')->with('status',"Product deleted successfully");
+            return redirect()->route('product')->with('success',"Product deleted successfully");
 
             
         }
@@ -110,7 +110,7 @@ class ProductController extends Controller
             $productObj->popular = $req->input('popular')==TRUE? '1':'0';
             $productObj->update();
 
-        return redirect()->route('product');
+        return redirect()->route('product')->with('success',"Product updated successfully");
         
     }
 }
