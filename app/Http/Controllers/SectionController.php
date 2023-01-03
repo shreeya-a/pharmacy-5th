@@ -47,6 +47,6 @@ class SectionController extends Controller
     {
         $section = Section::find($id);
         $section->delete();
-        return redirect()->route('section')->with('success',"Section updated successfully");
+        return redirect()->route('section')->with('success',"Section deleted successfully");
     }
 }

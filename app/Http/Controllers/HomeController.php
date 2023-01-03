@@ -34,14 +34,22 @@ class HomeController extends Controller
         return view('register');
 
     }
-    public  function section()
+    public  function section($section)
     {
-    $section = Section::all();
+        // $section = Product::where();
+    $section_product = Product::where('section_id',$section)->get();
 
-        return view('section');
+        return view('section', ['section_product' => $section_product]);
 
     }
 
     // return redirect()->route('login');
 
+    public function productDetails($id)
+    {
+        $product_details = Product::where('id',$id)->get();
+        return view('product-details', ['product_details' => $product_details]);
+
+
+    }
 }
