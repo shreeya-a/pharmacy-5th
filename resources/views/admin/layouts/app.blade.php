@@ -36,7 +36,7 @@
     @include('admin.layouts.sidebar')
 
     @yield('content')
-
+   
     @include('admin.layouts.footer')
 
 </div>
@@ -81,6 +81,7 @@
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js')}}"></script>
+
 </body>
 
 
