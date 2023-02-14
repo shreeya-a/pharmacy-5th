@@ -17,16 +17,16 @@
             <div class="row">
                 @foreach($section_product as $product)
                 <div class="col-md-3 mb-3">
-                    <a href="{{url('product-details/'.$product->id)}}">
-                        <div class="card">
+                    <div class="card">
+                       
                             <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             <div class="card-body">
                                 <h4> {{$product->product}}</h4>
                                 <p> {{$product->price}}</p>
                                 <p> {{$product->description}}</p>
                             </div>
+                        <!-- </a> -->
                         </div>
-                    </a>
                 </div>
             </div>
             @endforeach

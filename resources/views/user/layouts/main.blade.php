@@ -59,6 +59,9 @@
     @include('user.layouts.footer')
     </div>
 
+
+
+
 <!-- carousel -->
 <script src="{{asset('userpanel/assets/js/jquery-3.6.3.min.js')}}"></script>
     <script src="{{asset('userpanel/assets/js/owl.carousel.min.js')}}"></script>
