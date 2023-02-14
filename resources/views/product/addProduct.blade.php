@@ -49,7 +49,7 @@
                             </tr>
                             <tr>
                                 <!-- <div class="mb-2"> -->
-                                <td> <label for="section" class="form-label">Section:</label></td>
+                               
                                 <td class="p-2"> <select class=" form-control" name="section" id="section">
                                         @foreach($section as $section)
                                         <option value="{{$section ->id }}">{{$section ->section }}</option>
@@ -74,7 +74,7 @@
                                 <!--  -->
                                 <td class="p-2">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <input type="file" class="custom-file-input" name="image" id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
                                 </td>

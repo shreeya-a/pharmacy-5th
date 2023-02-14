@@ -1,15 +1,15 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="content-wrapper">
+<div class="content-wrapper  bg-white">
 
-    <div class="content-header bg-white">
+    <!-- <div class="content-header bg-white">
         <h1 class="mt-8 text-center"> Product</h1>
 
-    </div>
+    </div> -->
 
 
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center mt-5">
         <div class="card " style=" width: 40rem;height: 43rem;">
             <div class="card-header bg-light">
                 <h3 class="text-center">Edit Product</h3>
@@ -49,15 +49,14 @@
         </tr>
         <tr>
             <!-- <div class="mb-2"> -->
-            <td><label for="section" class="form-label">Section:</label></td>
-            <td class="p-2">
-                <select class=" form-control" name="section" id="section">
-                    <option value="{{$product->section_id }}">{{$product->section_id }}</option>
+            <td> <label for="section" class="form-label">Section:</label></td>
+            <td class="p-2"> <select class=" form-control" name="section" id="section">
                     @foreach($section as $section)
                     <option value="{{$section ->id }}">{{$section ->section }}</option>
                     @endforeach
                 </select>
             </td>
+
         </tr>
         <tr>
             <!-- <div class="mb-2"> -->
@@ -90,20 +89,31 @@
                                    featured -->
                     </label>
                 </td>
-                <td class="col-sm-4 text-center"> <label for="featured" class="form-label">
-                        <input type="checkbox" {{$product->featured =="1"? 'checked':''}} class="form-control" id="featured" name="featured">
-                        Featured
-
-                    </label>
+                <td class="col-sm-4 text-right">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" id="popular" name="popular" type="checkbox" {{$product->popular =="1"? 'checked':''}}>
+                            <label class="form-check-label">Popular</label>
+                        </div>
+                    </div>
                 </td>
-                <td class="col-sm-4 text-center">
-
-                    <label for="popular" class="form-label">
-                        <input type="checkbox" {{$product->popular =="1"? 'checked':''}} class="form-control" id="popular" name="popular">
-                        Popular
-
-                    </label>
+                <td class="col-sm-4 text-right">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" id="featured" name="featured" type="checkbox"  {{$product->featured =="1"? 'checked':''}}>
+                            <label class="form-check-label">Featured</label>
+                        </div>
+                    </div>
                 </td>
+                <td class="col-sm-4 text-right">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" id="prescribed" name="prescribed" type="checkbox" {{$product->prescribed =="1"? 'checked':''}}>
+                            <label class="form-check-label">Prescribed</label>
+                        </div>
+                    </div>
+                </td>
+               
                 <td class="col-sm-4 text-right">
                     <div class="card" style="width: 6rem; height:5rem;">
                         <img class="card-img-top" src="{{asset('/storage/'.$product->image)}}" alt="Card image cap">

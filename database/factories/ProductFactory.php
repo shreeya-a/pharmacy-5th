@@ -30,6 +30,7 @@ class ProductFactory extends Factory
             'section_id' => $this->faker->numberBetween(1,5),
             'featured' => $this->faker->randomElement(['1','0']),
             'popular' => $this->faker->randomElement(['1','0']),
+            'prescribed' => $this->faker->randomElement(['1','0']),
         ];
     }
 }

@@ -20,11 +20,12 @@ return new class extends Migration
             $table->string('image');
             $table->tinyInteger('featured')->default('0');
             $table->tinyInteger('popular')->default('0');
+            $table->tinyInteger('prescribed')->default('0');
             $table->string('description');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            // $table->string('section_id');
-            $table->string('section');
+            $table->string('section_id');
+            // $table->string('section');
        
             $table->timestamps();
         });

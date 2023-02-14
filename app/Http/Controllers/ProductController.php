@@ -52,6 +52,7 @@ class ProductController extends Controller
             $productObj->section_id = $req->section;
             $productObj->featured = $req->input('featured')==TRUE? '1':'0';
             $productObj->popular = $req->input('popular')==TRUE? '1':'0';
+            $productObj->prescribed = $req->input('prescribed')==TRUE? '1':'0';
 
             $productObj->save();
         return redirect()->route('product')->with('success',"Product added successfully");
@@ -108,6 +109,7 @@ class ProductController extends Controller
             $productObj->section_id = $req->section;
             $productObj->featured = $req->input('featured')==TRUE? '1':'0';
             $productObj->popular = $req->input('popular')==TRUE? '1':'0';
+            $productObj->prescribed = $req->input('prescribed')==TRUE? '1':'0';
             $productObj->update();
 
         return redirect()->route('product')->with('success',"Product updated successfully");

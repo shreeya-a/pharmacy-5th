@@ -178,12 +178,12 @@
                             <!-- navbar menu Start -->
                             <div class="navbar-menu">
                                 <ul class="main-menu">
-                                    <li><a href="{{url('/sectionnav/'.'5')}}">Ayurveda</a></li>
-                                    <!-- <li><a href="{{url('/sectionnav/'.'Ayurveda')}}">Ayurveda</a></li> -->
-                                    <li><a href="#">Skin Care</a></li>
-                                    <li><a href="category.html">Baby Care</a></li>
+                                    <li><a href="{{url('/sectionnav/'.'1')}}">Ayurveda</a></li>
+                                    <li><a href="{{url('/sectionnav/'.'2')}}">Hair Care</a></li>
                                     <li><a href="{{url('/sectionnav/'.'3')}}">Personal Care</a></li>
-                                    <li><a href="category.html">Hair Care</a></li>
+                                    <li><a href="{{url('/sectionnav/'.'4')}}">Baby Care</a></li>
+                                    <li><a href="{{url('/sectionnav/'.'5')}}">Skin Care</a></li>
+                                    <!-- <li><a href="{{url('/sectionnav/'.'Ayurveda')}}">Ayurveda</a></li> -->
 
                                 </ul>
                             </div>
