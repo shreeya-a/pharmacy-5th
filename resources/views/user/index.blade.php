@@ -109,7 +109,7 @@
                                 </tr>
                             </table>
                             <div class="mt-4 mb-4 text-center">
-                                <a href="#" class="main-btn secondary-1-btn">Add to Cart </a>
+                                <a href="#" class="main-btn primary-btn">Add to Cart </a>
                             </div>
 
                         </div>
@@ -155,7 +155,7 @@
                                 </tr>
                             </table>
                             <div class="mt-4 mb-4 text-center">
-                                <a href="#" class="main-btn secondary-1-btn">Add to Cart </a>
+                                <a href="#" class="main-btn primary-btn">Add to Cart </a>
                             </div>
 
                         </div>

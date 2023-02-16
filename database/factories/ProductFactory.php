@@ -20,7 +20,7 @@ class ProductFactory extends Factory
         return [
             //
             'product' => $this->faker->word(),
-            'price' => $this->faker->numberBetween(1,10),
+            'price' => $this->faker->numberBetween(100,1000),
             'description' => $this->faker->sentence(),
             'image' => $this->faker->image('public/storage/images',100,100),
             // 'image' => $this->faker->image(storage_path(path:'public/storage/images'), width:400, height:400, category:null, fullPath:false ),

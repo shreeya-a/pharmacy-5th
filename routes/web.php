@@ -51,7 +51,9 @@ Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 Route::get('/login',[HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
 Route::get('/sectionnav/{section}', [HomeController::class, 'section'])->name('section');
-Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
+// Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
+Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
+// Route::get('{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 
 
 

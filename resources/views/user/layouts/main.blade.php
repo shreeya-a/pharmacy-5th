@@ -15,6 +15,9 @@
 
     <!--====== Slick CSS ======-->
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/slick.css')}}">
+    
+    <!--====== Product-details CSS ======-->
+    <link rel="stylesheet" href="{{asset('userpanel/assets/css/product-details.css')}}">
 
     <!--====== Line Icons CSS ======-->
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/LineIcons.css')}}">

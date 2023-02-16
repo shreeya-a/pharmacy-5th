@@ -49,7 +49,7 @@
                             </tr>
                             <tr>
                                 <!-- <div class="mb-2"> -->
-                               
+                                <td> <label for="category" class="form-label">Category:</label></td>
                                 <td class="p-2"> <select class=" form-control" name="section" id="section">
                                         @foreach($section as $section)
                                         <option value="{{$section ->id }}">{{$section ->section }}</option>

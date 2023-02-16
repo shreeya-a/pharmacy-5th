@@ -261,8 +261,7 @@
                                                     </div>
                                                     <br>
                                                     <div class="checkout-btn">
-                                                        <a href="cart-page.html" class="main-btn primary-btn-border">View
-                                                            Cart</a>
+                                                        <a href="cart-page.html" class="main-btn primary-btn-border">View Cart</a>
                                                         <a href="checkout-page.html" class="main-btn primary-btn">Checkout</a>
                                                     </div>
                                                 </div>

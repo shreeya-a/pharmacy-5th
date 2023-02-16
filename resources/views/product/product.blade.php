@@ -72,7 +72,7 @@
                                     <td>{{$value->section->section}}</td>
                                     <td>{{$value->price}}</td>
 
-                                    <td class="text-left">
+                                    <td class="">
                                         <img src="{{asset('/storage/'.$value->image)}}" alt="product" width="50 rem" height="50 rem">
                                     </td>
                                     <td>
