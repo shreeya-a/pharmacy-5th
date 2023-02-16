@@ -8,7 +8,7 @@
                 <div class="breadcrumbs-style breadcrumbs-style-1 d-md-flex justify-content-between align-items-center">
                     <div class="breadcrumb-left">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('homepage')}}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{$section_name}}</li>
                         </ol>
                     </div>

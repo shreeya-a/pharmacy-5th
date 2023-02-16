@@ -13,7 +13,7 @@
 
 
         <div class="container d-flex justify-content-center mt-2">
-            <div class="card " style=" width: 40rem;height: 40rem;">
+            <div class="card " style=" width: 80rem;height: 40rem;">
                 <div class="card-header bg-light">
                     <h3 class="text-center">Add Product</h3>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-0 mt-0">
@@ -21,8 +21,8 @@
                     </div>
 
                 </div>
-
                 <div class="card-body p-2">
+                    <div class="col-sm-6">
                     <form action="{{route('saveProduct')}}" method="post" class=" p-0" enctype="multipart/form-data">
                         @csrf
                         <table>
@@ -130,6 +130,10 @@
                 </div>
 
                 </form>
+                </div>
+                <div class="col-sm-6">
+
+            </div>
             </div>
         </div>
 
