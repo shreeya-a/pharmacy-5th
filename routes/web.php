@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -81,3 +82,10 @@ Route::post('/add-section', [SectionController::class,'addSection'])->name('addS
 Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit');
 Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
 Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
+
+//cart
+Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addProduct');
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
+});
