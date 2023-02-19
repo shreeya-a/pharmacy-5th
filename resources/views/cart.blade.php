@@ -30,15 +30,7 @@
 
 
                     <label for="Quantity">Quantity</label>
-                    <!-- <div class="input-group quantity">
-                        <div class="input-group-prepend decrement-btn" style="cursor: pointer">
-                            <span class="input-group-text">-</span>
-                        </div>
-                        <input type="text" class="qty-input form-control" maxlength="2" max="10" value="{{$item->prod_qty}}">
-                        <div class="input-group-append increment-btn" style="cursor: pointer">
-                            <span class="input-group-text">+</span>
-                        </div>
-                    </div> -->
+             
                     <div class="input-group text-center mb-3" style="width:130px">
                         <button class="input-group-text decrement-btn">-</button>
                         <input type="text" id="number" class="form-control text-center qty-input" name="Quantity" value="{{$item->prod_qty}}">
@@ -59,62 +51,7 @@
 @endsection
 
 @section('scripts')
-<script>
-    $('.increment-btn').click(function(e) {
-        e.preventDefault();
+<script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
 
-        var inc_value = $(this).closest('.product_data').find('.qty-input').val();
-
-        var value = parseInt(inc_value, 10);
-
-        value = isNaN(value) ? 0 : value;
-        if (value < 10) {
-            value++;
-            $(this).closest('.product_data').find('.qty-input').val(value);
-
-
-
-        }
-    });
-    $('.decrement-btn').click(function(e) {
-        e.preventDefault();
-
-
-        var dec_value = $(this).closest('.product_data').find('.qty-input').val();
-        var value = parseInt(dec_value, 10);
-        value = isNaN(value) ? 0 : value;
-        if (value > 1) {
-            value--;
-            // $("#number").val(value);
-
-            $(this).closest('.product_data').find('.qty-input').val(value);
-
-        }
-    });
-    $('.delete-cart-item').click(function(e) {
-        e.preventDefault();
-
-        var prod_id = $(this).closest('.product_data').find('.qty-input').val();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            method: "get",
-            url: "/delete-cart-item",
-            data: {
-                'prod_id': prod_id,
-            },
-            success: function(response) {
-                alert(response.status);
-                // swal("".response.status."success");
-                // sweetalert
-            }
-
-
-        });
-    });
-</script>
 
 @endsection
