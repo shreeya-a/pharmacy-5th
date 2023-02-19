@@ -16,13 +16,6 @@
     }
 </style>
 <div class="content-wrapper  bg-white">
-
-    <!-- <div class="content-header bg-white">
-        <h1 class="mt-8 text-center"> Product</h1>
-
-    </div> -->
-
-
     <div class="container d-flex justify-content-center mt-5">
         <div class="card " style=" width: 80rem;height: 43rem;">
             <div class="card-header bg-light">

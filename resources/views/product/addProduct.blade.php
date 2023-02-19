@@ -1,28 +1,34 @@
 @extends('admin.layouts.app')
 
 @section('content')
+<style>
+    .box {
+        width: 100%;
+        padding: 10px 20px;
+        align-items: center;
+    }
+
+    .box1 {
+        width: 70%;
+        padding: 30px 30px;
+    }
+
+    .box2 {
+        width: 30%;
+        background-color: red;
+    }
+</style>
 <div class="content-wrapper bg-white ">
-
-
-    <!-- <div class="content-header "> -->
-        <!-- <div class="content-header bg-white">
-            <h1 class="mt-8 text-center"> Product</h1>
-        </div> -->
-
-
-
-
-        <div class="container d-flex justify-content-center mt-2">
-            <div class="card " style=" width: 80rem;height: 40rem;">
-                <div class="card-header bg-light">
-                    <h3 class="text-center">Add Product</h3>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-0 mt-0">
-                        <a href="{{route('product')}}" class="btn btn-primary me-md-2">Back</a>
-                    </div>
-
+    <div class="container d-flex justify-content-center mt-2">
+        <div class="card " style=" width: 80rem;height: 40rem;">
+            <div class="card-header bg-light">
+                <h3 class="text-center">Add Product</h3>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-0 mt-0">
+                    <a href="{{route('product')}}" class="btn btn-primary me-md-2">Back</a>
                 </div>
-                <div class="card-body p-2">
-                    <div class="col-sm-6">
+            </div>
+            <div class="box" style="display:flex;">
+                <div class="box1">
                     <form action="{{route('saveProduct')}}" method="post" class=" p-0" enctype="multipart/form-data">
                         @csrf
                         <table>
@@ -72,12 +78,13 @@
 
                                 <td class="p-2"> <input type="file" name="image" class="form-control p-1"></td> -->
                                 <!--  -->
-                                <td class="p-2">
-                                    <div class="custom-file">
+                                <!-- <td class="p-2"> -->
+                                    <!-- <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="image" id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div>
-                                </td>
+                                    </div> -->
+                                    <td class="p-2"> <input type="file" name="image" class="form-control p-1"></td>
+                                <!-- </td> -->
                             </tr>
                             <!-- <div class="input-group mb-3"> -->
 
@@ -122,7 +129,7 @@
                         <tr>
                             <td>
                                 <div class="d-flex justify-content-center mt-3">
-        
+
                                     <button type="submit" class="btn btn-primary">Add Product</button>
                                 </div>
                             </td>
@@ -130,14 +137,16 @@
                 </div>
 
                 </form>
+                <div class="box2" style="color:red;">
+                <h1>image goes here</h1>
                 </div>
-                <div class="col-sm-6">
+            </div>
 
-            </div>
-            </div>
         </div>
-
     </div>
+</div>
+
+</div>
 </div>
 
 @endsection

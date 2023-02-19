@@ -84,8 +84,8 @@ Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->
 Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
 
 //cart
-Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addProduct');
-Route::get('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteProduct');
+Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addCartProduct');
+Route::get('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteCartProduct');
 
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
