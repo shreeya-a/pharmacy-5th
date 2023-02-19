@@ -45,10 +45,10 @@ class HomeController extends Controller
 
     // return redirect()->route('login');
 
-    public function productDetails($id)
+    public function productDetails($section_name, $product_name, $id)
     {
         $product_details = Product::where('id',$id)->get();
-        return view('product-details', ['product_details' => $product_details]);
+        return view('product-details', ['product_details' => $product_details,'product_name'=> $product_name,'section_name'=> $section_name]);
 
 
     }

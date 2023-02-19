@@ -94,29 +94,23 @@
             <div class="owl-carousel featured-carousel owl-theme">
                 @foreach($featured_products as $product)
                 <div class="item">
-                    <div class="card mb-3">
-                        <div class="img-wrapper">
-                            <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
-                        </div>
-                        <div class="card-body justify-content-center gray-bg ">
-                            <table>
-                                <tr>
-                                    <td class="col-sm-11 text-capitalize">
-                                        <h4> {{$product->product}}</h4>
-                                    </td>
-
-                                    <td class="col-sm-8"> {{$product->price}}</td>
-                                </tr>
-                            </table>
-                            <div class="mt-4 mb-4 text-center">
-                                <a href="#" class="main-btn secondary-1-btn">Add to Cart </a>
+                    <div class="card mb-3  text-center">
+                        <a href="{{url('section/'.$product->section->section.'/'.$product->product.'/'.$product->id)}}">
+                            <div class="img-wrapper">
+                                <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
+                            <div class="card-body justify-content-center gray-bg ">
+                                <h4 class="text-capitalize "> {{$product->product}}</h4>
+                                <p>Rs {{$product->price}}</p>
+                                <div class="mt-4 mb-4">
+                                    <a href="#" class="main-btn primary-btn">Add to Cart </a>
+                                </div>
 
-                        </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 @endforeach
-
             </div>
         </div>
     </div>
@@ -140,25 +134,19 @@
             <div class="owl-carousel popular-carousel owl-theme">
                 @foreach($popular_products as $product)
                 <div class="item">
-                    <div class="card mb-3">
-                        <div class="img-wrapper">
-                            <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
-                        </div>
-                        <div class="card-body justify-content-center p-2 mt-2">
-                            <table>
-                                <tr>
-                                    <td class="col-sm-11 text-capitalize">
-                                        <h4> {{$product->product}}</h4>
-                                    </td>
-
-                                    <td class="col-sm-8 "> {{$product->price}}</td>
-                                </tr>
-                            </table>
-                            <div class="mt-4 mb-4 text-center">
-                                <a href="#" class="main-btn secondary-1-btn">Add to Cart </a>
+                    <div class="card mb-3 text-center">
+                        <a href="{{url('section/'.$product->section->section.'/'.$product->product.'/'.$product->id)}}">
+                            <div class="img-wrapper">
+                                <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
-
-                        </div>
+                            <div class="card-body justify-content-center gray-bg ">
+                                <h4 class="text-capitalize "> {{$product->product}}</h4>
+                                <p>Rs {{$product->price}}</p>
+                                <div class="mt-4 mb-4">
+                                    <a href="#" class="main-btn primary-btn">Add to Cart </a>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 @endforeach

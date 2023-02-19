@@ -3,15 +3,15 @@
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper bg-white">
     <!-- Content Header (Page header) -->
-    <div class="content-header bg-white">
+    <!-- <div class="content-header bg-white">
         <h1 class="mt-8 text-center"> Category </h1>
 
-    </div>
+    </div> -->
     <!-- /.content header -->
     <!-- <div class="container"> -->
-    <div class="container d-flex justify-content-center">
+    <div class="container d-flex justify-content-center mt-3">
         <div class="card " style=" width: 40rem;height: 17rem;">
             <div class="card-header bg-light">
                 <h3 class="text-center">Edit Category</h3>
