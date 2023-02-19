@@ -64,33 +64,33 @@
                             </button>
                         </div>
 
-                        <!-- <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
+
+                        <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
 
                         <div class="block quantity">
                             <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
                         </div>
-                    </div> -->
-                    <!-- <div class="row">
+                        <!-- <div class="row">
                         <div class="col-md-3">
                             <span class="input-group-text decrement-btn">-</span>
                             <input type="text" class="form-control text-center" id="cart_quantity" value="1" name="cart_quantity">
                             <span class="input-group-text increment-btn">+</span>
-                        </div>
-                    </div> -->
-                    <div class="col-md-2">
-                    <input type="hidden" class="prod_id">
-                 
-                    <label for="Quantity">Quantity</label>
-                    <div class="input-group text-center mb-3" style="width:130px">
-                        <button  class="input-group-text decrement-btn">-</button>
-                        <input type="text" class="form-control text-center qty-input" >
-                        <button  class="input-group-text increment-btn">+</button>
+                        </div>-->
                     </div>
+                    <!-- <div class="row mt-2 mr-4">
+                            <div class="col-md-3">
+                                <input type="hidden" value="{{$product->id}}" class="prod_id"> -->
+
+                    <!-- <label for="Quantity">Quantity</label> -->
+                    <!-- <div class="input-group text-center mb-3" style="width:130px;">
+                                    <button class="input-group-text decrement-btn" onclick="minus();">-</button>
+                                    <input type="text" id="number" class="form-control text-center qty-input" name="prod_qty" value="1">
+                                    <button class="input-group-text increment-btn" onclick="plus()">+</button>
+                                </div>
+                            </div> -->
                 </div>
 
 
-
-                </div>
 
                 <div class="product-details my-4">
                     <p class="details-title text-color mb-1">Product Details</p>
@@ -144,6 +144,19 @@
 
 @section('scripts')
 <script>
+    // function plus() {
+    //     var totalValue = document.getElementById("number").value;
+    //     totalValue++;
+    //     document.getElementById("number").value = totalValue;
+
+    // }
+
+    // function minus() {
+    //     var totalValue = document.getElementById("number").value;
+    //     totalValue--;
+    //     document.getElementById("number").value = totalValue;
+
+    // }
     $(document).ready(function() {
 
         $('.addToCartBtn').click(function(e) {
@@ -173,35 +186,35 @@
                     // swal(response.status);
                     // sweetalert
                 }
-               
+
 
             });
         });
     });
-    $('.increment-btn').click(function(e) {
-        e.preventDefault();
+    // $('.increment-btn').click(function(e) {
+    //     e.preventDefault();
 
-        var inc_value = $(this).closest('.product.data').find('.qty-input').val();
-        var value = parseInt(int_value, 10);
-        value = isNaN(value) ? 0 : value;
-        if (value < 10) {
-            value++;
-            $(this).closest('.product.data').find('.qty-input').val();
+    //     var inc_value = $(this).closest('.product.data').find('.qty-input').val();
+    //     var value = parseInt(inc_value, 10);
+    //     value = isNaN(value) ? 0 : value;
+    //     if (value < 10) {
+    //         value++;
+    //         $(this).closest('.product.data').find('.qty-input').val();
 
-        }
-    });
-    $('.decrement-btn').click(function(e) {
-        e.preventDefault();
+    //     }
+    // });
+    // $('.decrement-btn').click(function(e) {
+    //     e.preventDefault();
 
 
-        var dec_value = $(this).closest('.product.data').find('.qty-input').val();
-        var value = parseInt(dec_value, 10);
-        value = isNaN(value) ? 0 : value;
-        if (value > 1) {
-            value--;
-            $(this).closest('.product.data').find('.qty-input').val();
+    //     var dec_value = $(this).closest('.product.data').find('.qty-input').val();
+    //     var value = parseInt(dec_value, 10);
+    //     value = isNaN(value) ? 0 : value;
+    //     if (value > 1) {
+    //         value--;
+    //         $(this).closest('.product.data').find('.qty-input').val();
 
-        }
-    });
+    //     }
+    // });
 </script>
 @endsection

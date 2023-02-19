@@ -1,6 +1,20 @@
 @extends('admin.layouts.app')
 
 @section('content')
+<style>
+    .box{
+        width: 100%;
+        padding: 10px 20px;
+        align-items: center;
+    }
+    .box1{
+        width: 70%;
+        padding: 30px 30px;
+    }
+    .box2{
+        width: 30%;
+    }
+</style>
 <div class="content-wrapper  bg-white">
 
     <!-- <div class="content-header bg-white">
@@ -18,9 +32,9 @@
                 </div>
 
             </div>
-            <div class="card-body">
-                <div class="col-sm-12">
-                    <div class="col-sm-6">
+            <div class="box" style="display:flex;">
+                <div class="box1">
+                    <div class="">
                         <form action="{{route('updateProduct')}}" method="post" class=" p-3" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -114,12 +128,12 @@
                                         </div>
                                     </td>
 
-                                    <td class="col-sm-4 text-right">
+                                    <!-- <td class="col-sm-4 text-right">
                                         <div class="card" style="width: 6rem; height:5rem;">
                                             <img class="card-img-top" src="{{asset('/storage/'.$product->image)}}" alt="Card image cap">
                                         </div>
 
-                                    </td>
+                                    </td> -->
                                 </tr>
 
                             </table>
@@ -132,11 +146,12 @@
 
 
 
-                    <div class="col-sm-6">
+                   
+                </div>
+                <div class="box2">
                         <img class="card-img-top" src="{{asset('/storage/'.$product->image)}}" alt="Card image cap">
 
                     </div>
-                </div>
             </div>
         </div>
     </div>

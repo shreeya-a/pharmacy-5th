@@ -25,7 +25,7 @@
                         <div class="col-3">
                             <!-- navbar cart start -->
                             <div class="navbar-cart">
-                                <a class="icon-btn primary-icon-text icon-text-btn" href="javascript:void(0)">
+                                <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('viewCart')}}">
                                     <img src="{{asset('userpanel/assets/images/icon-svg/cart-1.svg')}}" alt="Icon">
                                     <span class="icon-text text-style-1">88</span>
                                 </a>
@@ -201,7 +201,7 @@
                                 <!-- navbar search Ends -->
                                 <!-- navbar cart start -->
                                 <div class="navbar-cart">
-                                    <a class="icon-btn primary-icon-text icon-text-btn" href="javascript:void(0)">
+                                    <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('viewCart')}}">
                                         <img src="{{asset('userpanel/assets/images/icon-svg/cart-1.svg')}}" alt="Icon">
                                         <span class="icon-text text-style-1">88</span>
                                     </a>

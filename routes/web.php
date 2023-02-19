@@ -85,6 +85,7 @@ Route::post('/edit-section', [SectionController::class,'editSection'])->name('ed
 
 //cart
 Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addProduct');
+Route::get('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteProduct');
 
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
