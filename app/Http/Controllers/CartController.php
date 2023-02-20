@@ -33,6 +33,20 @@ class CartController extends Controller
             return response()->json(['status' =>  "Login to Continue"]);
         }
     }
+    public function updateProduct(Request $req)
+    {
+        if (Auth::check()) {
+            $product_id = $req->input('product_id');
+            $quantity = $req->input('quantity');
+                if (Cart::where('prod_id', $product_id)->where('user_id', Auth::id())->exists()) {
+                $cartItem = Cart::where('prod_id', $product_id)->where('user_id', Auth::id())->first();
+                $cartItem->prod_qty = $quantity;
+
+                $cartItem->update();
+                return response()->json(['status' =>  "Product Updated successfully"]);
+            }
+        }
+    }
     public function deleteProduct(Request $req)
     {
         if (Auth::check()) {

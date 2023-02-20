@@ -26,9 +26,9 @@
                     <input type="hidden" value="{{$item->prod_id}}" class="prod_id">
                     <label for="Quantity">Quantity</label>
                     <div class="input-group text-center mb-3" style="width:130px">
-                        <button class="input-group-text decrement-btn">-</button>
+                        <button class="input-group-text decrement-btn changeQuantity">-</button>
                         <input type="text" id="number" class="form-control text-center qty-input" name="Quantity" value="{{$item->prod_qty}}">
-                        <button  class="input-group-text increment-btn " >+</button>
+                        <button  class="input-group-text increment-btn changeQuantity" >+</button>
                     </div>
                 </div>
                 <div class="col-md-2">
