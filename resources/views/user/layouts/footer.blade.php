@@ -3,7 +3,10 @@
         <div class="container">
             <div class="footer-top text-center">
 
-                <div class="row justify-content-center">
+                {{-- footer logo commented --}}
+
+                
+                {{-- <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-7 col-sm-10">
                         <div class="footer-logo ">
                             <a href="index.html">
@@ -20,7 +23,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="footer-widget-wrapper text-center pt-20">
                 <div class="row">
