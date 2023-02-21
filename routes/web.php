@@ -1,14 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use GuzzleHttp\Middleware;
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SectionController;
 
-use GuzzleHttp\Middleware;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Routing\Route as RoutingRoute;
 
 
@@ -47,7 +48,10 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
 Route::get('/about-page', [HomeController::class, 'about'])->name('about');
+
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
+Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('send');
+
 
 
 Route::get('/login', [HomeController::class, 'login'])->name('login');

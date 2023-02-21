@@ -14,15 +14,15 @@
 
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                @if(Session::has('fail'))
+                                @if(Session::has('success'))
 
-                                <div class="alert alert-danger" role="alert">
-                                    {{Session::get('fail')}}
+                                <div class="alert alert-success" role="alert">
+                                    {{Session::get('success')}}
                                 </div>
                                 @endif
                                 <p class="text-center h1 fw-bold text-black mb-5 mx-1 mx-md-4 mt-4">Contact Form</p>
 
-                                <form action="{{route('loginUser')}}" method="POST" class="mx-1 mx-md-4">
+                                <form action="{{route('send')}}" method="POST" class="mx-1 mx-md-4">
                                     @csrf
 
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -60,14 +60,13 @@
                                             <label class="form-label" for="msg">Message</label>
                                             </div>
                                             <textarea name="msg" id="msg" cols="35" rows="3"></textarea>
-                                            {{-- <input type="password" name="password" id="form3Example4c" class="form-control"/> --}}
-                                        </div>
+                                            </div>
                                     </div>
 
                     
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                        <button type="submit" class="btn btn-primary ">Submit</button>
                                     </div>
                                     <p class="text-center text-muted mt-3 mb-3">Want to Login Instead?<br> <a href="{{route('login')}}" class="fw-bold text-body"><u>Login</u></a></p>
 
