@@ -128,9 +128,8 @@
                             <div class="navbar-top-left">
                                 <ul class="navbar-top-link">
                                     <li><a href="{{route('homepage')}}">Home</a></li>
-                                    {{-- <li><a href="about-page.html">About</a></li> --}}
                                     <li><a href="{{route('about')}}">About</a></li>
-                                    <li><a href="contact-page.html">Contact</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
                                     <li>
                                         <a href="javascript:void(0)">
                                             <i class="mdi mdi-phone-in-talk"></i>

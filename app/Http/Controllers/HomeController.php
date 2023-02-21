@@ -33,6 +33,12 @@ class HomeController extends Controller
         return view('login');
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
+
+
 
     public  function register()
     {
