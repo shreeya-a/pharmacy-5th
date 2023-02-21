@@ -42,6 +42,8 @@
                         <p class="new-price  mb-2">Rs {{$product->price}}</p>
                         <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
                     </div>
+                    <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
+                    @if($product->prescribed == 0)
                     <div class="buttons d-flex my-5">
                         <div class="product-btn mr-10">
                             <button type="button" class="main-btn primary-btn addToCartBtn">
@@ -51,14 +53,16 @@
                                 <!-- </a> -->
                             </button>
                         </div>
-                        <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
                         <div class="block quantity">
                             <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
                         </div>
                     </div>
+                    @else
+                    <h5  class="p-3" style="color:red;">*** Presciption required ***</h5>
+                    @endif
                 </div>
                 <div class="product-details my-4">
-                    <p class="details-title text-color mb-1">Product Details</p>
+                    <p class="details-title text-bold mb-1">Product Details</p>
                     <p class="description">{{$product->description}} </p>
                 </div>
             </div>

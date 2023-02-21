@@ -78,7 +78,7 @@
     </div>
     <div class="card-footer d-flex  justify-content-between">
         <h6>Total: Rs {{$total}}</h6>
-        <button class="btn btn-outline-success">Checkout</button>
+        <a href="{{url('checkout')}}" class="btn btn-outline-success">Checkout</a>
     </div>
 </div>
 
