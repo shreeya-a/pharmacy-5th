@@ -106,6 +106,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.changeQuantity').click(function (e) {
         e.preventDefault();
+
+        var thisClick = $(this);
+
         var quantity = $(this)
             .closest('.product_data')
             .find('.qty-input')
@@ -131,6 +134,7 @@ $(document).ready(function () {
             data: data,
             success: function (response) {
                 window.location.reload();
+                // thisClick.closest('.product_data').find('.cart-grand-total-price').val();
                 alertify.set("notifier", "position", "top-right");
                 alertify.success(response.status);
             },

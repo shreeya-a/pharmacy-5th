@@ -47,7 +47,7 @@
                                     <td><label for="category" class="form-label">Category:</label></td>
                                     <td class="p-2">
                                         <select class=" form-control" name="category" id="category">
-                                            <option value="{{$product->category_id }}">{{$product->category_id }}</option>
+                                            <option type="hidden" value="{{$product->category_id }}">{{$product->category_id }}</option>
                                             @foreach($category as $category)
                                             <option value="{{$category ->id }}">{{$category ->category }}</option>
                                             @endforeach
@@ -58,6 +58,7 @@
                                     <!-- <div class="mb-2"> -->
                                     <td> <label for="section" class="form-label">Section:</label></td>
                                     <td class="p-2"> <select class=" form-control" name="section" id="section">
+                                    <option type="hidden" value="{{$product->section_id }}">{{$product->section_id }}</option>
                                             @foreach($section as $section)
                                             <option value="{{$section ->id }}">{{$section ->section }}</option>
                                             @endforeach

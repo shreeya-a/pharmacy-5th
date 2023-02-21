@@ -15,41 +15,76 @@
     <div class="card shadow ">
         <div class="card-body">
             @php
-                $total =0;
+            $total =0;
             @endphp
-            @foreach($cartItem as $item)
-            <div class="row product_data">
-                <div class="col-md-2">
-                    <img src="{{asset('/storage/'.$item->product->image)}}" height="100rem" width="100rem" alt="Image here">
+            <!-- <div class="shopping-cart">
+                <div class="shopping-cart-table"> -->
+            <div class="table-responsive">
+                <div class="col-md-12 text-right mb-3">
+                    <a href="javascript:void(0)" class="clear_cart font-weight-bold">Clear Cart</a>
                 </div>
-                <div class="col-md-3">
-                    <h3>{{$item->product->product}}</h3>
-                </div>
-                <div class="col-md-2">
-                    <h5>Rs {{$item->product->price}}</h5>
-                </div>
-                <div class="col-md-2">
-                    <input type="hidden" value="{{$item->prod_id}}" class="prod_id">
-                    <label for="Quantity">Quantity</label>
-                    <div class="input-group text-center mb-3" style="width:130px">
-                        <button class="input-group-text decrement-btn changeQuantity">-</button>
-                        <input type="text" id="number" class="form-control text-center qty-input" name="Quantity" value="{{$item->prod_qty}}">
-                        <button  class="input-group-text increment-btn changeQuantity" >+</button>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <button class="btn btn-danger delete-cart-item"> Remove</button>
-                </div>
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th class="cart-description">Image</th>
+                            <th class="cart-product-name">Product Name</th>
+                            <th class="cart-price">Price</th>
+                            <th class="cart-qty">Quantity</th>
+                            <th class="cart-total">Grandtotal</th>
+                            <th class="cart-romove">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($cartItem as $item)
+                        <tr class="product_data">
+                            <td class="product-image">
+                                <img src="{{asset('/storage/'.$item->product->image)}}" height="60rem" width="60rem" alt="Image here">
+                            </td>
+                            <td>
+                                {{$item->product->product}}
+                            </td>
+                            <td>
+                                Rs {{$item->product->price}}
+                            </td>
+                            <input type="hidden" value="{{$item->prod_id}}" class="prod_id">
+                            <td class="text-center">
+                                <div class="input-group" style="width:130px">
+                                    <button class="input-group-text decrement-btn changeQuantity">-</button>
+                                    <input type="text" id="number" class="form-control text-center qty-input" name="Quantity" value="{{$item->prod_qty}}">
+                                    <button class="input-group-text increment-btn changeQuantity">+</button>
+                                </div>
+                            </td>
+                            <td class="cart-product-grand-total">
+                                <span class="cart-grand-total-price">
+                                    {{$item->product->price* $item->prod_qty}}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger delete-cart-item"> Remove</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            @php
-                $total +=$item->product->price* $item->prod_qty;
-            @endphp
-            @endforeach
+            <!-- </div>
+    </div> -->
+
+
         </div>
-        <div class="card-footer">
-            <h6>Total: {{$total}}</h6>
-        </div>
+        @php
+        $total +=$item->product->price* $item->prod_qty;
+        @endphp
     </div>
+    <div class="card-footer d-flex  justify-content-between">
+        <h6>Total: Rs {{$total}}</h6>
+        <button class="btn btn-outline-success">Checkout</button>
+    </div>
+</div>
+
+
+
+</div>
 </div>
 
 @endsection
@@ -57,5 +92,6 @@
 @section('scripts')
 <script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
 
+<!-- <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script> -->
 
 @endsection
