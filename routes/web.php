@@ -85,7 +85,7 @@ Route::post('/edit-section', [SectionController::class,'editSection'])->name('ed
 
 //cart
 Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addCartProduct');
-Route::get('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteCartProduct');
+Route::post('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteCartProduct');
 Route::post('update-to-cart',[CartController::class,'updateProduct'])->name('updateCartProduct');
 
 Route::middleware(['auth'])->group(function (){

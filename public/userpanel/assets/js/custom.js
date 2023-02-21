@@ -76,19 +76,24 @@ $(document).ready(function () {
     $(".delete-cart-item").click(function (e) {
         e.preventDefault();
 
-        var prod_id = $(this).closest(".product_data").find(".qty-input").val();
+        var prod_id = $(this)
+            .closest(".product_data")
+            .find(".prod_id")
+            .val();
+
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
         $.ajax({
-            method: "get",
-            url: "/delete-cart-item",
+            method: "POST",
+            url: "delete-cart-item",
             data: {
                 'prod_id': prod_id,
             },
             success: function (response) {
+                window.location.reload();
                 alert(response.status);
                 // swal("".response.status."success");
                 // sweetalert
@@ -97,36 +102,39 @@ $(document).ready(function () {
     });
 });
 
- // Update Cart Data
- $(document).ready(function () {
-
-    $('.changeQuantity').click(function (e) {
+// Update Cart Data
+$(document).ready(function () {
+    $(".changeQuantity").click(function (e) {
         e.preventDefault();
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
-        var quantity = $(this).closest('.product_data').find('.qty-input').val();
-        var product_id = $(this).closest('.product_data').find('.product_id').val();
+        var quantity = $(this)
+            .closest(".product_data")
+            .find(".qty-input")
+            .val();
+        var product_id = $(this)
+            .closest(".product_data")
+            .find(".product_id")
+            .val();
 
         var data = {
             // '_token': $('input[name=_token]').val(),
-            'quantity':quantity,
-            'product_id':product_id,
+            quantity: quantity,
+            product_id: product_id,
         };
-        alert(product_id);
 
         $.ajax({
-            url: '/update-to-cart',
-            type: 'POST',
+            url: "/update-to-cart",
+            type: "POST",
             data: data,
             success: function (response) {
                 window.location.reload();
-                alertify.set('notifier','position','top-right');
+                alertify.set("notifier", "position", "top-right");
                 alertify.success(response.status);
-            }
+            },
         });
     });
-
 });
