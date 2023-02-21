@@ -51,6 +51,10 @@
                     </div>
                 </div>
             </div>
+            @php
+            $total =0;
+            @endphp
+
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
@@ -71,10 +75,15 @@
                                     <td>{{$item->prod_qty}}</td>
                                     <td>{{$item->product->price}} </td>
                                 </tr>
+                                @php
+                                $total +=$item->product->price * $item->prod_qty;
+                                @endphp
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-between">
+                            <h6>Total: Rs {{$total}}</h6>
+
                             <button type="submit" class="btn btn-primary ">Place Order</button>
                         </div>
 
