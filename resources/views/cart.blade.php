@@ -17,8 +17,7 @@
             @php
             $total =0;
             @endphp
-            <!-- <div class="shopping-cart">
-                <div class="shopping-cart-table"> -->
+
             <div class="table-responsive">
                 <div class="col-md-12 text-right mb-3">
                     <a href="javascript:void(0)" class="clear_cart font-weight-bold">Clear Cart</a>
@@ -31,7 +30,7 @@
                             <th class="cart-price">Price</th>
                             <th class="cart-qty">Quantity</th>
                             <th class="cart-total">Grandtotal</th>
-                            <th class="cart-romove">Remove</th>
+                            <th class="cart-romove"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,7 +46,7 @@
                                 Rs {{$item->product->price}}
                             </td>
                             <input type="hidden" value="{{$item->prod_id}}" class="prod_id">
-                            <td class="text-center">
+                            <td class="">
                                 <div class="input-group" style="width:130px">
                                     <button class="input-group-text decrement-btn changeQuantity">-</button>
                                     <input type="text" id="number" class="form-control text-center qty-input" name="Quantity" value="{{$item->prod_qty}}">
@@ -60,25 +59,24 @@
                                 </span>
                             </td>
                             <td>
-                                <button class="btn btn-danger delete-cart-item"> Remove</button>
+                                <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove</button>
                             </td>
                         </tr>
+                        @php
+                        $total +=$item->product->price * $item->prod_qty;
+                        @endphp
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <!-- </div>
-    </div> -->
 
 
         </div>
-        @php
-        $total +=$item->product->price* $item->prod_qty;
-        @endphp
+
     </div>
-    <div class="card-footer d-flex  justify-content-between">
+    <div class="card-footer bg-white d-flex  justify-content-between mt-2">
         <h6>Total: Rs {{$total}}</h6>
-        <a href="{{url('checkout')}}" class="btn btn-outline-success">Checkout</a>
+        <a href="{{url('checkout')}}" class="btn btn-outline-success">Proceed to Checkout</a>
     </div>
 </div>
 
