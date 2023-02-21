@@ -4,6 +4,8 @@
 
 
 <!-- <div class="container"> -->
+   <div class="card">
+      <div class="card-body">
     <h1 style="text-align:left ;">About Us:</h1><br><br>
     <p><h5><strong> NePharma</strong> is an online portal for medicine store . We place ethical values
        in the forefront while executing our activities. Ever since it’s establishment , we have been 
@@ -67,5 +69,8 @@
 <br><br>
 <h5>Team,</h5><br>
 <h5>NePharma Team</h5>
+      </div>
+   </div>
+   
 <!-- </div> -->
 @endsection
