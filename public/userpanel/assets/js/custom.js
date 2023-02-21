@@ -80,12 +80,12 @@ $(document).ready(function () {
             .closest(".product_data")
             .find(".prod_id")
             .val();
-
-        $.ajaxSetup({
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-        });
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                },
+            });
+     
         $.ajax({
             method: "POST",
             url: "delete-cart-item",
@@ -104,31 +104,30 @@ $(document).ready(function () {
 
 // Update Cart Data
 $(document).ready(function () {
-    $(".changeQuantity").click(function (e) {
+    $('.changeQuantity').click(function (e) {
         e.preventDefault();
+        var quantity = $(this)
+            .closest('.product_data')
+            .find('.qty-input')
+            .val();
+        var product_id = $(this)
+            .closest('.product_data')
+            .find('.prod_id')
+            .val();
+
+        var data = {
+            'prod_qty': quantity,
+            'prod_id': product_id,
+        };
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
-        var quantity = $(this)
-            .closest(".product_data")
-            .find(".qty-input")
-            .val();
-        var product_id = $(this)
-            .closest(".product_data")
-            .find(".product_id")
-            .val();
-
-        var data = {
-            // '_token': $('input[name=_token]').val(),
-            quantity: quantity,
-            product_id: product_id,
-        };
 
         $.ajax({
-            url: "/update-to-cart",
             type: "POST",
+            url: "update-to-cart",
             data: data,
             success: function (response) {
                 window.location.reload();

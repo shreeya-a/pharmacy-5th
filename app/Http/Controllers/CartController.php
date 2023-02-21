@@ -35,15 +35,14 @@ class CartController extends Controller
     }
     public function updateProduct(Request $req)
     {
+        $product_id = $req->input('prod_id');
+        $product_qty = $req->input('prod_qty');
         if (Auth::check()) {
-            $product_id = $req->input('product_id');
-            $quantity = $req->input('quantity');
                 if (Cart::where('prod_id', $product_id)->where('user_id', Auth::id())->exists()) {
                 $cartItem = Cart::where('prod_id', $product_id)->where('user_id', Auth::id())->first();
-                $cartItem->prod_qty = $quantity;
-
+                $cartItem->prod_qty = $product_qty;
                 $cartItem->update();
-                return response()->json(['status' =>  "Product Updated successfully"]);
+                return response()->json(['status' =>  "Product Quantity Updated successfully"]);
             }
         }
     }
