@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -64,37 +65,35 @@ Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productD
 // Route::get('{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 
 
-
+//user login
 Route::post('/register', [UserController::class, 'registerUser'])->name('registerUser');
 Route::post('/login', [UserController::class, 'loginUser'])->name('loginUser');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-
+//category
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::post('/add-category', [CategoryController::class, 'addCategory'])->name('addCategory');
 Route::get('/edit-category/{id}', [CategoryController::class, 'edit'])->name('edit');
 Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
 Route::post('/edit-category', [CategoryController::class, 'editCategory'])->name('editCategory');
 
+//product
 Route::get('/product', [ProductController::class, 'product'])->name('product');
 Route::get('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');
 Route::post('/save-product', [ProductController::class, 'saveProduct'])->name('saveProduct');
-
 Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
 Route::get('/edit-product/{id}', [ProductController::class, 'editProduct'])->name('editProduct');
 Route::put('/update-product', [ProductController::class, 'updateProduct'])->name('updateProduct');
 
 
+//section
 Route::get('/section', [SectionController::class,'section'])->name('section');
 Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');
 Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit');
 Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
 Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
 
-// Route::get('/order',[])
-Route::get('/order', function () {
-    return view('admin.order');
-});
+
 
 //cart
 Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addCartProduct');
@@ -103,7 +102,13 @@ Route::post('update-to-cart',[CartController::class,'updateProduct'])->name('upd
 
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
+
+    //checkout
     Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
     Route::post('place-order',[CheckoutController::class,'placeOrder'])->name('placeOrder');
 });
 
+//order handling by admin
+Route::get('/order',[OrderController::class, 'index'])->name('order');
+Route::get('view-order/{id}',[OrderController::class, 'viewOrder'])->name('viewOrder');
+Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('updateOrder');
