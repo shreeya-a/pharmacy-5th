@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="">Last Name</label>
-                                <input type="text" value="{{ Auth::user()->lname}}" name="lname" class="form-control" placeholder="Enter First Name">
+                                <input type="text" value="{{ Auth::user()->lname}}" name="lname" class="form-control" placeholder="Enter Last Name">
                             </div>
 
                             <div class="col-md-6 mt-3">

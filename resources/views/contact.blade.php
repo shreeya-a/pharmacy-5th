@@ -59,16 +59,16 @@
                                             <div>
                                             <label class="form-label" for="msg">Message</label>
                                             </div>
-                                            <textarea name="msg" id="msg" cols="35" rows="3"></textarea>
+                                            <textarea class="form-control" name="msg" id="msg" cols="35" rows="3"></textarea>
                                             </div>
                                     </div>
 
                     
 
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-4">
                                         <button type="submit" class="btn btn-primary ">Submit</button>
                                     </div>
-                                    <p class="text-center text-muted mt-3 mb-3">Want to Login Instead?<br> <a href="{{route('login')}}" class="fw-bold text-body"><u>Login</u></a></p>
+                                    <p class="text-center text-muted mt-3 mb-3">Want to Login Instead? <a href="{{route('login')}}" class="fw-bold text-body"><u>Login</u></a></p>
 
                                 </form>
 
