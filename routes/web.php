@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 
@@ -81,3 +83,19 @@ Route::post('/add-section', [SectionController::class,'addSection'])->name('addS
 Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit');
 Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
 Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
+
+// Route::get('/order',[])
+Route::get('/order', function () {
+    return view('admin.order');
+});
+
+//cart
+Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addCartProduct');
+Route::post('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteCartProduct');
+Route::post('update-to-cart',[CartController::class,'updateProduct'])->name('updateCartProduct');
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
+    Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
+    Route::post('place-order',[CheckoutController::class,'placeOrder'])->name('placeOrder');
+});
