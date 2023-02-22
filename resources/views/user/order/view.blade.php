@@ -13,46 +13,45 @@
                 $SN=1;
                 @endphp
 
-                <div class="card-body">
+                <div class="card-body"style="height: 500px;">
                     <div class="row">
                         <div class="col-md-4 order-details mr-5">
                             <h4>Shipping details</h4>
-                            <table class="table table-bordered-none table-responsive">
-                                @foreach($orders as $order)
+                            <hr>
+                        <table class="table table-head-fixed text-nowrap">
                                 <tr>
                                     <th>First Name</th>
                                     <th>:</th>
-                                    <td>{{$order->fname}}</td>
+                                    <td>{{$orders->fname}}</td>
                                 </tr>
                                 <tr>
                                     <th>Last Name</th>
                                     <th>:</th>
-                                    <td>{{$order->lname}}</td>
+                                    <td>{{$orders->lname}}</td>
                                 </tr>
                                 <tr>
                                     <th>Tracking Id</th>
                                     <th>:</th>
-                                    <td>{{$order->tracking_no}}</td>
+                                    <td>{{$orders->tracking_no}}</td>
                                 </tr>
                                 <tr>
                                     <th>Email</th>
                                     <th>:</th>
-                                    <td>{{$order->email}}</td>
+                                    <td>{{$orders->email}}</td>
                                 </tr>
                                 <tr>
                                     <th>Contact No. </th>
                                     <th>:</th>
-                                    <td>{{$order->phone}}</td>
+                                    <td>{{$orders->phone}}</td>
                                 </tr>
                                 <tr>
                                     <th>Shipping Address </th>
                                     <th>:</th>
                                     <td>
-                                        {{$order->address}}, {{$order->city}}, <br><br>
-                                        {{$order->state}}, {{$order->country}}
+                                        {{$orders->address}}, {{$orders->city}}, <br><br>
+                                        {{$orders->state}}, {{$orders->country}}
                                     </td>
                                 </tr>
-                                @endforeach
                             </table>
                         </div>
                         <div class="col-md-7 ">
@@ -65,7 +64,7 @@
                                     <th>Price</th>
                                 </thead>
                                 <tbody>
-                                    @foreach($order->orderitems as $item)
+                                    @foreach($orders->orderitems as $item)
                                     <tr>
                                         <td>{{$item->product->product}}</td>
                                         <td>
@@ -79,23 +78,9 @@
                             </table>
                             <div class="d-flex justify-content-between">
                                 <h4>Grand Total: </h4>
-                                <h5 class="mr-4 pr-2 ">Rs {{$order->total_price}}</h5>
+                                <h5 class="mr-4 pr-2 ">Rs {{$orders->total_price}}</h5>
                             </div>
-                            <div class="mt-3  ">
-                                <form action="{{url('update-order/'.$order->id)}}" method="post">
-                                    @csrf
-                                    @method('PUT')
-                                    <label for="" class="form-label">Order Status</label>
-                                    <select class="form-control" name="order_status">
-                                        <option {{$order->status == '0'? 'selected': ''}} value="0">Pending</option>
-                                        <option {{$order->status == '1'? 'selected': ''}} value="1">Completed</option>
-                                        <option {{$order->status == '2'? 'selected': ''}} value="2">Canclled</option>
-                                    </select>
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary mt-4 col-sm-4">Update</button>
-                            </div>
-                            </form>
+                           
                         </div>
                     </div>
                 </div>
@@ -103,9 +88,7 @@
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
+
 @endsection
 
 @section('script-table')
