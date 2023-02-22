@@ -84,6 +84,11 @@ Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit'
 Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
 Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
 
+// Route::get('/order',[])
+Route::get('/order', function () {
+    return view('admin.order');
+});
+
 //cart
 Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addCartProduct');
 Route::post('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteCartProduct');
