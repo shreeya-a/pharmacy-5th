@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\ImageController;
 
 
 
@@ -49,8 +50,14 @@ Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
 Route::get('/about-page', [HomeController::class, 'about'])->name('about');
 
+//Contact Page
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('send');
+
+// Prescription page
+Route::get('/image', [ImageController::class, 'create'])->name('image');
+Route::post('/image', [ImageController::class, 'store'])->name('image.store');
+//Route::get('/upload', [ImageController::class, 'upload'])->name('upload');
 
 
 

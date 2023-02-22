@@ -16,7 +16,7 @@
                     <h1 class="animated fw-900 text-brand">On all products</h1>
                     <p class="animated">Save more with coupons & up to 70% off</p>
                     <!-- <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Shop Now </a> -->
-                    <a class="btn btn-primary" href="#"> Upload Now </a>
+                    <a class="btn btn-primary" href="{{route('image')}}"> Upload Now </a>
                 </div>
             </div>
             <div class="col-lg-7 col-md-6">
