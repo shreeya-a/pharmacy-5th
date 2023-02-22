@@ -1,11 +1,18 @@
 <?php
 
+
 use GuzzleHttp\Middleware;
+use App\Http\Controllers\CartController;
+use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
+
 use App\Http\Controllers\ProductController;
 
 use App\Http\Controllers\SectionController;
@@ -82,8 +89,26 @@ Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct'])-
 Route::get('/edit-product/{id}', [ProductController::class, 'editProduct'])->name('editProduct');
 Route::put('/update-product', [ProductController::class, 'updateProduct'])->name('updateProduct');
 
-Route::get('/section', [SectionController::class, 'section'])->name('section');
-Route::post('/add-section', [SectionController::class, 'addSection'])->name('addSection');
-Route::get('/edit-section/{id}', [SectionController::class, 'edit'])->name('edit');
-Route::get('/delete-section/{id}', [SectionController::class, 'deleteSection'])->name('deleteSection');
-Route::post('/edit-section', [SectionController::class, 'editSection'])->name('editSection');
+
+Route::get('/section', [SectionController::class,'section'])->name('section');
+Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');
+Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit');
+Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
+Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
+
+// Route::get('/order',[])
+Route::get('/order', function () {
+    return view('admin.order');
+});
+
+//cart
+Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addCartProduct');
+Route::post('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteCartProduct');
+Route::post('update-to-cart',[CartController::class,'updateProduct'])->name('updateCartProduct');
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
+    Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
+    Route::post('place-order',[CheckoutController::class,'placeOrder'])->name('placeOrder');
+});
+
