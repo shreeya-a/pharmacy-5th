@@ -98,6 +98,24 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{route('orders')}}" class="nav-link {{ Request::is('order') ? 'active':''; }}">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+               Orders
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::is('user') ? 'active':''; }}">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+               Users
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link {{ Request::is('settings') ? 'active':''; }}">
             <i class="nav-icon fas fa-cog"></i>
               <p>
