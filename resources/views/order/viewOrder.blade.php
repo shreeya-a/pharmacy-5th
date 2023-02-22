@@ -20,9 +20,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header bg-primary">
+                    <div class="card-header bg-primary d-flex ">
+                        <div class="me-auto">
                         <h4 class="text-white">Order View</h4>
-                        <a href="{{url('orders')}}" class="btn btn-success">#</a>
+                        </div>
+                        <div class="p-2">
+
+                        <a href="{{url('orders')}}" class="btn btn-success">Back</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">

@@ -110,5 +110,6 @@ Route::middleware(['auth'])->group(function (){
 
 //order handling by admin
 Route::get('/order',[OrderController::class, 'index'])->name('order');
+Route::get('/order-history',[OrderController::class, 'orderHistory'])->name('orderHistory');
 Route::get('view-order/{id}',[OrderController::class, 'viewOrder'])->name('viewOrder');
 Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('updateOrder');

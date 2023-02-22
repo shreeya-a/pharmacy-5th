@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class OrderController extends Controller
 {
     //
@@ -12,6 +14,12 @@ class OrderController extends Controller
     {
         $orders = Order::where('status','0')->get();
         return view('order.index', compact('orders'));
+    }
+    public function orderHistory()
+    {
+        $orders = Order::where('status','1')->get();
+
+        return view('order.orderHistory', compact('orders'));
     }
     public function viewOrder($id)
     {
@@ -27,4 +35,5 @@ class OrderController extends Controller
         return redirect('order')-> with('status', "Order updated successfully");
 
     }
+    
 }

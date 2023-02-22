@@ -7,19 +7,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-header bg-primary d-flex justif ">
-                        <div class="me-auto">
-                            <h4 class="text-white">New Orders</h4>
-                        </div>
-                        <div class="d-flex justify-content-end">
-
-                            <a href="{{url('order-history')}}" class="btn btn-success">Order History</a>
-                        </div>
+                    <div class="card-header bg-primary d-flex justify-content-around ">
+                        <h4 class="text-white">Order history</h4>
+                        <a href="{{url('order')}}" class="btn btn-success">Back</a>
                     </div>
-                    <!-- <div class="card-header bg-primary d-flex justify-content-end">
-                        <h4 class="text-white">New Orders</h4>
-                        <button class="btn btn-success ">Order History</button>
-                    </div> -->
                     @php
                     $SN=1;
                     @endphp
@@ -35,7 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($orders as $order)
+                        @foreach($orders as $order)
                             <tr>
                                 <td>{{$SN++}}</td>
                                 <td>{{$order->updated_at->format('Y-m-d') }}</td>
@@ -48,11 +39,9 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- </div> -->
             </div>
         </div>
     </div>
 </div>
-
 
 @endsection
