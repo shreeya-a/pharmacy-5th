@@ -41,10 +41,11 @@ class CheckoutController extends Controller
         $order->total_price = $total;
         $order->save();
 
+        // order->id; is taken as id for order placement in order_items table
         $cartItem = Cart::where('user_id', Auth::id())->get();
         foreach ($cartItem as $item) {
             OrderItem::create([
-                'order_id' => $item->id,
+                'order_id' => $order->id,
                 'prod_id' => $item->prod_id,
                 'qty' => $item->prod_qty,
                 'price' => $item->product->price,

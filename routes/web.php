@@ -3,20 +3,15 @@
 
 use GuzzleHttp\Middleware;
 use App\Http\Controllers\CartController;
-use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
-
 use App\Http\Controllers\ProductController;
-
 use App\Http\Controllers\SectionController;
-use App\Http\Controllers\CategoryController;
 use Illuminate\Routing\Route as RoutingRoute;
 
 

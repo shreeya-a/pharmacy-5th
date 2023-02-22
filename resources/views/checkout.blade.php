@@ -66,6 +66,7 @@
                                     <th>Name</th>
                                     <th>Qty</th>
                                     <th>Price</th>
+                                    <th>Amt</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,17 +75,23 @@
                                     <td>{{$item->product->product}}</td>
                                     <td>{{$item->prod_qty}}</td>
                                     <td>{{$item->product->price}} </td>
+                                    <td>{{$item->product->price * $item->prod_qty}} </td>
                                 </tr>
                                 @php
                                 $total +=$item->product->price * $item->prod_qty;
                                 @endphp
                                 @endforeach
+                               
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-between">
-                            <h6>Total: Rs {{$total}}</h6>
+                        <div class="d-flex justify-content-between mr-5">
+                            <h5 class="ml-2">Total:</h5>
+                            <h6>Rs {{$total}}</h6>
 
-                            <button type="submit" class="btn btn-primary ">Place Order</button>
+                        </div>
+                        <div class="  d-flex justify-content-center mt-4 mb-3 mr-5">
+                            <button type="submit" class="btn btn-primary col-sm-6">Place Order</button>
+
                         </div>
 
                     </div>

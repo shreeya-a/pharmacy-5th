@@ -1,6 +1,11 @@
 @extends('user.layouts.main')
 
 @section('content')
+<style>
+    .tati{
+        padding: 0px 0px 0px 150px;
+    }
+</style>
 <div class="py-3 mb-4 shadow-sm bg-primary-light border-top">
     <div class="container">
         <h6 class="mb-0">
@@ -46,12 +51,20 @@
                                 Rs {{$item->product->price}}
                             </td>
                             <input type="hidden" value="{{$item->prod_id}}" class="prod_id">
+                            
                             <td class="">
-                                <div class="input-group" style="width:130px">
-                                    <button class="input-group-text decrement-btn changeQuantity">-</button>
-                                    <input type="text" id="number" class="form-control text-center qty-input" name="Quantity" value="{{$item->prod_qty}}">
+                                <div class="tati">
+                                <div class="input-group " style="width:110px">
+                                    <button class="input-group-text  decrement-btn changeQuantity">-</button>
+                                    <input type="text" id="number" class="form-control text-center qty-input " name="Quantity" value="{{$item->prod_qty}}">
                                     <button class="input-group-text increment-btn changeQuantity">+</button>
                                 </div>
+                                </div>
+                                <!-- <div class="input-group " style="width:110px">
+                                    <button class="input-group-text  decrement-btn changeQuantity">-</button>
+                                    <input type="text" id="number" class="form-control text-center qty-input " name="Quantity" value="{{$item->prod_qty}}">
+                                    <button class="input-group-text increment-btn changeQuantity">+</button>
+                                </div> -->
                             </td>
                             <td class="cart-product-grand-total">
                                 <span class="cart-grand-total-price">
