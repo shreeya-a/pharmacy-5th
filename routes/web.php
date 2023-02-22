@@ -106,6 +106,9 @@ Route::middleware(['auth'])->group(function (){
     //checkout
     Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
     Route::post('place-order',[CheckoutController::class,'placeOrder'])->name('placeOrder');
+    //my-order
+    Route::get('my-order',[HomeController::class,'myOrder'])->name('myOrder');
+    Route::get('view-my-order/{id}',[HomeController::class,'viewmyOrder'])->name('viewmyOrder');
 });
 
 //order handling by admin

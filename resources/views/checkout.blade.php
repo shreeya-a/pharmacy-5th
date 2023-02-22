@@ -54,12 +54,12 @@
             @php
             $total =0;
             @endphp
-
             <div class="col-md-5">
-                <div class="card">
-                    <div class="card-body">
+                <!-- <div class="card">
+                    <div class="card-body"> -->
                         <h6>Order Details</h6>
                         <hr>
+                        @if($cartItem->count()>0)
                         <table class="table ">
                             <thead>
                                 <tr>
@@ -81,7 +81,7 @@
                                 $total +=$item->product->price * $item->prod_qty;
                                 @endphp
                                 @endforeach
-                               
+
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-between mr-5">
@@ -91,11 +91,12 @@
                         </div>
                         <div class="  d-flex justify-content-center mt-4 mb-3 mr-5">
                             <button type="submit" class="btn btn-primary col-sm-6">Place Order</button>
-
                         </div>
-
-                    </div>
-                </div>
+                        @else
+                        <h5 class="text-center">Your <i class="mdi mdi-cart"></i> Cart is Empty</h5>
+                        @endif
+                    <!-- </div>
+                </div> -->
             </div>
         </div>
     </form>

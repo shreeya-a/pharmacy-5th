@@ -56,3 +56,6 @@
 
 
 @endsection
+@section('script-table')
+<script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+@endsection

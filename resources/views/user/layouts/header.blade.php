@@ -155,7 +155,7 @@
                             <div class="navbar-top-right">
                                 <ul class="navbar-top-link">
                                     <li>{{auth()->user()->name}}</li>
-                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-account"></i>Logout</a></li>
+                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-account"></i><i class="mdi mdi-account-circle"></i></a></li>
                                 </ul>
                             </div>
                             @endauth
@@ -269,6 +269,12 @@
                                         </div>
                                     </div>
                                     <!-- navbar cart Ends -->
+                                </div>
+                                <div class="account">
+                                <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('myOrder')}}">
+                                <!-- <i class="mdi mdi-account-circle"></i> -->
+                                <i class="mdi mdi-account"></i>
+                                </a>
                                 </div>
                         </nav>
                     </div>

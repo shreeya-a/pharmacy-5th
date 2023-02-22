@@ -32,7 +32,7 @@
                                 <td>{{$order->updated_at->format('Y-m-d') }}</td>
                                 <td>{{$order->tracking_no}}</td>
                                 <td>{{$order->total_price}}</td>
-                                <td>{{$order->status == '0' ? 'Pending' : 'Completed'}}</td>
+                                <td>{{$order->status == '2' ? 'Cancelled' : 'Complete'}}</td>
                                 <td><a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a></td>
                             </tr>
                             @endforeach
@@ -44,4 +44,7 @@
     </div>
 </div>
 
+@endsection
+@section('script-table')
+<script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 @endsection

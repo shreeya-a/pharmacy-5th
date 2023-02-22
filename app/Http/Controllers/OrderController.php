@@ -17,9 +17,9 @@ class OrderController extends Controller
     }
     public function orderHistory()
     {
-        $orders = Order::where('status','1')->get();
+        $orders = Order::where('status','1')->orWhere('status','2')->get();
 
-        return view('order.orderHistory', compact('orders'));
+        return view('order.history', compact('orders'));
     }
     public function viewOrder($id)
     {
