@@ -48,9 +48,11 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
+Route::get('/about-page', [HomeController::class, 'about'])->name('about');
+Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 
 
-Route::get('/login',[HomeController::class, 'login'])->name('login');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
 Route::get('/sectionnav/{section}', [HomeController::class, 'section'])->name('section');
 // Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
@@ -61,22 +63,23 @@ Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productD
 
 Route::post('/register', [UserController::class, 'registerUser'])->name('registerUser');
 Route::post('/login', [UserController::class, 'loginUser'])->name('loginUser');
-Route::get('/logout', [UserController::class,'logout'])->name('logout');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
-Route::get('/category', [CategoryController::class,'category'])->name('category');
-Route::post('/add-category', [CategoryController::class,'addCategory'])->name('addCategory');
-Route::get('/edit-category/{id}', [CategoryController::class,'edit'])->name('edit');
-Route::get('/delete-category/{id}', [CategoryController::class,'deleteCategory'])->name('deleteCategory');
-Route::post('/edit-category', [CategoryController::class,'editCategory'])->name('editCategory');
+Route::get('/category', [CategoryController::class, 'category'])->name('category');
+Route::post('/add-category', [CategoryController::class, 'addCategory'])->name('addCategory');
+Route::get('/edit-category/{id}', [CategoryController::class, 'edit'])->name('edit');
+Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
+Route::post('/edit-category', [CategoryController::class, 'editCategory'])->name('editCategory');
 
-Route::get('/product', [ProductController::class,'product'])->name('product');
-Route::get('/add-product', [ProductController::class,'addProduct'])->name('addProduct');
-Route::post('/save-product', [ProductController::class,'saveProduct'])->name('saveProduct');
+Route::get('/product', [ProductController::class, 'product'])->name('product');
+Route::get('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');
+Route::post('/save-product', [ProductController::class, 'saveProduct'])->name('saveProduct');
 
-Route::get('/delete-product/{id}', [ProductController::class,'deleteProduct'])->name('deleteProduct');
-Route::get('/edit-product/{id}', [ProductController::class,'editProduct'])->name('editProduct');
-Route::put('/update-product', [ProductController::class,'updateProduct'])->name('updateProduct');
+Route::get('/delete-product/{id}', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
+Route::get('/edit-product/{id}', [ProductController::class, 'editProduct'])->name('editProduct');
+Route::put('/update-product', [ProductController::class, 'updateProduct'])->name('updateProduct');
+
 
 Route::get('/section', [SectionController::class,'section'])->name('section');
 Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');
@@ -99,3 +102,4 @@ Route::middleware(['auth'])->group(function (){
     Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
     Route::post('place-order',[CheckoutController::class,'placeOrder'])->name('placeOrder');
 });
+
