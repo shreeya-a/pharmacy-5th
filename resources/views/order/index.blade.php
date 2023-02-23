@@ -42,7 +42,17 @@
                                 <td>{{$order->tracking_no}}</td>
                                 <td>{{$order->total_price}}</td>
                                 <td>{{$order->status == '0' ? 'Pending' : 'Completed'}}</td>
-                                <td><a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a></td>
+                                <td>
+                                    <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a>
+                                </td>
+                                <!-- <td>
+                                        @if($order->status == '0')
+                                        <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a>
+                                    <a href="{{url('view-order/'. $order->id)}}" class="btn btn-danger">Cancel Order</a>
+                                    @else
+                                    <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a>
+                                    @endif
+                                </td> -->
                             </tr>
                             @endforeach
                         </tbody>

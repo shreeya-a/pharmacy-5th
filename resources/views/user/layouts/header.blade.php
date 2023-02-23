@@ -155,7 +155,7 @@
                             <div class="navbar-top-right">
                                 <ul class="navbar-top-link">
                                     <li>{{auth()->user()->name}}</li>
-                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-account"></i><i class="mdi mdi-account-circle"></i></a></li>
+                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-account"></i>Logout</a></li>
                                 </ul>
                             </div>
                             @endauth
