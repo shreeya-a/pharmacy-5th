@@ -6,13 +6,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                    <div class="card-header">
-                        <h4>My Orders</h4>
-                    </div>
-                    @php
-                    $SN=1;
-                    @endphp
+                <div class="card-header">
+                    <h4>My Orders</h4>
+                </div>
+                @php
+                $SN=1;
+                @endphp
                 <div class="card-body">
+                    @if($orders->count()>0)
 
                     <table class="table table-bordered table-responsive my-3">
                         <thead>
@@ -37,11 +38,19 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    @else
+                    <div class="card-body text-center mt-2 mb-5" style="height:10rem">
+                        <h2 class="mb-5">You have no orders</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="{{url('/')}}" class="btn btn-outline-primary float-end pt-10">Continue Shopping</a>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
+
 @endsection

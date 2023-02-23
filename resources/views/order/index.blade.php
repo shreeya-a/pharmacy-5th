@@ -27,23 +27,25 @@
                         <thead>
                             <tr>
                                 <td>SN</td>
-                                <td>Order Date</td>
-                                <td>Tracking Number</td>
+                                <td>Name</td>
+                                <td>Tracking no.</td>
                                 <td>Total Price</td>
+                                <td>Order Date</td>
                                 <td>Status</td>
-                                <td>Action</td>
+                                <td>View Details</td>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($orders as $order)
                             <tr>
                                 <td>{{$SN++}}</td>
-                                <td>{{$order->updated_at->format('Y-m-d') }}</td>
+                                <td>{{$order->fname}}</td>
                                 <td>{{$order->tracking_no}}</td>
                                 <td>{{$order->total_price}}</td>
+                                <td>{{$order->updated_at->format('Y-m-d') }}</td>
                                 <td>{{$order->status == '0' ? 'Pending' : 'Completed'}}</td>
                                 <td>
-                                    <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a>
+                                    <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">Details</a>
                                 </td>
                                 <!-- <td>
                                         @if($order->status == '0')

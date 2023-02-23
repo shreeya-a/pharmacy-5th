@@ -26,7 +26,7 @@
                         </div>
                         <div class="p-2">
 
-                        <a href="{{url('orders')}}" class="btn btn-success">Back</a>
+                        <a href="{{route('order')}}" class="btn btn-success">Back</a>
                         </div>
                     </div>
                     <div class="card-body">
