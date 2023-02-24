@@ -29,7 +29,7 @@ class ImageController extends Controller
         // Store the image in the database
         $image = new Image;
         $image->email = $request->input('email');
-        $image->image = $request->file('image')->store('public');
+        $image->image = $request->file('image')->store('public/prescription');
         $image->save();
 
         return redirect('/image')->with('success', 'Image has been uploaded successfully.');
