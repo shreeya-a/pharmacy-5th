@@ -15,13 +15,15 @@
                         <!-- <a href="{{url($product->product.'/'.$product->id)}}"> -->
                         <a href="{{url('section/'.$product->section->section.'/'.$product->product.'/'.$product->id)}}">
                         <!-- <a href="{{url('product-details/'.$product->id)}}"> -->
-                            <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
-                            <div class="card-body">
-                                <h4> {{$product->product}}</h4>
-                                <p> {{$product->price}}</p>
+                            <div class="image">
+                            <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img"  width="250" height="250">
+                            </div>
+                            <div class="card-body text-center ">
+                                <h4 class="m-2"> {{$product->product}}</h4>
+                                <p class="m-2"> {{$product->price}}</p>
                                 <div class="product-btn">
                                 <a href="javascript:void(0)" class="main-btn primary-btn">
-                                    <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
+                                    <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="" >
                                     Add to cart
                                 </a>
                            

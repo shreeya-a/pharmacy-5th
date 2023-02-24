@@ -270,6 +270,12 @@
                                     </div>
                                     <!-- navbar cart Ends -->
                                 </div>
+                                <div class="account">
+                                <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('myOrder')}}">
+                                <!-- <i class="mdi mdi-account-circle"></i> -->
+                                <i class="mdi mdi-account"></i>
+                                </a>
+                                </div>
                         </nav>
                     </div>
                 </div>

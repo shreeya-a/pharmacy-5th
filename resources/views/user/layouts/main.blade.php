@@ -20,6 +20,9 @@
     <!--====== Product-details CSS ======-->
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/product-details.css')}}">
 
+    <!--====== Checkout CSS ======-->
+    <link rel="stylesheet" href="{{asset('userpanel/assets/css/custom.css')}}">
+
     <!--====== Line Icons CSS ======-->
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/LineIcons.css')}}">
 
