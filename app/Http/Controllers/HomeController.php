@@ -48,11 +48,7 @@ class HomeController extends Controller
     }
     public  function section($section)
     {
-        // $section = Product::where();
-        // $sectionId = Section::where('section', $section)->get('id');
-        // dd($$sectionId);
-        // $section_product = Product::where('section_id', $sectionId)->get();
-        // dd($section_product);
+    
         $section_product = Product::where('section_id', $section)->get();
 
         return view('section', ['section_product' => $section_product]);
