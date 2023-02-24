@@ -1,6 +1,14 @@
 @extends('user.layouts.main')
 
 @section('content')
+<style>
+    .incdec {
+        padding: 0px 0px 0px 150px;
+    }
+    h2{
+        color: #542ded;
+    }
+</style>
 <div class="py-3 mb-4 shadow-sm bg-primary-light border-top">
     <div class="container">
         <h6 class="mb-0">
@@ -17,7 +25,7 @@
             @php
             $total =0;
             @endphp
-
+            @if($cartItem->count()>0)
             <div class="table-responsive">
                 <div class="col-md-12 text-right mb-3">
                     <a href="javascript:void(0)" class="clear_cart font-weight-bold">Clear Cart</a>
@@ -46,12 +54,20 @@
                                 Rs {{$item->product->price}}
                             </td>
                             <input type="hidden" value="{{$item->prod_id}}" class="prod_id">
+
                             <td class="">
-                                <div class="input-group" style="width:130px">
-                                    <button class="input-group-text decrement-btn changeQuantity">-</button>
-                                    <input type="text" id="number" class="form-control text-center qty-input" name="Quantity" value="{{$item->prod_qty}}">
-                                    <button class="input-group-text increment-btn changeQuantity">+</button>
+                                <div class="incdec">
+                                    <div class="input-group " style="width:110px">
+                                        <button class="input-group-text  decrement-btn changeQuantity">-</button>
+                                        <input type="text" id="number" class="form-control text-center qty-input " name="Quantity" value="{{$item->prod_qty}}">
+                                        <button class="input-group-text increment-btn changeQuantity">+</button>
+                                    </div>
                                 </div>
+                                <!-- <div class="input-group " style="width:110px">
+                                    <button class="input-group-text  decrement-btn changeQuantity">-</button>
+                                    <input type="text" id="number" class="form-control text-center qty-input " name="Quantity" value="{{$item->prod_qty}}">
+                                    <button class="input-group-text increment-btn changeQuantity">+</button>
+                                </div> -->
                             </td>
                             <td class="cart-product-grand-total">
                                 <span class="cart-grand-total-price">
@@ -78,10 +94,15 @@
         <h6>Total: Rs {{$total}}</h6>
         <a href="{{url('checkout')}}" class="btn btn-outline-success">Proceed to Checkout</a>
     </div>
+    @else
+    <div class="card-body text-center mt-2 mb-5">
+        <h2 class="mb-5">Your <i class="mdi mdi-cart"></i> Cart is empty</h2>
+        <div class="d-flex justify-content-end">
+        <a href="{{url('/')}}" class="btn btn-outline-primary float-end pt-10">Continue Shopping</a>
+    </div>
+    </div>
+    @endif
 </div>
-
-
-
 </div>
 </div>
 

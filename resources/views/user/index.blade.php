@@ -103,7 +103,7 @@
                                 <h4 class="text-capitalize "> {{$product->product}}</h4>
                                 <p>Rs {{$product->price}}</p>
                                 <div class="mt-4 mb-4">
-                                    <a href="#" class="main-btn primary-btn">Add to Cart </a>
+                                    <a href="#" class="main-btn primary-btn" style="max-width:150px">Add to Cart </a>
                                 </div>
 
                             </div>
