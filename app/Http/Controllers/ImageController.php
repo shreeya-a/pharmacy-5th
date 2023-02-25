@@ -36,9 +36,17 @@ class ImageController extends Controller
         // Store the image in the database
         $image = new Image;
         $image->user_id = Auth::id();
-        $image->image = $request->file('image')->store('public/prescription');
+        $image->image = $request->file('image')->store('prescription', 'public');
         $image->save();
 
         return redirect('/image')->with('success', 'Image has been uploaded successfully.');
+    }
+
+    // for admin section
+    public function prescription(){
+        $prescription = Image::all();
+        return view('admin.prescription.index', compact('prescription'));
+
+        
     }
 }
