@@ -29,13 +29,13 @@ class ImageController extends Controller
     {
         // Validate the input
         $request->validate([
-            'email' => 'required',
+            // 'email' => 'required',
             'image' => 'required|image|max:2048',
         ]);
 
         // Store the image in the database
         $image = new Image;
-        $image->email = $request->input('email');
+        $image->user_id = Auth::id();
         $image->image = $request->file('image')->store('public/prescription');
         $image->save();
 
