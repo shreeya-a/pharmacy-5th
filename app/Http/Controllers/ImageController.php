@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+use Illuminate\Support\Facades\Auth;
 
 class ImageController extends Controller
 {
@@ -15,7 +16,13 @@ class ImageController extends Controller
 
     public function create()
     {
-        return view('image.create');
+        if(Auth::check()){
+
+            return view('image.create');
+        }
+        else {
+            return response()->json(['status' =>  "Login to Continue"]);
+        }
     }
 
     public function store(Request $request)
