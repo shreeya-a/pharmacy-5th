@@ -40,7 +40,7 @@
                             @foreach($prescription as $pres)
                             <tr>
                                 <td>{{$SN++}}</td>
-                                <td>{{$pres->user_id}}</td>
+                                <td>{{$name}}</td>
                                 <td>
                                                 <img class="card-img-top" src="{{asset('/storage/'.$pres->image)}}" style="width: 3rem; height:3rem;" alt="pp">
                                             </td>

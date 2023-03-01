@@ -45,7 +45,8 @@ class ImageController extends Controller
     // for admin section
     public function prescription(){
         $prescription = Image::all();
-        return view('admin.prescription.index', compact('prescription'));
+       $name= Auth::user()->name;
+        return view('admin.prescription.index', compact('prescription'), compact('name'));
 
         
     }
