@@ -30,8 +30,7 @@
                                 <td>SN</td>
                                 <td>Name</td>
                                 <td>Prescription</td>
-                                <td>date of upload</td>
-                                <td>Order Date</td>
+                                <td>Date of upload</td>
                                 <td>Status</td>
                                 <td>View Details</td>
                             </tr>
@@ -40,17 +39,22 @@
                             @foreach($prescription as $pres)
                             <tr>
                                 <td>{{$SN++}}</td>
-                                <td>{{$name}}</td>
+                                <td>{{$pres -> fname}}</td>
                                 <td>
-                                                <img class="card-img-top" src="{{asset('/storage/'.$pres->image)}}" style="width: 3rem; height:3rem;" alt="pp">
-                                            </td>
+                                    <img class="card-img-top" src="{{asset('/storage/'.$pres->image)}}" style="width: 3rem; height:3rem;" alt="pp">
+                                </td>
                                 <!-- <td>{{$pres->tracking_no}}</td>
                                 <td>{{$pres->total_price}}</td> -->
                                 <td>{{$pres->updated_at->format('Y-m-d') }}</td>
+                                <td>{{$pres -> status == '0'? 'Pending':( $pres->status == '1'? 'Complete': 'Cancelled')}}</td>
+                                <!-- <td>{{$pres -> status == '0'? 'Pending':'Completed'}}</td> -->
+
                                 <td>
-                                    <a href="" class="btn btn-primary">Details</a>
+                                <a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">Details</a>
+
+                                    
                                 </td>
-                           
+
                             </tr>
                             @endforeach
                         </tbody>

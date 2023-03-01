@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Image extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'image'];
+    protected $fillable = ['user_id','fname','lname','email','phone','address','city','country', 'image'];
 
     public function getUrlAttribute()
     {

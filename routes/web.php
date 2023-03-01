@@ -58,8 +58,8 @@ Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('send');
 
 // Prescription page
-Route::get('/image', [ImageController::class, 'create'])->name('image');
-Route::post('/image', [ImageController::class, 'store'])->name('image.store');
+Route::get('/upload-prescription', [ImageController::class, 'create'])->name('image');
+Route::post('/prescription', [ImageController::class, 'store'])->name('prescriptionStore');
 //Route::get('/upload', [ImageController::class, 'upload'])->name('upload');
 
 
@@ -126,3 +126,5 @@ Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('u
 
 //prescription handling by admin
 Route::get('/prescription',[ImageController::class, 'prescription'])->name('prescription');
+Route::get('/view-prescription/{presId}',[ImageController::class, 'viewPrescription'])->name('viewPrescription');
+
