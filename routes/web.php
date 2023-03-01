@@ -13,10 +13,9 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\PrescriptionItemController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ImageController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -127,4 +126,5 @@ Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('u
 //prescription handling by admin
 Route::get('/prescription',[ImageController::class, 'prescription'])->name('prescription');
 Route::get('/view-prescription/{presId}',[ImageController::class, 'viewPrescription'])->name('viewPrescription');
+Route::post('add-prescription-item',[PrescriptionItemController::class, 'addPresItem'])->name('addPresItem');
 

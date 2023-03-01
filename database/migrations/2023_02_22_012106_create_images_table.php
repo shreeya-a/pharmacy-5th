@@ -24,7 +24,9 @@ return new class extends Migration
             $table->string('city');
             $table->string('country')->default('Nepal');
             $table->text('image');
-            $table->tinyInteger('status')->default('0')->nullable();
+            $table->tinyInteger('status')->default('0');
+            $table->string('total_price')->default('0');
+
             $table->timestamps();
         });
     }
