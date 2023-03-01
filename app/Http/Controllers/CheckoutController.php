@@ -36,7 +36,7 @@ class CheckoutController extends Controller
         $total = 0;
         $cartItem_total = Cart::where('user_id', Auth::id())->get();
         foreach ($cartItem_total as $prod) {
-            $total += $prod->product->price;
+            $total += $prod->product->price * $prod->prod_qty;
         }
         $order->total_price = $total;
         $order->save();
