@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+use App\Models\Product;
+use App\Models\Section;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,7 +59,6 @@ class ImageController extends Controller
         $image->city = $request->input('city');
         $image->country = $request->input('address');
         $image->image = $request->file('image')->store('prescription', 'public');
-// dd($image , "working");
         $image->save();
 
         if (Auth::user()->address == Null) {
@@ -83,6 +84,13 @@ class ImageController extends Controller
 
     public function viewPrescription($presId){
         $prescription= Image::where('id',$presId)->first();
-        return view('admin.prescription.viewPrescription', compact('prescription'));
+        $prod_section = Section::where('section', 'Medicine')->get('id');
+        // dd($prod_section);
+        // $product = Product::where('section_id', $prod_section)->get();
+        // dd($product);
+
+        $product = Product::all();
+
+        return view('admin.prescription.viewPrescription', compact('prescription'), compact('product'));
     }
 }

@@ -15,18 +15,51 @@
         font-weight: light;
     }
 </style>
+
 <div class="content-wrapper bg-white">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-12">
-           prescription oerder halne thau
+
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card card-solid">
+            <div class="card-body">
+                <div class="row">
+                
+                    <form action="" method="post">
+                        <!-- <div class="col-md-6"> -->
+                        <label for="medicine" class="form-label">Medicine:</label>
+                         <select class=" form-control" name="prod_id" id="product">
+                            @foreach($product as $product)
+                            <option value="{{$product ->id }}">{{$product ->product }}</option>
+                            @endforeach
+                        </select>
+                        </div> 
+                         <div class="col-md-3">
+                            <label for="prod_qty">Quantity:</label>
+                        <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
+                            
+                        </div>
+                        <div class="col-md-3">
+                         <label for="price" class="form-label">Price:</label>
+                                <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}">
+                        </div>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
+                        <div class="col-12">
+                            <img src="{{asset('/storage/'.$prescription->image)}}" class="product-image" alt="Product Image">
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-</div>
 
-</div>
+
 </div>
 </div>
 
