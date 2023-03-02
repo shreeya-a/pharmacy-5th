@@ -60,6 +60,9 @@
             </form>
         </div>
         <table class="table">
+        @php
+                $SN=1;
+            @endphp
                     <thead>
                         <tr>
                             <th>SN</th>
@@ -72,8 +75,8 @@
                             @foreach($presItem as $item)
                             <tr>
                                 <td>{{$SN++}}</td>
-                                <td>{{$item->prod_id}}</td>
-                                <td>{{$item->prod_qty}}</td>
+                                <td>{{$item->products->product}}</td>
+                                <td>{{$item->qty}}</td>
                                 <td>{{$item->price}}</td>
                                 <!-- <td></td> -->
                             </tr>

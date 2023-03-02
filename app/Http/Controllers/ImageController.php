@@ -60,7 +60,7 @@ class ImageController extends Controller
         $image->city = $request->input('city');
         $image->country = $request->input('address');
         $image->image = $request->file('image')->store('prescription', 'public');
-        $image->tracking_no = rand(1111, 9999);
+        // $image->tracking_no = rand(1111, 9999);
 
         $image->save();
 
@@ -87,14 +87,20 @@ class ImageController extends Controller
 
     public function viewPrescription($presId){
         $prescription= Image::where('id',$presId)->first();
-        // $prod_section = Section::where('section', 'Medicine')->get('id');
+        $prod_section = Section::where('section', 'Medicine')->get('id');
         // dd($prod_section);
-        // $product = Product::where('section_id', $prod_section)->get();
+        $product = Product::where('section_id', $prod_section)->get();
+        dd($product);
+        // $product = Product::all();
         // dd($product);
-        $product = Product::all();
-        $presItem = PrescriptionItems::where('pres_id',$presId)->get();
-        // dd($presList);
 
-        return view('admin.prescription.viewPrescription', compact('prescription'), compact('product'),  ['presItem' => $presItem,]);
+        $presItem = PrescriptionItems::where('pres_id',$presId)->get();
+        // $art = Product::with('product')->get();
+        // dd($art);
+        // dd($presItem);
+        // $produ= PrescriptionItems::all();
+        // dd($produ);
+
+        return view('admin.prescription.viewPrescription', compact('prescription','product','presItem'));
     }
 }

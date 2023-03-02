@@ -15,4 +15,10 @@ class Image extends Model
     {
         return Storage::url($this->image);
     }
+        
+    public function prescriptionitems()
+    {
+        return $this->hasMany(PrescriptionItems::class);
+    }
+   
 }
