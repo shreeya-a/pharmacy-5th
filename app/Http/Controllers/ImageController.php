@@ -89,9 +89,9 @@ class ImageController extends Controller
         $prescription= Image::where('id',$presId)->first();
         $prod_section = Section::where('section', 'Medicine')->get('id');
         // dd($prod_section);
-        $product = Product::where('section_id', $prod_section)->get();
-        dd($product);
-        // $product = Product::all();
+        // $product = Product::where('section_id', $prod_section)->get();
+        // dd($product);
+        $product = Product::all();
         // dd($product);
 
         $presItem = PrescriptionItems::where('pres_id',$presId)->get();

@@ -15,5 +15,6 @@ class PrescriptionItems extends Model
         return $this->belongsTo(Product::class, 'prod_id','id');
                                                 // foreign key  //primary key value of used foreign key
     }
+    
   
 }

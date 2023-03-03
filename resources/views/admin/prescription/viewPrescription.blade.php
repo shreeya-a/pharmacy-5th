@@ -27,7 +27,7 @@
             </div>
             @endif
         </div>
-        <!-- Default box -->
+
         <div class="card card-solid">
             <div class="card-body">
                 <div class="row">
@@ -40,6 +40,7 @@
                         <select class=" form-control" name="prod_id" id="product">
                             @foreach($product as $product)
                             <option value="{{$product ->id }}">{{$product ->product }}</option>
+                            <!-- {{$itemprice = $product->price}} -->
                             @endforeach
                         </select>
                 </div>
@@ -48,10 +49,7 @@
                     <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
 
                 </div>
-                <div class="col-md-3">
-                    <label for="price" class="form-label">Price:</label>
-                    <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}">
-                </div>
+          
             </div>
 
             <div class="d-flex justify-content-center">
@@ -63,6 +61,8 @@
         @php
                 $SN=1;
             @endphp
+            @if (!empty($presItem))
+
                     <thead>
                         <tr>
                             <th>SN</th>
@@ -71,19 +71,18 @@
                             <th>Price</th>
                         </tr>
                         <tbody>
-                            <!-- @if (!empty($presItem)) -->
                             @foreach($presItem as $item)
                             <tr>
                                 <td>{{$SN++}}</td>
-                                <td>{{$item->products->product}}</td>
+                                <td>{{$item->product->product}}</td>
                                 <td>{{$item->qty}}</td>
-                                <td>{{$item->price}}</td>
-                                <!-- <td></td> -->
+                                <td>{{$item->product->price}}</td>
+                                <td></td>
                             </tr>
                             @endforeach
-                            <!-- @endif -->
                         </tbody>
                     </thead>
+                    @endif
                 </table>
 
         <div class="col-12">
