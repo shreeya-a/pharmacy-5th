@@ -144,7 +144,7 @@
                     <select class="form-control" name="order_status">
                         <option {{$prescription->status == '0'? 'selected': ''}} value="0">Pending</option>
                         <option {{$prescription->status == '1'? 'selected': ''}} value="1">Completed</option>
-                        <option {{$prescription->status == '2'? 'selected': ''}} value="2">Canclled</option>
+                        <option {{$prescription->status == '2'? 'selected': ''}} value="2">Cancelled</option>
                     </select>
             </div>
             <div class="d-flex justify-content-center">

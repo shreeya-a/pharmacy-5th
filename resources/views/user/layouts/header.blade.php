@@ -130,6 +130,7 @@
                                     <li><a href="{{route('homepage')}}">Home</a></li>
                                     <li><a href="{{route('about')}}">About</a></li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li><a href="{{route('myPresOrder')}}">prescription</a></li>
                                     <li>
                                         <a href="javascript:void(0)">
                                             <i class="mdi mdi-phone-in-talk"></i>

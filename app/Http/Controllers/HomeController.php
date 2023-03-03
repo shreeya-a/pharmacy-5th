@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Section;
@@ -62,6 +63,7 @@ class HomeController extends Controller
         return view('product-details', ['product_details' => $product_details, 'product_name' => $product_name, 'section_name' => $section_name]);
     }
 
+    //order details
      public function myOrder()
     {
         $orders = Order::where('user_id',Auth::id())->get();
@@ -71,5 +73,12 @@ class HomeController extends Controller
     {
         $orders = Order::where('id',$id)->where('user_id',Auth::id())->first();
         return view('user.order.view', compact('orders'));
+    }
+
+    //prescription order details
+    public function myPresOrder()
+    {
+        $orders = Image::where('user_id',Auth::id())->get();
+        return view('user.prescription.index', compact('orders'));
     }
 }

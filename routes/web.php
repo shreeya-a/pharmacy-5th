@@ -115,6 +115,10 @@ Route::middleware(['auth'])->group(function (){
     //my-order
     Route::get('my-order',[HomeController::class,'myOrder'])->name('myOrder');
     Route::get('view-my-order/{id}',[HomeController::class,'viewmyOrder'])->name('viewmyOrder');
+
+    //prescription order
+    Route::get('my-prescription',[HomeController::class,'myPresOrder'])->name('myPresOrder');
+
 });
 
 //order handling by admin

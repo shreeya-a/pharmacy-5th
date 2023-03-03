@@ -30,6 +30,16 @@ class PrescriptionItemController extends Controller
     {
         $order= Image::find($id);
         $order->status = $req->input('order_status');
+        // $order->tracking_no = rand(11111, 99999);
+ //to claculate total price
+ $total = 0;
+ $presItem_total = PrescriptionItems::where('pres_id', $id)->get();
+ foreach ($presItem_total as $pres) {
+     $total += $pres->price * $pres->qty;
+ }
+//  dd($presItem_total, $total);
+
+ $order->total_price = $total;
         $order->update();
         return redirect()->route('prescription')-> with('status', "Prescription Order updated successfully");
 
