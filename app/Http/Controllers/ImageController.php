@@ -87,6 +87,7 @@ class ImageController extends Controller
 
     public function viewPrescription($presId){
         $prescription= Image::where('id',$presId)->first();
+        // dd($prescription);
         $prod_section = Section::where('section', 'Medicine')->get('id');
         // dd($prod_section);
         // $product = Product::where('section_id', $prod_section)->get();
