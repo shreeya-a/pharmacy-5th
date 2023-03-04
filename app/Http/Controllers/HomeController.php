@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Order;
+use App\Models\PrescriptionItems;
 use App\Models\Product;
 use App\Models\Section;
 
@@ -78,7 +79,30 @@ class HomeController extends Controller
     //prescription order details
     public function myPresOrder()
     {
-        $orders = Image::where('user_id',Auth::id())->get();
-        return view('user.prescription.index', compact('orders'));
+        $prescription = Image::where('user_id',Auth::id())->get();
+        return view('user.prescription.index', compact('prescription'));
+    }
+    public function viewmyPresOrder($id)
+    {                         //prescription id
+        $presorder = Image::where('id',$id)->where('user_id',Auth::id())->first();
+        // dd($presorder);
+        $presItem = PrescriptionItems::where('pres_id',$id)->get();
+        // dd($presItem);
+
+        return view('user.prescription.view', compact('presorder','presItem'));
+    }
+    public function cancelPresOrder($id)
+    {
+        $presorder = Image::where('id',$id)->where('user_id',Auth::id())->first();
+        
+        $presorder->status = 2;
+        // dd($presorder);     
+        
+        $presorder->update();
+        $prescription = Image::where('user_id',Auth::id())->get();
+
+        return view('user.prescription.index', compact('prescription'));
+
+        
     }
 }

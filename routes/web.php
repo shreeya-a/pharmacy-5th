@@ -118,6 +118,9 @@ Route::middleware(['auth'])->group(function (){
 
     //prescription order
     Route::get('my-prescription',[HomeController::class,'myPresOrder'])->name('myPresOrder');
+    Route::get('view-prescription-order/{id}',[HomeController::class,'viewmyPresOrder'])->name('viewmyPresOrder');
+    Route::get('cancel-prescription-order/{id}',[HomeController::class,'cancelPresOrder'])->name('cancelPresOrder');
+
 
 });
 

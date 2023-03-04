@@ -43,7 +43,7 @@
                                 <td>{{$order->tracking_no}}</td>
                                 <td>{{$order->total_price}}</td>
                                 <td>{{$order->updated_at->format('Y-m-d') }}</td>
-                                <td>{{$order->status == '0' ? 'Pending' : 'Completed'}}</td>
+                                <td>{{$order->status == '0' ? 'Pending' :($order->status == '1'?'Completed': 'Cancelled')}}</td>
                                 <td>
                                     <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">Details</a>
                                 </td>
