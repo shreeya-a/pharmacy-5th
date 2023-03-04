@@ -41,6 +41,11 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
+
+// invoice
+Route::get('/invoice', function () {
+    return view('admin.invoice');
+});
 Route::get('/', function () {
     return view('user.index');
 });
