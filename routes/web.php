@@ -142,4 +142,5 @@ Route::post('add-prescription-item',[PrescriptionItemController::class, 'addPres
 Route::put('update-prescription-order/{id}',[PrescriptionItemController::class, 'updatePresOrder'])->name('updatePresOrder');
 Route::get('delete-prescription-item/{id}/{pid}',[PrescriptionItemController::class, 'deletePresItem'])->name('deletePresItem');
 Route::post('invoice/{pid}',[PrescriptionItemController::class, 'invoice'])->name('invoice');
+Route::get('print-invoice/{pid}',[PrescriptionItemController::class, 'print_invoice'])->name('print_invoice');
 

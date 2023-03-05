@@ -74,4 +74,11 @@ class PrescriptionItemController extends Controller
         $presItem = PrescriptionItems::where('pres_id', $pid)->get();
         return view('admin.invoice', compact('pres','presItem'));
     }
+    public function print_invoice($pid)
+    {
+        $pres =  Image::where('id', $pid)->get();
+   
+        $presItem = PrescriptionItems::where('pres_id', $pid)->get();
+        return view('admin.print-invoice', compact('pres','presItem'));
+    }
 }

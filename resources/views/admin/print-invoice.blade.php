@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="content-wrapper" style="min-height: 2646.8px;">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -152,27 +152,9 @@
                 <!-- /.col -->
               </div>
               <!-- /.row -->
-              @php
-$pid=0;
-foreach($pres as $id){
-  $pid = $id->id;
 
-}
-
-@endphp
               <!-- this row will not appear when printing -->
-              <div class="row no-print">
-                <div class="col-12">
-                  <a href="{{url('print-invoice/'.$pid)}}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                  <!-- <a href="" onclick=" return print();" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a> -->
-                  <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
-                    Payment
-                  </button>
-                  <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                    <i class="fas fa-download"></i> Generate PDF
-                  </button>
-                </div>
-              </div>
+              
             </div>
             <!-- /.invoice -->
           </div><!-- /.col -->
@@ -183,10 +165,11 @@ foreach($pres as $id){
   </div>
 
   </div>
+  <script>
+  window.addEventListener("load", window.print());
+</script>
 </div>
 
-
 @endsection
-
 
 
