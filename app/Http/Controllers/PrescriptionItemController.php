@@ -60,12 +60,29 @@ class PrescriptionItemController extends Controller
 
 
     }
+    public function editPresItem($piid)
+    {
+        $pitem = PrescriptionItems::find($piid);
+        return view('admin.prescription.editPrescriptionItem',compact('pitem'));
+    }
+    public function savePresItem(Request $req, $piid, $pid)
+    {
+        $pitem = PrescriptionItems::find($piid);
+        $pitem->message=$req->input('message');
+        $pitem->qty = $req->input('qty');
+        $pitem->update();
+        return redirect()->route('viewPrescription',$pid)->with('success',"Item updated successfully");
+
+      
+    }
+    
 
     public function invoice (Request $req,$pid)
     {
         $presorder= Image::find($pid);
         $presorder->discount = $req->input('discount');
         $presorder->tax = $req->input('tax');
+        $presorder->final_price = $req->input('final_price');
       $presorder->update();
 
 

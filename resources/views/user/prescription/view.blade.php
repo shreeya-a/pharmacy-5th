@@ -110,6 +110,32 @@
                                 <h4>Grand Total: </h4>
                                 <h5 class="mr-4 pr-2 ">Rs {{$presorder->total_price}}</h5>
                             </div>
+                            <div class="col-6">
+
+<div class="table-responsive">
+  <table class="table">
+    <tbody>
+    @foreach($presorder as $order)  
+    <tr>
+      <th style="width:50%">Subtotal:</th>
+      <td>{{$order->total_price}}</td>
+    </tr>
+    <tr>
+      <th style="width:50%">Discount:</th>
+      <td>{{$order->discount}}%</td>
+    </tr>
+    <tr>
+      <th style="width:50%">Tax:</th>
+      <td>{{$order->tax}}%</td>
+    </tr>
+    <tr>
+      <th style="width:50%">Total:</th>
+      <td>{{($order->total_price) - ( ($order->discount/100) * $order->total_price) + (($order->tax/100) * $order->total_price)}}</td>
+    </tr>
+    @endforeach
+ 
+ 
+  </tbody></table>
                             @endif
                         </div>
                     </div>

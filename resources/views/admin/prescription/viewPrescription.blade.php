@@ -46,6 +46,7 @@
                     <form action="{{url('add-prescription-item')}}" method="post" class=" p-2">
                         @csrf
                         <!-- <div class="col-md-6"> -->
+                            <p>Add items from prescription</p>
                         <table>
                             <tr>
                                 <td class=" col-4 p-1">
@@ -91,7 +92,11 @@
 
                 <div class="p-2">
                     <div class="card-header">
-                        <h3 class="card-title">Prescription Items</h3>
+                        <h2 class="card-title"> <strong> Prescription Items </strong></h2>
+                        @if ($presItem->count()>0)
+                        @php
+                        $total =0;
+                        @endphp
 
                         <div class="card-tools">
                             <ul class="pagination pagination-sm float-right">
@@ -104,10 +109,7 @@
                         </div>
                     </div>
                     <table class="table table-bordered table-responsive">
-                        @if ($presItem->count()>0)
-                        @php
-                        $total =0;
-                        @endphp
+                       
 
                         <thead>
                             <tr>
@@ -127,9 +129,9 @@
                                 <td>{{$item->qty}}</td>
                                 <td>{{$item->product->price}}</td>
                                 <td>
+                                    <a href="{{url('edit-prescription-item/'.$item->id)}}" class=""><i class="fas fa-pen" aria-hidden="true"></i> </a>
                                     <a href="{{url('/delete-prescription-item/'.$item->id .'/'.$prescription->id)}}"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
 
-                                    <!-- <a href="{{url('delete-prescription-item/'.$item->id)}}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove</a> -->
                                 </td>
                             </tr>
                             @php
@@ -145,7 +147,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between p-2">
-                    <h4>Grand Total: </h4>
+                    <h4>Total: </h4>
                     <h5 class="mr-4 pr-2 ">Rs {{$total}}</h5>
                 </div>
             </div>
@@ -180,11 +182,12 @@
                             <tr>
                                 <td class="col-sm-5">
                                     <label for="dis" class="form-label">Discount: </label>
-                                    <input type="number" name="discount" class="form-control" id="dis" value="5" min="1" max="100">
+                                    <input type="number" name="discount" class="form-control" id="dis" value="{{$prescription->discount}}" min="1" max="100">
                                 </td>
                                 <td class="col-sm-5"><label for="tax" class="form-label">Tax: </label>
-                                    <input type="number" name="tax" class="form-control" id="dis" value="8" min="1" max="13">
+                                    <input type="number" name="tax" class="form-control" id="dis" value="{{$prescription->tax}}" min="1" max="13">
                                 </td>
+                                <input type="hidden" name="final_price" value="{{($prescription->total_price) - ( ($prescription->discount/100) * $prescription->total_price) + (($prescription->tax/100) * $prescription->total_price)}}">
                                 <td class="col-sm-12 ">
                                     <button type="submit" class="btn btn-success mt-3">Generate Invoice</button>
                                 </td>
@@ -195,21 +198,20 @@
             </div>
             @else
 
-            <div class="p-2">
-
-                <hr>
-
-                <!-- <p>No items added</p> -->
+            <div class="p-3 mt-4">
                 <p>Prescription is yet to be processed.</p>
             </div>
-
-            @endif
-        </div>
-
-
-
-
+            </div>
+            
+      
     </div>
+    @endif
+</div>
+
+
+
+
+</div>
 </div>
 
 </div>

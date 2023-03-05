@@ -139,6 +139,8 @@ Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('u
 Route::get('/prescription',[ImageController::class, 'prescription'])->name('prescription');
 Route::get('/view-prescription/{presId}',[ImageController::class, 'viewPrescription'])->name('viewPrescription');
 Route::post('add-prescription-item',[PrescriptionItemController::class, 'addPresItem'])->name('addPresItem');
+Route::get('edit-prescription-item/{piid}',[PrescriptionItemController::class, 'editPresItem'])->name('editPresItem');
+Route::put('save-prescription-item/{piid}/{pid}',[PrescriptionItemController::class, 'savePresItem'])->name('savePresItem');
 Route::put('update-prescription-order/{id}',[PrescriptionItemController::class, 'updatePresOrder'])->name('updatePresOrder');
 Route::get('delete-prescription-item/{id}/{pid}',[PrescriptionItemController::class, 'deletePresItem'])->name('deletePresItem');
 Route::post('invoice/{pid}',[PrescriptionItemController::class, 'invoice'])->name('invoice');
