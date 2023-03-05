@@ -25,7 +25,7 @@
                         <div class="row checkout-form">
                             <div class="col-md-6">
                                 <label for="">First Name</label>
-                                <input type="text" value="{{ Auth::user()->name}}" name="fname" class="form-control" placeholder="Enter First Name">
+                                <input type="text" value="{{ Auth::user()->name}}" name="fname" class="form-control" placeholder="Enter First Name" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Last Name</label>
@@ -34,7 +34,7 @@
 
                             <div class="col-md-6 mt-3">
                                 <label for="">Email</label>
-                                <input type="text" value="{{ Auth::user()->email}}" name="email" class="form-control" placeholder="Enter Email">
+                                <input type="text" value="{{ Auth::user()->email}}" name="email" class="form-control" placeholder="Enter Email" readonly>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="">Phone Number</label>
@@ -81,20 +81,25 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row mb-3">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Save') }}
-                    </button>
+                        <div class="form-group row mb-3 mt-3d-flex justify-content-center">
+                            <div class="col-md-6 offset-md-4 mt-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Uploiad') }}
+                                </button>
+                            </div>
+                        </div>
                 </div>
+                </form>
             </div>
+            <div class="col-md-5">
+                            <div>
+                                <img id="output" width="400" height="350" src="https://booster.io/wp-content/uploads/product-add-to-cart-e1438362099361.png">
+                            </div>
+                        </div>
         </div>
-        </form>
-                </div>
-            </div>
 
 
-   
+
     </div>
 </div>
 </div>

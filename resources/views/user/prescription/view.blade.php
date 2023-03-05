@@ -53,6 +53,11 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th>Payment</th>
+                                    <th>:</th>
+                                    <td>Cash on Delivery</td>
+                                </tr>
+                                <tr>
                                     <th>Order Status</th>
                                     <th>:</th>
                                     <td>{{$presorder->status == '0'? 'Pending':($presorder->status =='1'? 'Completed':'Cancelled')}}</td>
@@ -89,61 +94,60 @@
                             <table class="table table-bordered text-center ">
                                 <thead>
                                     <th>Product</th>
-                                    <th>Image</th>
                                     <th>Quantity</th>
-                                    <th>Price</th>
+                                    <th>Rate</th>
+                                    <th>Amount</th>
                                 </thead>
                                 <tbody>
                                     @foreach($presItem as $item)
                                     <tr>
                                         <td>{{$item->product->product}}</td>
-                                        <td>
-
-                                        </td>
                                         <td>{{$item->qty}}</td>
                                         <td>{{$item->price}}</td>
+                                        <td>{{$item->price * $item->qty}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            <div class="d-flex justify-content-between">
-                                <h4>Grand Total: </h4>
-                                <h5 class="mr-4 pr-2 ">Rs {{$presorder->total_price}}</h5>
-                            </div>
-                            <div class="col-6">
+                          
+                            <div class="d-flex justify-content-end">
+                                <div class="col-6">
 
-<div class="table-responsive">
-  <table class="table">
-    <tbody>
-    @foreach($presorder as $order)  
-    <tr>
-      <th style="width:50%">Subtotal:</th>
-      <td>{{$order->total_price}}</td>
-    </tr>
-    <tr>
-      <th style="width:50%">Discount:</th>
-      <td>{{$order->discount}}%</td>
-    </tr>
-    <tr>
-      <th style="width:50%">Tax:</th>
-      <td>{{$order->tax}}%</td>
-    </tr>
-    <tr>
-      <th style="width:50%">Total:</th>
-      <td>{{($order->total_price) - ( ($order->discount/100) * $order->total_price) + (($order->tax/100) * $order->total_price)}}</td>
-    </tr>
-    @endforeach
- 
- 
-  </tbody></table>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+
+
+
+                                                <tr>
+                                                    <th style="width:50%">Subtotal:</th>
+                                                    <td>{{$presorder->total_price}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width:50%">Discount:</th>
+                                                    <td>{{$presorder->discount}}%</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width:50%">Tax:</th>
+                                                    <td>{{$presorder->tax}}%</td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width:50%">Total:</th>
+                                                    <td>{{$presorder->final_price}}</td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-@endsection
-
+        @endsection
