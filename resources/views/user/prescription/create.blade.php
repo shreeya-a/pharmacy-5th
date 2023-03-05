@@ -84,7 +84,7 @@
                         <div class="form-group row mb-3 mt-3d-flex justify-content-center">
                             <div class="col-md-6 offset-md-4 mt-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Uploiad') }}
+                                    {{ __('Upload') }}
                                 </button>
                             </div>
                         </div>
