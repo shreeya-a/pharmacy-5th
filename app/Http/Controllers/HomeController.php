@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Order;
+use App\Models\PrescriptionItems;
 use App\Models\Product;
 use App\Models\Section;
 
@@ -62,6 +64,7 @@ class HomeController extends Controller
         return view('product-details', ['product_details' => $product_details, 'product_name' => $product_name, 'section_name' => $section_name]);
     }
 
+    //order details
      public function myOrder()
     {
         $orders = Order::where('user_id',Auth::id())->get();
@@ -71,5 +74,35 @@ class HomeController extends Controller
     {
         $orders = Order::where('id',$id)->where('user_id',Auth::id())->first();
         return view('user.order.view', compact('orders'));
+    }
+
+    //prescription order details
+    public function myPresOrder()
+    {
+        $prescription = Image::where('user_id',Auth::id())->get();
+        return view('user.prescription.index', compact('prescription'));
+    }
+    public function viewmyPresOrder($id)
+    {                         //prescription id
+        $presorder = Image::where('id',$id)->where('user_id',Auth::id())->first();
+        // dd($presorder);
+        $presItem = PrescriptionItems::where('pres_id',$id)->get();
+        // dd($presItem);
+
+        return view('user.prescription.view', compact('presorder','presItem'));
+    }
+    public function cancelPresOrder($id)
+    {
+        $presorder = Image::where('id',$id)->where('user_id',Auth::id())->first();
+        
+        $presorder->status = 2;
+        // dd($presorder);     
+        
+        $presorder->update();
+        $prescription = Image::where('user_id',Auth::id())->get();
+
+        return view('user.prescription.index', compact('prescription'));
+
+        
     }
 }

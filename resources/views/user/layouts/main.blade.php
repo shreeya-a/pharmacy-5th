@@ -68,7 +68,7 @@
     </div>
 
 
-
+   
     <!--====== Jquery js ======-->
     <script src="{{asset('userpanel/assets/js/vendor/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('userpanel/assets/js/vendor/modernizr-3.7.1.min.js')}}"></script>

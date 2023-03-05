@@ -54,8 +54,6 @@ class CheckoutController extends Controller
 
         if (Auth::user()->address == Null) {
             $user = User::where('id', Auth::id())->first();
-            $user->name = $req->input('fname');
-            $user->lname = $req->input('lname');
             $user->phone = $req->input('phone');
             $user->address = $req->input('address');
             $user->city = $req->input('city');

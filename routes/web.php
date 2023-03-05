@@ -13,10 +13,9 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\PrescriptionItemController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ImageController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +41,11 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
+
+// invoice
+Route::get('/invoice', function () {
+    return view('admin.invoice');
+});
 Route::get('/', function () {
     return view('user.index');
 });
@@ -58,8 +62,8 @@ Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('send');
 
 // Prescription page
-Route::get('/image', [ImageController::class, 'create'])->name('image');
-Route::post('/image', [ImageController::class, 'store'])->name('image.store');
+Route::get('/upload-prescription', [ImageController::class, 'create'])->name('image');
+Route::post('/prescription', [ImageController::class, 'store'])->name('prescriptionStore');
 //Route::get('/upload', [ImageController::class, 'upload'])->name('upload');
 
 
@@ -116,6 +120,13 @@ Route::middleware(['auth'])->group(function (){
     //my-order
     Route::get('my-order',[HomeController::class,'myOrder'])->name('myOrder');
     Route::get('view-my-order/{id}',[HomeController::class,'viewmyOrder'])->name('viewmyOrder');
+
+    //prescription order
+    Route::get('my-prescription',[HomeController::class,'myPresOrder'])->name('myPresOrder');
+    Route::get('view-prescription-order/{id}',[HomeController::class,'viewmyPresOrder'])->name('viewmyPresOrder');
+    Route::get('cancel-prescription-order/{id}',[HomeController::class,'cancelPresOrder'])->name('cancelPresOrder');
+
+
 });
 
 //order handling by admin
@@ -123,3 +134,15 @@ Route::get('/order',[OrderController::class, 'index'])->name('order');
 Route::get('/order-history',[OrderController::class, 'orderHistory'])->name('orderHistory');
 Route::get('view-order/{id}',[OrderController::class, 'viewOrder'])->name('viewOrder');
 Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('updateOrder');
+
+//prescription handling by admin
+Route::get('/prescription',[ImageController::class, 'prescription'])->name('prescription');
+Route::get('/view-prescription/{presId}',[ImageController::class, 'viewPrescription'])->name('viewPrescription');
+Route::post('add-prescription-item',[PrescriptionItemController::class, 'addPresItem'])->name('addPresItem');
+Route::get('edit-prescription-item/{piid}',[PrescriptionItemController::class, 'editPresItem'])->name('editPresItem');
+Route::put('save-prescription-item/{piid}/{pid}',[PrescriptionItemController::class, 'savePresItem'])->name('savePresItem');
+Route::put('update-prescription-order/{id}',[PrescriptionItemController::class, 'updatePresOrder'])->name('updatePresOrder');
+Route::get('delete-prescription-item/{id}/{pid}',[PrescriptionItemController::class, 'deletePresItem'])->name('deletePresItem');
+Route::post('invoice/{pid}',[PrescriptionItemController::class, 'invoice'])->name('invoice');
+Route::get('print-invoice/{pid}',[PrescriptionItemController::class, 'print_invoice'])->name('print_invoice');
+

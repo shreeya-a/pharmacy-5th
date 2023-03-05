@@ -50,6 +50,24 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('order')}}" class="nav-link {{ Request::is('order') ? 'active':''; }}">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+               Orders
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('prescription')}}" class="nav-link {{ Request::is('prescription') ? 'active':''; }}">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+               Prescription
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
           <li class="nav-item  ">
             <a href="{{route('category')}}" class="nav-link {{ Request::is('category') ? 'active':''; }} ">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -97,15 +115,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{route('order')}}" class="nav-link {{ Request::is('order') ? 'active':''; }}">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-               Orders
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+   
           <li class="nav-item">
             <a href="#" class="nav-link {{ Request::is('user') ? 'active':''; }}">
               <i class="nav-icon fas fa-user"></i>

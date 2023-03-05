@@ -31,7 +31,8 @@
                                 <td>{{$SN++}}</td>
                                 <td>{{$item->tracking_no}}</td>
                                 <td>{{$item->total_price}}</td>
-                                <td>{{$item->status == '0'? 'Pending':'Completed'}}</td>
+                                <td>{{$item->status == '0'? 'Pending':($item->status=='1'? 'Completed': 'Cancelled')}}</td>
+
                                 <td><a href="{{url('view-my-order/'. $item->id)}}" class="btn btn-primary">View</a></td>
 
                             </tr>
