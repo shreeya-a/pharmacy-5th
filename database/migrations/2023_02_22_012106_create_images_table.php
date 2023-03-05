@@ -27,6 +27,8 @@ return new class extends Migration
             $table->tinyInteger('status')->default('0');
             $table->string('total_price')->default('0');
             $table->string('tracking_no')->nullable();
+            $table->tinyInteger('discount')->default('5');
+            $table->tinyInteger('tax')->default('13');
 
             $table->timestamps();
         });

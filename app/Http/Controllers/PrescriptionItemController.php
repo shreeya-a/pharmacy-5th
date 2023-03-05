@@ -30,7 +30,13 @@ class PrescriptionItemController extends Controller
     {
         $order= Image::find($id);
         $order->status = $req->input('order_status');
-        // $order->tracking_no = rand(11111, 99999);
+   
+        $date = date('Ymd');
+        // dd($date);
+        if($order->tracking_no == NULL){
+
+            $order->tracking_no = $date . rand(11111, 99999);
+        }
  //to claculate total price
  $total = 0;
  $presItem_total = PrescriptionItems::where('pres_id', $id)->get();
@@ -41,7 +47,8 @@ class PrescriptionItemController extends Controller
 
  $order->total_price = $total;
         $order->update();
-        return redirect()->route('prescription')-> with('status', "Prescription Order updated successfully");
+        return redirect()->route('viewPrescription',$id)->with('success',"Product added successfully");
+
 
     }
     public function deletePresItem($id , $pid)
@@ -49,8 +56,22 @@ class PrescriptionItemController extends Controller
         // dd("hello");s
         $item = PrescriptionItems::find($id);
         $item->delete();
-        return redirect()->route('viewPrescription',$pid)->with('success',"Product added successfully");
+        return redirect()->route('viewPrescription',$pid)->with('success',"Product deleted successfully");
 
 
+    }
+
+    public function invoice (Request $req,$pid)
+    {
+        $presorder= Image::find($pid);
+        $presorder->discount = $req->input('discount');
+        $presorder->tax = $req->input('tax');
+      $presorder->update();
+
+
+        $pres =  Image::where('id', $pid)->get();
+   
+        $presItem = PrescriptionItems::where('pres_id', $pid)->get();
+        return view('admin.invoice', compact('pres','presItem'));
     }
 }
