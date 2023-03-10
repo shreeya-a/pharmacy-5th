@@ -28,7 +28,7 @@
             @if($cartItem->count()>0)
             <div class="table-responsive">
                 <div class="col-md-12 text-right mb-3">
-                    <a href="javascript:void(0)" class="clear_cart font-weight-bold">Clear Cart</a>
+                    <a href="{{route('clearCart')}}" class="clear_cart font-weight-bold delete"  data-confirm="Are you sure to clear cart?">Clear Cart</a>
                 </div>
                 <table class="table text-center">
                     <thead>
@@ -110,6 +110,7 @@
 
 @section('scripts')
 <script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
+<script src="{{asset('admin/dist/js/delete.js')}}"></script>
 
 <!-- <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script> -->
 

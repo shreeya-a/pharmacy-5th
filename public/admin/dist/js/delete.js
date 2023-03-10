@@ -8,6 +8,8 @@ for (var i = 0; i < deleteLinks.length; i++) {
 
         if (choice) {
             window.location.href = this.getAttribute('href');
+            window.location.reload();
+
         }
     });
 }

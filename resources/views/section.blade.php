@@ -24,6 +24,7 @@
                                 <h4 class="m-2"> {{$product->product}}</h4>
                                 <p class="m-2">Rs {{$product->price}}</p>
                         </a>
+                        @if($product->prescribed == 0)
                         <div class="product-btn mt-2 mb-2">
                             <button type="button" class="main-btn primary-btn addToCartBtn">
                                 <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
@@ -31,6 +32,9 @@
                             </button>
                             <input type="hidden" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1">
                         </div>
+                        @else
+                        <p  class="mt-2 mb-2 p-2" style="color:red;">*** Presciption required ***</p>
+                        @endif
                     </div>
                 </div>
             </div>

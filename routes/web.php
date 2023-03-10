@@ -113,6 +113,7 @@ Route::post('update-to-cart',[CartController::class,'updateProduct'])->name('upd
 
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
+    Route::get('clear-cart',[CartController::class, 'clearCart'])->name('clearCart');
 
     //checkout
     Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
