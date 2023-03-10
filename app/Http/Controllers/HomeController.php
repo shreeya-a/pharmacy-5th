@@ -52,8 +52,10 @@ class HomeController extends Controller
     {
     
         $section_product = Product::where('section_id', $section)->get();
+        $section = Section::where('id',$section)->get('section');
+        // dd($section);
 
-        return view('section', ['section_product' => $section_product]);
+        return view('section', compact('section_product', 'section'));
     }
 
     // return redirect()->route('login');

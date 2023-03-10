@@ -1,6 +1,17 @@
 @extends('user.layouts.main')
 
 @section('content')
+<!-- <div class="py-3 mb-4 shadow-sm bg-primary-light border-top">
+    <div class="container">
+        <h6 class="mb-0">
+            <a href="{{url('/')}}">Home</a>
+            /
+          <a href="">{{$section_name}}</a>
+          /
+          <a href="">{{$product_name}}</a>
+        </h6>
+    </div>
+</div> -->
 <section class="breadcrumbs-wrapper pt-2 pb-2">
     <div class="container">
         <div class="row">
