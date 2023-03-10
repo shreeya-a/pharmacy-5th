@@ -10,15 +10,16 @@
 
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center mt-5">
+        <div class="row justify-content-end">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center mt-5" >
                 @if(Session::has('success'))
 
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success fade-message" role="alert">
                     {{Session::get('success')}}
                 </div>
                 @endif
             </div>
+  
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
             <a href="{{route('addProduct')}}" class="btn btn-primary me-md-2">+Add Product</a>
@@ -77,7 +78,7 @@
                                     </td>
                                     <td>
                                         <a href="{{url('/edit-product/'.$value->id)}}" ><i class="fas fa-pen" aria-hidden="true"></i></a>
-                                        <a href="{{url('/delete-product/'.$value->id)}}"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
+                                        <a href="{{url('/delete-product/'.$value->id)}}" class="delete" data-confirm="Are you sure to delete {{$value->product}}?"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
 
                                     </td>
                                 </tr>
@@ -93,10 +94,17 @@
         </div>
         <!-- /.row -->
     </div>
-</div>
-
+</div> 
+<script>
+    $(function(){
+        setTimeout(function() {
+            $('.fade-message').slideUp();
+        }, 2000);
+    });
+    </script>
 
 @endsection
 @section('script-table')
 <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('admin/dist/js/delete.js')}}"></script>
 @endsection

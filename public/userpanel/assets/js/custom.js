@@ -28,8 +28,8 @@ $(document).ready(function () {
                 product_qty: product_qty,
             },
             success: function (response) {
-                alert(response.status);
-                // swal(response.status);
+                // alert(response.status);
+                swal(response.status);
                 // sweetalert
             },
         });

@@ -82,7 +82,7 @@
                                     <td>{{$category->category}}</td>
                                     <td>
                                         <a href="{{url('/edit-category/'.$category->id)}}"><i class="fas fa-pen" aria-hidden="true"></i></a>
-                                        <a href="{{url('/delete-category/'.$category->id)}}"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
+                                        <a href="{{url('/delete-category/'.$category->id)}}" class="delete" data-confirm="Are you sure to delete {{$category->category}}?"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
                                     </td>
 
                                 </tr>
@@ -106,4 +106,5 @@
 
 @section('script-table')
 <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('admin/dist/js/delete.js')}}"></script>
 @endsection

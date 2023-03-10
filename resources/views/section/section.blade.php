@@ -86,7 +86,7 @@
                                     <!-- <a href="{{url('/edit-section/'.$section->id)}}" class="btn btn-warning">Edit</a> -->
                                     <a href="{{url('/edit-section/'.$section->id)}}"><i class="fas fa-pen" aria-hidden="true"></i></a>
                                     <!-- <a href="{{url('/delete-section/'.$section->id)}}" class="btn btn-danger">Delete</a> -->
-                                    <a href="{{url('/delete-section/'.$section->id)}}" ><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
+                                    <a href="{{url('/delete-section/'.$section->id)}}" class="delete" data-confirm="Are you sure to delete {{$section->section}}?"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
                                 </td>
 
                             </tr>
@@ -110,4 +110,5 @@
 
 @section('script-table')
 <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('admin/dist/js/delete.js')}}"></script>
 @endsection
