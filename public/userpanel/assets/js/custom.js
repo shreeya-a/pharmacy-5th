@@ -85,7 +85,7 @@ $(document).ready(function () {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
             });
-     
+           
         $.ajax({
             method: "POST",
             url: "delete-cart-item",
