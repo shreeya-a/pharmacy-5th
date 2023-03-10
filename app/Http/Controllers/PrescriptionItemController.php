@@ -51,6 +51,21 @@ class PrescriptionItemController extends Controller
 
 
     }
+    public function cancelPres( $id){
+        $order= Image::find($id);
+        $order->status = 2;
+        // dd($presorder);     
+        $prescription = Image::all();
+        
+        $order->update();
+        return view('admin.prescription.index', compact('prescription'));  
+
+     
+  
+  
+
+
+    }
     public function deletePresItem($id , $pid)
     {
         // dd("hello");s
@@ -75,7 +90,7 @@ class PrescriptionItemController extends Controller
 
       
     }
-    
+
 
     public function invoice (Request $req,$pid)
     {

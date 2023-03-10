@@ -79,6 +79,7 @@ class ProductController extends Controller
         }
         public function editProduct($id)
         {
+         
             $product= Product::find($id);
             $category = Category::all();
             $section = Section::all();
@@ -88,6 +89,8 @@ class ProductController extends Controller
         }
         public function updateProduct(Request $req)
         {
+        
+
             $productObj = Product::find($req->id);
         
             if ($req->hasFile('image')) {

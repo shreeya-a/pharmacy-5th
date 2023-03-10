@@ -39,7 +39,7 @@
                                     <!-- <div class="mb-2"> -->
                                     <td> <label for="product" class="form-label">Product:</label></td>
 
-                                    <td class="col-sm-12 p-2"> <input type="text" class="form-control text-capitalize" name="product" id="product" value="{{$product->product}}"></td>
+                                    <td class="col-sm-12 p-2"> <input type="text" class="form-control text-capitalize" name="product" id="product" value="{{$product->product}}" required></td>
 
                                 </tr>
                                 <tr>
@@ -47,7 +47,7 @@
                                     <td><label for="category" class="form-label">Category:</label></td>
                                     <td class="p-2">
                                         <select class=" form-control" name="category" id="category">
-                                            <option type="hidden" value="{{$product->category_id }}">{{$product->category_id }}</option>
+                                            <option type="hidden" value="{{$product->category_id }}">{{$product->category->category }}</option>
                                             @foreach($category as $category)
                                             <option value="{{$category ->id }}">{{$category ->category }}</option>
                                             @endforeach
@@ -58,7 +58,7 @@
                                     <!-- <div class="mb-2"> -->
                                     <td> <label for="section" class="form-label">Section:</label></td>
                                     <td class="p-2"> <select class=" form-control" name="section" id="section">
-                                    <option type="hidden" value="{{$product->section_id }}">{{$product->section_id }}</option>
+                                    <option type="hidden" value="{{$product->section_id }}">{{$product->section->section }}</option>
                                             @foreach($section as $section)
                                             <option value="{{$section ->id }}">{{$section ->section }}</option>
                                             @endforeach
@@ -70,7 +70,7 @@
                                     <!-- <div class="mb-2"> -->
                                     <td><label for="price" class="form-label">Price:</label></td>
                                     <td class="p-2">
-                                        <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}">
+                                        <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}" required>
                                     </td>
                                 </tr>
 
@@ -78,13 +78,13 @@
                                     <!-- <div class="mb-4"> -->
                                     <td><label for="description" class="form-label">Description:</label></td>
                                     <td class="p-2">
-                                        <textarea rows="3" class="form-control" name="description" id="description" value=""> {{$product->description}}</textarea>
+                                        <textarea rows="3" class="form-control" name="description" id="description" value="" required> {{$product->description}}</textarea>
                                     </td>
                                 </tr>
                                 <tr>
                                     <!-- <div class="input-group mb-2"> -->
                                     <td> <label for="image" class="form-label">Image:</label></td>
-                                    <td class="p-2"> <input type="file" name="image" class="form-control p-1"></td>
+                                    <td class="p-2"> <input type="file" name="image" class="form-control p-1" required></td>
                                     <!--  -->
                                 </tr>
                                 </tr>

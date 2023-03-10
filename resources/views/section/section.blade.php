@@ -26,7 +26,7 @@
             <form action="{{route('addSection')}}" method="post">
                 @csrf
                 <div class="input-group">
-                    <input class="form-control text-capitalize" type="text" placeholder="Enter new section" name="section" aria-describedby="basic-addon2">
+                    <input class="form-control text-capitalize  @error('section') is-invalid @enderror" type="text" placeholder="Enter new section" name="section" aria-describedby="basic-addon2">
                     <div class="input-group-append" style="margin-left: 5px;">
                         <button type="submit" class="btn btn-primary">Add section</button>
                     </div>

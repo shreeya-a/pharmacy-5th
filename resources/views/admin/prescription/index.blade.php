@@ -48,12 +48,21 @@
                                 <td>{{$pres->updated_at->format('Y-m-d') }}</td>
                                 <td>{{$pres -> status == '0'? 'Pending':( $pres->status == '1'? 'Complete': 'Cancelled')}}</td>
                                 <!-- <td>{{$pres -> status == '0'? 'Pending':'Completed'}}</td> -->
-
+                                @if ($pres ->status =='0')
                                 <td>
+                                    <a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">View</a>
+                                <a href="{{url('cancel-prescription/'. $pres->id)}}" class="btn btn-danger">Cancel</a>
+                            </td>
+                                @elseif ($pres ->status == '1')
+                                <td><a href="{{url('view-prescription-order/'. $pres->id)}}" class="btn btn-primary">View</a></td>
+                                @else 
+                                <td></td>
+                                @endif
+                                <!-- <td>
                                 <a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">Details</a>
 
                                     
-                                </td>
+                                </td> -->
 
                             </tr>
                             @endforeach

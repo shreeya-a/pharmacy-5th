@@ -29,7 +29,7 @@
             <form action="{{route('addCategory')}}" method="post">
                 @csrf
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Enter new category" name="category" aria-describedby="basic-addon2">
+                    <input class="form-control  text-capitalize @error('category') is-invalid @enderror" type="text" placeholder="Enter new category" name="category" aria-describedby="basic-addon2">
                     <div class="input-group-append" style="margin-left: 5px;">
                         <button type="submit" class="btn btn-primary">Add Category</button>
                     </div>
