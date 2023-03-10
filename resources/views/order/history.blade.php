@@ -7,10 +7,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-header bg-primary d-flex justify-content-around ">
+                    <div class="card-header bg-primary  ">
                         <h4 class="text-white">Order history</h4>
+                        <div class="d-flex justify-content-end">
                         <a href="{{url('order')}}" class="btn btn-success">Back</a>
-                    </div>
+                        </div>
+                    </div>  
                     @php
                     $SN=1;
                     @endphp

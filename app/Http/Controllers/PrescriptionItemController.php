@@ -11,6 +11,10 @@ class PrescriptionItemController extends Controller
 {
     //
     public function addPresItem(Request $req){
+        $req->validate([
+            'prod_qty' => 'required',
+            'message' => 'required'
+        ]);
         $presItem = new PrescriptionItems();
         $presItem->pres_id = $req->pres_id;
         $presItem->prod_id = $req->prod_id;
