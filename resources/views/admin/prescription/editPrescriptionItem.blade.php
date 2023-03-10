@@ -65,9 +65,10 @@
 
                 <div class="p-2">
                     <label for="message" class="form-label mt-3">Message:</label>
-                    <textarea name="message" id="message" class="form-control col-md-12" cols="30" rows="5">{{$pitem->message}}</textarea>
+                    <textarea name="message" id="message" class="form-control col-md-12" cols="30" rows="5" required>{{$pitem->message}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 align-center">Save Changes</button>
+     
 
             </form>
         </div>

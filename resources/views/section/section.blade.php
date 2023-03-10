@@ -3,9 +3,6 @@
 @section('content')
 
 <div class="content-wrapper bg-white">
-    <div class="content-header bg-white">
-        <h1 class="mt-8 text-center">Section</h1>
-    </div>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -51,23 +48,13 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Fixed Header Table</h3>
+                    <h3 class="card-title">Section Table</h3>
 
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                 
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 300px;">
-                    <table class="table table-head-fixed text-nowrap">
+                <div class="card-body table-responsive p-0" >
+                    <table class="table  text-nowrap">
                         <thead>
                             <tr>
                                 <th>SN</th>

@@ -31,22 +31,11 @@
                     <div class="card-header">
                         <h3 class="card-title text-bold">Product Table</h3>
 
-                        <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
+                       
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0" style="height: 500px;">
-                        <table class="table table-head-fixed text-nowrap">
+                    <div class="card-body table-responsive p-0" >
+                        <table class="table  ">
                             <thead class="text-center p-4">
                                 <th>SN</th>
                                 <th>ID</th>
@@ -105,7 +94,7 @@
 
 @endsection
 @section('script-table')
-<script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<!-- <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script> -->
 <script src="{{asset('admin/dist/js/delete.js')}}"></script>
 
 @endsection
