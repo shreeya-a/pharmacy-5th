@@ -49,11 +49,11 @@ class HomeController extends Controller
     {
         return view('register');
     }
-    public  function section($section)
+    public  function section($section, $section_id)
     {
     
-        $section_product = Product::where('section_id', $section) ->orderBy('id','desc')->paginate(12);
-        $section = Section::where('id',$section)->get('section');
+        $section_product = Product::where('section_id', $section_id) ->orderBy('id','desc')->paginate(12);
+        $section = Section::where('id',$section_id)->get('section');
         // dd($section);
 
         return view('section', compact('section_product', 'section'));

@@ -28,6 +28,9 @@
                                 <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('viewCart')}}">
                                     <img src="{{asset('userpanel/assets/images/icon-svg/cart-1.svg')}}" alt="Icon">
                                     <span class="icon-text text-style-1">88</span>
+
+
+
                                 </a>
 
                                 <div class="navbar-cart-dropdown">
@@ -36,50 +39,7 @@
                                             <h6 class="title">Shopping Cart</h6>
                                         </div>
 
-                                        <div class="checkout-table table-responsive">
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="checkout-product">
-                                                            <div class="product-cart d-flex">
-                                                                <div class="product-thumb">
-                                                                    <img src="{{asset('userpanel/assets/images/product-cart/product-1.png')}}" alt="Product">
-                                                                </div>
-                                                                <div class="product-content media-body">
-                                                                    <h5 class="title">
-                                                                        <a href="product-details-page.html">Hollow Port</a>
-                                                                    </h5>
-                                                                    <ul>
-                                                                        <li><span>Brown</span></li>
-                                                                        <li><span>XL</span></li>
-                                                                        <li>
-                                                                            <a class="delete" href="javascript:void(0)">
-                                                                                <i class="mdi mdi-delete"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="checkout-quantity">
-                                                            <div class="product-quantity d-inline-flex">
-                                                                <button type="button" id="sub" class="sub">
-                                                                    <i class="mdi mdi-minus"></i>
-                                                                </button>
-                                                                <input type="text" value="1">
-                                                                <button type="button" id="add" class="add">
-                                                                    <i class="mdi mdi-plus"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                        <td class="checkout-price">
-                                                            <p class="price">$36.00</p>
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                  
 
                                         <div class="checkout-footer">
                                             <div class="checkout-sub-total d-flex justify-content-between">
@@ -177,17 +137,17 @@
                             </div>
                             <!-- desktop logo Ends -->
                             <!-- navbar menu Start -->
-                            <div class="navbar-menu">
+                            <!-- <div class="navbar-menu">
                                 <ul class="main-menu">
                                     <li><a href="{{url('/sectionnav/'.'1')}}">Ayurveda</a></li>
                                     <li><a href="{{url('/sectionnav/'.'2')}}">Hair Care</a></li>
                                     <li><a href="{{url('/sectionnav/'.'3')}}">Personal Care</a></li>
                                     <li><a href="{{url('/sectionnav/'.'4')}}">Baby Care</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'5')}}">Skin Care</a></li>
-                                    <!-- <li><a href="{{url('/sectionnav/'.'Ayurveda')}}">Ayurveda</a></li> -->
+                                    <li><a href="{{url('/sectionnav/'.'5')}}">Skin Care</a></li> -->
+                            <!-- <li><a href="{{url('/sectionnav/'.'Ayurveda')}}">Ayurveda</a></li> -->
 
-                                </ul>
-                            </div>
+                            <!-- </ul>
+                            </div> -->
                             <!-- navbar menu Ends -->
 
                             <!-- navbar menu Start -->
@@ -197,12 +157,15 @@
                                     <li><a href="{{route('about')}}">About</a></li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                     <li class="menu-item-has-children">
-                                        <a href="#">Section</a>
+                                        <a href="#">Sections</a>
                                         <!-- sub menu Start -->
-                                        <!-- <ul class="sub-menu">
+                                        <ul class="sub-menu">
                                             @foreach($cats as $cat)
+                                            @if ($cat->section == 'Medicine')
+                                            @continue;
+                                            @endif
                                             <li><a href="{{url('/section/'.$cat->section.'/'.$cat->id)}}">{{$cat->section}}</a></li>
-                                            @endforeach -->
+                                            @endforeach
                                             <!-- 
                                             <li><a href="{{url('/sectionnav/'.'Hair Care')}}">Hair Care</a></li>
                                             <li><a href="{{url('/sectionnav/'.'Personal Care')}}">Personal Care</a></li>
@@ -216,7 +179,7 @@
                                 </ul>
 
                                 </ul>
-                                
+
                             </div>
                             <!-- navbar menu Ends -->
 
@@ -238,68 +201,7 @@
                                         <span class="icon-text text-style-1">88</span>
                                     </a>
 
-                                    <div class="navbar-cart-dropdown">
-                                        <div class="checkout-style-2">
-                                            <div class="checkout-header d-flex justify-content-between">
-                                                <h6 class="title">Shopping Cart</h6>
-                                            </div>
-
-                                            <div class="checkout-table">
-                                                <table class="table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="checkout-product">
-                                                                <div class="product-cart d-flex">
-                                                                    <div class="product-thumb">
-                                                                        <img src="{{asset('userpanel/assets/images/product-cart/product-1.png')}}" alt="Product">
-                                                                    </div>
-                                                                    <div class="product-content media-body">
-                                                                        <h5 class="title">
-                                                                            <a href="product-details-page.html">Hollow Port</a>
-                                                                        </h5>
-                                                                        <ul>
-                                                                            <li><span>Brown</span></li>
-                                                                            <li><span>XL</span></li>
-                                                                            <li>
-                                                                                <a class="delete" href="javascript:void(0)">
-                                                                                    <i class="mdi mdi-delete"></i>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="checkout-quantity">
-                                                                <div class="product-quantity d-inline-flex">
-                                                                    <button type="button" id="sub" class="sub">
-                                                                        <i class="mdi mdi-minus"></i>
-                                                                    </button>
-                                                                    <input type="text" value="1">
-                                                                    <button type="button" id="add" class="add">
-                                                                        <i class="mdi mdi-plus"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                            <td class="checkout-price">
-                                                                <p class="price">$36.00</p>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div class="checkout-footer">
-                                                    <div class="checkout-sub-total d-flex justify-content-between">
-                                                        <p class="value">Subtotal Price:</p>
-                                                        <p class="price">$144</p>
-                                                    </div>
-                                                    <br>
-                                                    <div class="checkout-btn">
-                                                        <a href="cart-page.html" class="main-btn primary-btn-border">View Cart</a>
-                                                        <a href="checkout-page.html" class="main-btn primary-btn">Checkout</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                     <!-- navbar cart Ends -->
                                 </div>
                                 <div class="account">

@@ -16,9 +16,11 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\PrescriptionItemController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ImageController;
+use App\Models\Cart;
 use App\Models\Section;
 // use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 
@@ -58,10 +60,25 @@ Route::get('/', function () {
 //     return view('product.product');
 // });
 
-Facades\View::composer('*', function (View $view) {
+Facades\View::composer('*', function (View $view ) {
     // ...
     $cats = Section::all();
     $view->with('cats', $cats);
+
+
+});
+
+Facades\View::composer('*', function (View $count ) {
+    // ...
+
+    if (Auth::check()) {
+        $count = Cart::where('user_id' , Auth::id())->count();
+    }
+
+    // dd($count);
+    // return $count;
+    // $count->with('count', $count);
+//   return  $count-> with(['count' => $count]);
 
 });
 
@@ -79,13 +96,13 @@ Route::get('/upload-prescription', [ImageController::class, 'create'])->name('im
 Route::post('/prescription', [ImageController::class, 'store'])->name('prescriptionStore');
 //Route::get('/upload', [ImageController::class, 'upload'])->name('upload');
 
-Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('section');
 
-
+//home controller main views
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
 // Route::get('/sectionnav/{section}', [HomeController::class, 'section'])->name('section');
 // Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
+Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('section');
 Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 // Route::get('{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 
@@ -111,7 +128,7 @@ Route::get('/edit-product/{id}', [ProductController::class, 'editProduct'])->nam
 Route::put('/update-product', [ProductController::class, 'updateProduct'])->name('updateProduct');
 
 
-//section
+//admin section
 Route::get('/section', [SectionController::class,'section'])->name('section');
 Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');
 Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit');
