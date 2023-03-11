@@ -31,14 +31,14 @@
             <div class="row product_data">
                 @foreach($section_product as $product)
                 <div class="col-md-3 mb-3">
-                    <div class="card product_data">
+                    <div class="card  product_data">
                         <!-- <a href="{{url($product->product.'/'.$product->id)}}"> -->
                         <a href="{{url('section/'.$product->section->section.'/'.$product->product.'/'.$product->id)}}">
                             <!-- <a href="{{url('product-details/'.$product->id)}}"> -->
                             <div class="image">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img" width="250" height="250">
                             </div>
-
+<!-- <hr class="m-0 black"> -->
                             <div class="card-body text-center ">
                                 <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
                                 <h4 class="m-2"> {{$product->product}}</h4>

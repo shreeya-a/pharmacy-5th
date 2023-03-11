@@ -10,3 +10,8 @@
     font-weight: 400;
     text-transform: capitalize;
 }
+
+    .card product_data :hover{
+        border: 1px solid #3E7DC0 !important;
+        
+    }

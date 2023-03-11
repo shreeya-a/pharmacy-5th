@@ -4,7 +4,7 @@
 
 <style>
     .card:hover{
-        cursor: pointer;
+        border: 1px solid #3E7DC0 !important;
         
     }
 </style>
@@ -106,7 +106,7 @@
                             <div class="img-wrapper">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
-                            <div class="card-body justify-content-center gray-bg ">
+                            <div class="card-body justify-content-center ">
                                 <h4 class="text-capitalize "> {{$product->product}}</h4>
                                 <p>Rs {{$product->price}}</p>
                                 <div class="mt-4 mb-4">
@@ -146,7 +146,7 @@
                             <div class="img-wrapper">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
-                            <div class="card-body justify-content-center gray-bg ">
+                            <div class="card-body justify-content-center ">
                                 <h4 class="text-capitalize "> {{$product->product}}</h4>
                                 <p>Rs {{$product->price}}</p>
                                 <div class="mt-4 mb-4">
