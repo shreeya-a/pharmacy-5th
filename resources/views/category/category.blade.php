@@ -83,6 +83,9 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
+                <div class="row">
+                    {{$categorys->links()}}
+                </div>
             </div>
         </div>
         <!-- /.row -->

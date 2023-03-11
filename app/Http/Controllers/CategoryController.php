@@ -12,7 +12,7 @@ class CategoryController extends Controller
     //
     public  function category()
     {
-        $categorys = Category::all();
+        $categorys = Category::orderBy('id','desc')->paginate(10);
         return view('category.category', compact('categorys'));
     }
 

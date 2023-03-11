@@ -11,7 +11,7 @@ class SectionController extends Controller
     //
     public  function section()
     {
-        $sections = Section::paginate(3);
+        $sections = Section::orderBy('id','desc')->paginate(10);
         return view('section.section', compact('sections'));
     }
 

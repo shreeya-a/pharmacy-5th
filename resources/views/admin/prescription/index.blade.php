@@ -6,7 +6,7 @@
     <!-- <div class="container"> -->
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow-none">
                 <div class="card-body">
                     <div class="card-header bg-primary d-flex justif ">
                         <div class="me-auto">
@@ -16,7 +16,8 @@
                         @php
                         $SN=1;
                         @endphp
-                        <table class="table table-bordered my-3">
+                        <div class="card-body table-responsive p-0 mt-1" style="height: 500px;">
+                        <table class="table table-head-fixed table-bordered text-nowrap">
                             <thead>
                                 <tr>
                                     <td>SN</td>
@@ -63,6 +64,9 @@
                     </div>
                     <!-- </div> -->
                 </div>
+            </div>
+            <div class="row ml-5">
+                {{$prescription->links()}}
             </div>
         </div>
     </div>

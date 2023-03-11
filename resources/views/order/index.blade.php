@@ -5,8 +5,8 @@
     <!-- <div class="container"> -->
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
+            <div class="card p-4">
+                <!-- <div class="card-body table-responsive p-0"> -->
                     <div class="card-header bg-primary ">
                         <div class="me-auto">
                             <h4 class="text-white">New Orders</h4>
@@ -23,31 +23,33 @@
                     @php
                     $SN=1;
                     @endphp
-                    <table class="table table-bordered my-3">
-                        <thead>
-                            <tr>
-                                <td>SN</td>
-                                <td>Name</td>
-                                <td>Tracking no.</td>
-                                <td>Total Price</td>
-                                <td>Order Date</td>
-                                <td>Status</td>
-                                <td>View Details</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($orders as $order)
-                            <tr>
-                                <td>{{$SN++}}</td>
-                                <td>{{$order->fname}}</td>
-                                <td>{{$order->tracking_no}}</td>
-                                <td>{{$order->total_price}}</td>
-                                <td>{{$order->updated_at->format('Y-m-d') }}</td>
-                                <td>{{$order->status == '0' ? 'Pending' :($order->status == '1'?'Completed': 'Cancelled')}}</td>
-                                <td>
-                                    <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">Details</a>
-                                </td>
-                                <!-- <td>
+                    <!-- <div class="card-body table-responsive p-0" > -->
+                    <div class="card-body table-responsive p-0 mt-1" style="height: 500px;">
+                        <table class="table table-head-fixed table-bordered text-nowrap">
+                            <thead>
+                                <tr>
+                                    <td>SN</td>
+                                    <td>Name</td>
+                                    <td>Tracking no.</td>
+                                    <td>Total Price</td>
+                                    <td>Order Date</td>
+                                    <td>Status</td>
+                                    <td>View Details</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($orders as $order)
+                                <tr>
+                                    <td>{{$SN++}}</td>
+                                    <td>{{$order->fname}}</td>
+                                    <td>{{$order->tracking_no}}</td>
+                                    <td>{{$order->total_price}}</td>
+                                    <td>{{$order->updated_at->format('Y-m-d') }}</td>
+                                    <td>{{$order->status == '0' ? 'Pending' :($order->status == '1'?'Completed': 'Cancelled')}}</td>
+                                    <td>
+                                        <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">Details</a>
+                                    </td>
+                                    <!-- <td>
                                         @if($order->status == '0')
                                         <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a>
                                     <a href="{{url('view-order/'. $order->id)}}" class="btn btn-danger">Cancel Order</a>
@@ -55,12 +57,15 @@
                                     <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a>
                                     @endif
                                 </td> -->
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <!-- </div> -->
+            </div>
+            <div class="row">
+                {{$orders->links()}}
             </div>
         </div>
     </div>

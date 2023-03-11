@@ -79,7 +79,7 @@ class ImageController extends Controller
 
     // for admin section
     public function prescription(){
-        $prescription = Image::all();
+        $prescription = Image::orderBy('id','desc')->paginate(10);
         //yo garna chai ali mildaina
     //    $name= Auth::user()->name;
         return view('admin.prescription.index', compact('prescription'));  

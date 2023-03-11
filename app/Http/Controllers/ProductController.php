@@ -15,7 +15,7 @@ class ProductController extends Controller
     //
     public  function product()
     {
-        $product = Product::all();
+        $product = Product::orderBy('id', 'desc')->paginate(10);
         return view('product.product',compact('product'));
     }
     public  function addProduct()

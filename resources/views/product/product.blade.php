@@ -38,7 +38,7 @@
                         <table class="table table-head-fixed text-nowrap">
                             <thead class="text-center p-4">
                                 <th>SN</th>
-                                <th>ID</th>
+                                <!-- <th>ID</th> -->
                                 <th>Product</th>
                                 <th>Category</th>
                                 <th>Section</th>
@@ -56,7 +56,7 @@
 
                                 <tr>
                                     <td>{{$SN++}}</td>
-                                    <td>{{$value->id}}</td>
+                                    <!-- <td>{{$value->id}}</td> -->
                                     <td>{{$value->product}}</td>
                                     <td>{{$value->category->category}}</td>
                                     <td>{{$value->section->section}}</td>
@@ -79,6 +79,9 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
+                <div class="row">
+                {{$product->links()}}
+            </div>
             </div>
         </div>
         <!-- /.row -->
