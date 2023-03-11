@@ -34,8 +34,8 @@
                        
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0" >
-                        <table class="table  ">
+                    <div class="card-body table-responsive p-0" style="height: 500px;">
+                        <table class="table table-head-fixed text-nowrap">
                             <thead class="text-center p-4">
                                 <th>SN</th>
                                 <th>ID</th>

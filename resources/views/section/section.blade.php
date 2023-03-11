@@ -64,7 +64,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($section as $section)
+                            @foreach ($sections as $section)
                             <tr>
                                 <td>{{$SN++}}</td>
                                 <td>{{$section->id}}</td>
@@ -84,6 +84,9 @@
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
+            <div class="row">
+                {{$sections->links()}}
+            </div>
         </div>
     </div>
     <!-- /.row -->

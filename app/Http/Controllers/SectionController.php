@@ -11,8 +11,8 @@ class SectionController extends Controller
     //
     public  function section()
     {
-        $section = Section::all();
-        return view('section.section', compact('section'));
+        $sections = Section::paginate(3);
+        return view('section.section', compact('sections'));
     }
 
     public function addsection(Request $req)
