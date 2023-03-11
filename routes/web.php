@@ -79,11 +79,12 @@ Route::get('/upload-prescription', [ImageController::class, 'create'])->name('im
 Route::post('/prescription', [ImageController::class, 'store'])->name('prescriptionStore');
 //Route::get('/upload', [ImageController::class, 'upload'])->name('upload');
 
+Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('section');
 
 
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
-Route::get('/sectionnav/{section}', [HomeController::class, 'section'])->name('section');
+// Route::get('/sectionnav/{section}', [HomeController::class, 'section'])->name('section');
 // Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 // Route::get('{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
