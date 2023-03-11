@@ -28,8 +28,8 @@ $(document).ready(function () {
                 product_qty: product_qty,
             },
             success: function (response) {
-                alert(response.status);
-                // swal(response.status);
+                // alert(response.status);
+                swal(response.status);
                 // sweetalert
             },
         });
@@ -85,7 +85,7 @@ $(document).ready(function () {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
             });
-     
+           
         $.ajax({
             method: "POST",
             url: "delete-cart-item",

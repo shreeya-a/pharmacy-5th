@@ -29,7 +29,7 @@
                         <label for="category">Category:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" name="category" class="form-control" id="category" placeholder="{{$category->category}}">
+                        <input type="text" name="category" class="form-control" id="category" placeholder="{{$category->category}}" required>
                         <button type="submit" class="btn btn-primary mt-3 mb-3">Save Changes</button>
                     </div>
                 </form>

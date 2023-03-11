@@ -1,6 +1,17 @@
 @extends('user.layouts.main')
 
 @section('content')
+<!-- <div class="py-3 mb-4 shadow-sm bg-primary-light border-top">
+    <div class="container">
+        <h6 class="mb-0">
+            <a href="{{url('/')}}">Home</a>
+            /
+          <a href="">{{$section_name}}</a>
+          /
+          <a href="">{{$product_name}}</a>
+        </h6>
+    </div>
+</div> -->
 <section class="breadcrumbs-wrapper pt-2 pb-2">
     <div class="container">
         <div class="row">
@@ -59,6 +70,7 @@
                     </div>
                     @else
                     <h5  class="p-3" style="color:red;">*** Presciption required ***</h5>
+                   
                     @endif
                 </div>
                 <div class="product-details my-4">
@@ -70,41 +82,7 @@
         @endforeach
     </div>
 
-    <div class="container similar-products my-4">
-        <hr>
-        <p class="display-5">Similar Products</p>
 
-        <div class="row">
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/gsKdPcIyeGg" alt="Preview">
-                    <p class="title">Lovely black dress</p>
-                    <p class="price">$100</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/sg_gRhbYXhc" alt="Preview">
-                    <p class="title">Lovely Dress with patterns</p>
-                    <p class="price">$85</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/gJZQcirK8aw" alt="Preview">
-                    <p class="title">Lovely fashion dress</p>
-                    <p class="price">$200</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/qbB_Z2pXLEU" alt="Preview">
-                    <p class="title">Lovely red dress</p>
-                    <p class="price">$120</p>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scripts')

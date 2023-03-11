@@ -20,6 +20,13 @@ class CheckoutController extends Controller
     }
     public function placeOrder(Request $req)
     {
+        $req->validate([
+            'phone' => 'required|min:10|max:10',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'country' => 'required',
+        ]);
         $order = new Order();
         $order->user_id = Auth::id();
         $order->fname = $req->input('fname');

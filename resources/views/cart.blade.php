@@ -9,17 +9,26 @@
         color: #542ded;
     }
 </style>
-<div class="py-3 mb-4 shadow-sm bg-primary-light border-top">
+<section class="breadcrumbs-wrapper pt-2 pb-2">
     <div class="container">
-        <h6 class="mb-0">
-            <a href="{{url('/')}}">Home</a>
-            /
-            <a href="{{url('cart')}}">Cart</a>
-        </h6>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs-style breadcrumbs-style-1 d-md-flex justify-content-between align-items-center">
+                    <div class="breadcrumb-left">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{route('homepage')}}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                        </ol>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
-<div class="container my-5">
+
+<div class="container my-3 mb-5">
     <div class="card shadow ">
         <div class="card-body">
             @php
@@ -28,7 +37,7 @@
             @if($cartItem->count()>0)
             <div class="table-responsive">
                 <div class="col-md-12 text-right mb-3">
-                    <a href="javascript:void(0)" class="clear_cart font-weight-bold">Clear Cart</a>
+                    <a href="{{route('clearCart')}}" class="clear_cart font-weight-bold delete"  data-confirm="Are you sure to clear cart?">Clear Cart</a>
                 </div>
                 <table class="table text-center">
                     <thead>
@@ -110,6 +119,7 @@
 
 @section('scripts')
 <script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
+<script src="{{asset('admin/dist/js/delete.js')}}"></script>
 
 <!-- <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script> -->
 

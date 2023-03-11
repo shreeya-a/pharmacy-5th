@@ -15,7 +15,7 @@ class ProductController extends Controller
     //
     public  function product()
     {
-        $product = Product::all();
+        $product = Product::orderBy('id', 'desc')->paginate(10);
         return view('product.product',compact('product'));
     }
     public  function addProduct()
@@ -31,6 +31,7 @@ class ProductController extends Controller
             'product' => 'required',
             'price' => 'required',
             'description' => 'required',
+            'image' => 'required',
         ]);
 
         if ($req->hasFile('image')) {
@@ -78,6 +79,7 @@ class ProductController extends Controller
         }
         public function editProduct($id)
         {
+         
             $product= Product::find($id);
             $category = Category::all();
             $section = Section::all();
@@ -87,6 +89,8 @@ class ProductController extends Controller
         }
         public function updateProduct(Request $req)
         {
+        
+
             $productObj = Product::find($req->id);
         
             if ($req->hasFile('image')) {

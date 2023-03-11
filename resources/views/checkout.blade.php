@@ -32,23 +32,48 @@
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="">Phone Number</label>
-                                <input type="text" value="{{ Auth::user()->phone}}" name="phone" class="form-control" placeholder="Enter Phone Number">
+                                <input type="text" value="{{ Auth::user()->phone}}" name="phone" class="form-control  @error('phone') is-invalid @enderror" placeholder="Enter Phone Number">
+                                @error('phone')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="">Address</label>
-                                <input type="text" value="{{ Auth::user()->address}}" name="address" class="form-control" placeholder="Enter Address ">
+                                <input type="text" value="{{ Auth::user()->address}}" name="address" class="form-control  @error('address') is-invalid @enderror" placeholder="Enter Address ">
+                                @error('address')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="">City</label>
-                                <input type="text" value="{{ Auth::user()->city}}" name="city" class="form-control" placeholder="Enter City">
+                                <input type="text" value="{{ Auth::user()->city}}" name="city" class="form-control  @error('city') is-invalid @enderror" placeholder="Enter City">
+                                @error('city')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="">State</label>
-                                <input type="text" value="{{ Auth::user()->state}}" name="state" class="form-control" placeholder="Enter State">
+                                <input type="text" value="{{ Auth::user()->state}}" name="state" class="form-control  @error('state') is-invalid @enderror" placeholder="Enter State">
+                                @error('state')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="">Country</label>
-                                <input type="text" value="{{ Auth::user()->country}}" name="country" class="form-control" placeholder="Enter Country">
+                                <input type="text" value="{{ Auth::user()->country}}" name="country" class="form-control  @error('country') is-invalid @enderror" placeholder="Enter Country">
+                                 @error('country')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                     </div>

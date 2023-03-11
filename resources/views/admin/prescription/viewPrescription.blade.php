@@ -137,6 +137,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Prescription</li>
+                       
                     </ol>
                 </div>
             </div>
@@ -181,14 +182,14 @@
                                 <td class="col-2">
                                     <div>
                                         <label for="prod_qty">Qty:</label>
-                                        <input type="number" class="form-control text-center  qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
+                                        <input type="number" class="form-control text-center qty-input  @error('prod_qty') is-invalid @enderror" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
 
                                     </div>
                                 </td>
 
                                 <td class=" col-8 p-1">
                                     <label for="message" class="form-label">Message:</label>
-                                    <textarea name="message" id="message" class="form-control col-md-12" cols="30" rows="1" placeholder="How to use?"></textarea>
+                                    <textarea name="message" id="message" class="form-control col-md-12  @error('message') is-invalid @enderror" cols="30" rows="1" placeholder="How to use?"></textarea>
                                 </td>
                                 <td>
                                     <button type="submit" class="btn btn-primary mt-4">Add</button>
@@ -207,6 +208,9 @@
 
         <div class="col-md-6">
             <div class="card">
+                <div class="d-flex justify-content-end">
+                                <a href="{{url('prescription')}}" class="btn btn-success m-2">Back</a>
+                                </div>
 
                 <div class="p-2">
                     <div class="card-header">
@@ -319,12 +323,15 @@
             <div class="p-3 mt-4">
                 <p>Prescription is yet to be processed.</p>
             </div>
+           
         </div>
 
-
     </div>
-    @endif
-    
+
+
+</div>
+@endif
+
 
 <script>
     // Get the modal
@@ -366,4 +373,6 @@
 @endsection
 @section('script-table')
 <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('admin/dist/js/delete.js')}}"></script>
+
 @endsection

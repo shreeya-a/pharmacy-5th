@@ -53,6 +53,17 @@
     <!-- owl carousel     -->
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/owl.theme.default.min.css')}}">
+
+
+    <!--====== alertify ======-->
+    <!--====== alertify ======-->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+=
  
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -110,6 +121,33 @@
     
     <!--====== Carousel Index js ======-->
     <script src="{{asset('userpanel/assets/js/carousel-index.js')}}"></script>
+
+    <!--====== sweetalert2js ======-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+    @if(session('status'))
+        <script>
+             
+             swal({
+  title: "Good job!",
+  text: "{{session('status')}}",
+  icon: "success",
+  button: "OK!",
+})
+        </script>
+    @endif
+    @if(session('success'))
+        <script>
+             swal({
+  title: "Good job!",
+  text: "{{session('success')}}",
+  icon: "success",
+  button: "OK!",
+})
+
+            // Swal.fire("{{session('success')}}");
+        </script>
+    @endif
 
     @yield('scripts')
 

@@ -29,7 +29,7 @@
             <form action="{{route('addCategory')}}" method="post">
                 @csrf
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Enter new category" name="category" aria-describedby="basic-addon2">
+                    <input class="form-control  text-capitalize @error('category') is-invalid @enderror" type="text" placeholder="Enter new category" name="category" aria-describedby="basic-addon2">
                     <div class="input-group-append" style="margin-left: 5px;">
                         <button type="submit" class="btn btn-primary">Add Category</button>
                     </div>
@@ -53,21 +53,11 @@
                     <div class="card-header">
                         <h3 class="card-title text-bold">Category Table</h3>
 
-                        <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0" style="height: 500px;">
-                        <table class="table table-head-fixed text-nowrap">
+                    <div class="card-body table-responsive p-0" >
+                        <table class="table text-nowrap">
                             <thead class="">
                                 <th>SN</th>
                                 <th>ID</th>
@@ -82,7 +72,7 @@
                                     <td>{{$category->category}}</td>
                                     <td>
                                         <a href="{{url('/edit-category/'.$category->id)}}"><i class="fas fa-pen" aria-hidden="true"></i></a>
-                                        <a href="{{url('/delete-category/'.$category->id)}}"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
+                                        <a href="{{url('/delete-category/'.$category->id)}}" class="delete" data-confirm="Are you sure to delete {{$category->category}}?"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
                                     </td>
 
                                 </tr>
@@ -93,6 +83,9 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
+                <div class="row">
+                    {{$categorys->links()}}
+                </div>
             </div>
         </div>
         <!-- /.row -->
@@ -106,4 +99,5 @@
 
 @section('script-table')
 <script src="{{asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('admin/dist/js/delete.js')}}"></script>
 @endsection

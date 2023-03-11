@@ -11,6 +11,10 @@ class PrescriptionItemController extends Controller
 {
     //
     public function addPresItem(Request $req){
+        $req->validate([
+            'prod_qty' => 'required',
+            'message' => 'required'
+        ]);
         $presItem = new PrescriptionItems();
         $presItem->pres_id = $req->pres_id;
         $presItem->prod_id = $req->prod_id;
@@ -51,6 +55,21 @@ class PrescriptionItemController extends Controller
 
 
     }
+    public function cancelPres( $id){
+        $order= Image::find($id);
+        $order->status = 2;
+        // dd($presorder);     
+        $prescription = Image::all();
+        
+        $order->update();
+        return view('admin.prescription.index', compact('prescription'));  
+
+     
+  
+  
+
+
+    }
     public function deletePresItem($id , $pid)
     {
         // dd("hello");s
@@ -75,7 +94,7 @@ class PrescriptionItemController extends Controller
 
       
     }
-    
+
 
     public function invoice (Request $req,$pid)
     {

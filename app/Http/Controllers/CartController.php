@@ -65,4 +65,13 @@ class CartController extends Controller
         $cartItem = Cart::where('user_id', Auth::id())->get();
         return view('cart', compact('cartItem'));
     }
+    public function clearCart()
+    {
+        if (Auth::check()) {
+        $cartItem = Cart::where('user_id', Auth::id())->get();
+        Cart::destroy($cartItem);
+        }
+        return view('cart', compact('cartItem'));
+        
+    }
 }

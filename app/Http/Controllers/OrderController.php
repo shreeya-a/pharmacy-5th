@@ -12,12 +12,12 @@ class OrderController extends Controller
     //
     public function index()
     {
-        $orders = Order::where('status','0')->get();
+        $orders = Order::where('status','0')->orderBy('id','desc')->paginate(10);
         return view('order.index', compact('orders'));
     }
     public function orderHistory()
     {
-        $orders = Order::where('status','1')->orWhere('status','2')->get();
+        $orders = Order::where('status','1')->orWhere('status','2')->orderBy('id','desc')->paginate(10);
 
         return view('order.history', compact('orders'));
     }

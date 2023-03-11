@@ -25,7 +25,7 @@
                         <label for="section">Section:</label>
                     </div>
 
-                    <input type="text" name="section" class="form-control text-capitalize" id="section" placeholder="{{$section->section}}">
+                    <input type="text" name="section" class="form-control text-capitalize" id="section" placeholder="{{$section->section}}" required>
                     <div class="text-center">
                     <button type="submit" class="btn btn-primary mt-3 mb-3 ">Save Changes</button>
 </div>

@@ -1,6 +1,13 @@
 @extends('user.layouts.main')
 
 @section('content')
+
+<style>
+    .card:hover{
+        cursor: pointer;
+        
+    }
+</style>
 <!-- <h1 class="mt-8">Welcome to Home Page</h1> -->
 <!--====== Header Style 1 Part Start ======-->
 <section class="header-style-1">
