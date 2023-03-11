@@ -189,7 +189,7 @@
                                     @guest
                                     <ul>
                                         <li>
-                                            <a class="icon primary-icon-text icon-text-btn mt-2 ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account-key"></i>
+                                            <a class="icon primary-icon-text icon-text-btn mt-2 ml-4" href="{{route('loginUser')}}"><i class="mdi mdi-account-key"></i>
                                                 <span> LOGIN</span>
 
                                             </a>
