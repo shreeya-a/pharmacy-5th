@@ -129,7 +129,7 @@
                 <!-- navbar top Ends -->
 
                 <!-- main navbar Start -->
-                <div class="navbar-wrapper">
+                <div class="navbar-wrapper pt-2 pb-2">
                     <div class="container-lg">
                         <nav class="main-navbar d-lg-flex justify-content-between align-items-center">
                             <!-- desktop logo Start -->
