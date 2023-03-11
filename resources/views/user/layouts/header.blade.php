@@ -189,6 +189,37 @@
                                 </ul>
                             </div>
                             <!-- navbar menu Ends -->
+
+                            <!-- navbar menu Start -->
+                            <div class="navbar-menu">
+                                <ul class="main-menu">
+                                    <li class="active"><a href="{{route('homepage')}}">Home</a></li>
+                                    <li><a href="{{route('about')}}">About</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Section</a>
+                                        <!-- sub menu Start -->
+                                        <!-- <ul class="sub-menu">
+                                            @foreach($cats as $cat)
+                                            <li><a href="{{url('/section/'.$cat->section.'/'.$cat->id)}}">{{$cat->section}}</a></li>
+                                            @endforeach -->
+                                            <!-- 
+                                            <li><a href="{{url('/sectionnav/'.'Hair Care')}}">Hair Care</a></li>
+                                            <li><a href="{{url('/sectionnav/'.'Personal Care')}}">Personal Care</a></li>
+                                            <li><a href="{{url('/sectionnav/'.'Baby Care')}}">Baby Care</a></li>
+                                            <li><a href="{{url('/sectionnav/'.'Skin Care')}}">Skin Care</a></li>
+                                            <li><a href="{{url('/sectionnav/'.'Medicine')}}">Medicine</a></li> -->
+
+                                        </ul>
+                                        <!-- sub menu Ends -->
+                                    </li>
+                                </ul>
+
+                                </ul>
+                                
+                            </div>
+                            <!-- navbar menu Ends -->
+
                             <div class="navbar-search-cart d-none d-lg-flex">
                                 <!-- navbar search start -->
                                 <div class="navbar-search search-style-5">
@@ -272,10 +303,10 @@
                                     <!-- navbar cart Ends -->
                                 </div>
                                 <div class="account">
-                                <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('myOrder')}}">
-                                <!-- <i class="mdi mdi-account-circle"></i> -->
-                                <i class="mdi mdi-account"></i>
-                                </a>
+                                    <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('myOrder')}}">
+                                        <!-- <i class="mdi mdi-account-circle"></i> -->
+                                        <i class="mdi mdi-account"></i>
+                                    </a>
                                 </div>
                         </nav>
                     </div>

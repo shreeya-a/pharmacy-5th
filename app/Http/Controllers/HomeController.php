@@ -21,8 +21,9 @@ class HomeController extends Controller
     {
         $featured_products = Product::where('featured', '1')->take(5)->get();
         $popular_products = Product::where('popular', '1')->take(5)->get();
+        $cats = Section::all();
 
-        return view('user.index', compact('featured_products', 'popular_products'));
+        return view('user.index', compact('featured_products', 'popular_products', 'cats'));
     }
     // $section = Section::all();
     // return view('product.editProduct', ['product' => $product,'category' => $category,'section' => $section]);

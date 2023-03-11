@@ -16,6 +16,11 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\PrescriptionItemController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\ImageController;
+use App\Models\Section;
+// use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades;
+use Illuminate\View\View;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +57,14 @@ Route::get('/', function () {
 // Route::get('/product', function () {
 //     return view('product.product');
 // });
+
+Facades\View::composer('*', function (View $view) {
+    // ...
+    $cats = Section::all();
+    $view->with('cats', $cats);
+
+});
+
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
