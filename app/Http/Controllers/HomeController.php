@@ -51,7 +51,7 @@ class HomeController extends Controller
     public  function section($section)
     {
     
-        $section_product = Product::where('section_id', $section)->get();
+        $section_product = Product::where('section_id', $section) ->orderBy('id','desc')->paginate(12);
         $section = Section::where('id',$section)->get('section');
         // dd($section);
 
@@ -69,7 +69,7 @@ class HomeController extends Controller
     //order details
      public function myOrder()
     {
-        $orders = Order::where('user_id',Auth::id())->get();
+        $orders = Order::where('user_id',Auth::id())->orderBy('id','desc')->paginate(5);
         return view('user.order.index', compact('orders'));
     }
      public function viewmyOrder($id)
@@ -81,7 +81,7 @@ class HomeController extends Controller
     //prescription order details
     public function myPresOrder()
     {
-        $prescription = Image::where('user_id',Auth::id())->get();
+        $prescription = Image::where('user_id',Auth::id())->orderBy('id','desc')->paginate(5);
         return view('user.prescription.index', compact('prescription'));
     }
     public function viewmyPresOrder($id)

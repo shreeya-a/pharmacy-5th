@@ -1,14 +1,30 @@
 @extends('user.layouts.main')
 
 @section('content')
-
-<div class="container my-5">
+<section class="breadcrumbs-wrapper pt-2 pb-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs-style breadcrumbs-style-1 d-md-flex justify-content-between align-items-center">
+                    <div class="breadcrumb-left">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{route('homepage')}}">Home</a></li>
+                            <li class="breadcrumb-item"> Order</li>
+                            <li class="breadcrumb-item"> My Orders</li>
+                            <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+                        </ol>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container my-2">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h4>My Orders</h4>
-                </div>
+           
                 @php
                 $SN=1;
                 @endphp

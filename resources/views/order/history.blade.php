@@ -5,18 +5,20 @@
     <!-- <div class="container"> -->
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow-none p-4">
                 <div class="card-body">
-                    <div class="card-header bg-primary  ">
-                        <h4 class="text-white">Order history</h4>
-                        <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-between">
+                            <div class="me-auto">
+                                <h4 class="text-bold">Order History</h4>
+                            </div>
                             <a href="{{url('order')}}" class="btn btn-success">Back</a>
                         </div>
                     </div>
                     @php
                     $SN=1;
                     @endphp
-                    <div class="card-body table-responsive p-0 mt-1" style="height: 500px;">
+                    <hr class="m-0">
+                    <div class="card-body table-responsive p-0 " style="height: 500px;">
                         <table class="table table-head-fixed table-bordered text-nowrap">
                             <!-- <table class="table table-bordered my-3"> -->
                             <thead>

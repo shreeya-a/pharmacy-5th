@@ -5,13 +5,12 @@
     <!-- <div class="container"> -->
     <div class="row">
         <div class="col-md-12">
-            <div class="card p-4">
-                <!-- <div class="card-body table-responsive p-0"> -->
-                    <div class="card-header bg-primary ">
-                        <div class="me-auto">
-                            <h4 class="text-white">New Orders</h4>
-                        </div>
-                        <div class="d-flex justify-content-end">
+            <div class="card shadow-none p-4">
+                    <div class="card-header  ">
+                        <div class="d-flex justify-content-between">
+                            <div class="me-auto">
+                                <h4 class="text-bold">New Orders</h4>
+                            </div>
 
                             <a href="{{url('order-history')}}" class="btn btn-success">Order History</a>
                         </div>
@@ -24,7 +23,7 @@
                     $SN=1;
                     @endphp
                     <!-- <div class="card-body table-responsive p-0" > -->
-                    <div class="card-body table-responsive p-0 mt-1" style="height: 500px;">
+                    <div class="card-body table-responsive p-0 " style="height: 500px;">
                         <table class="table table-head-fixed table-bordered text-nowrap">
                             <thead>
                                 <tr>

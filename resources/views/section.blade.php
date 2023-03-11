@@ -10,14 +10,13 @@
                     <div class="breadcrumb-left">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('homepage')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Category</li>
+                            <li class="breadcrumb-item active" aria-current="page">Section</li>
+                            @foreach($section as $section)
+                            <li class="breadcrumb-item active" aria-current="page">{{$section->section}}</li>
+                            @endforeach
                         </ol>
                     </div>
-                    <div class="breadcrumb-right">
-                        @foreach($section as $section)
-                        <h5 class="heading-5 font-weight-500">{{$section->section}}</h5>
-                        @endforeach
-                    </div>
+                 
                 </div>
             </div>
         </div>
@@ -62,7 +61,9 @@
             </div>
             @endforeach
             </div>
-
+<div class="row">
+    {{$section_product->links()}}
+</div>
         </div>
     </div>
 </div>
