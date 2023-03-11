@@ -71,10 +71,10 @@ Facades\View::composer('*', function (View $view ) {
 Facades\View::composer('*', function (View $count ) {
     // ...
 
-    if (Auth::check()) {
-        $count = Cart::where('user_id' , Auth::id())->count();
-    }
-
+    // if (Auth::check()) {
+    //     $count = Cart::where('user_id' , Auth::id())->count();
+    // }
+    $count->with('count',Cart::where('user_id' , Auth::id())->count());
     // dd($count);
     // return $count;
     // $count->with('count', $count);

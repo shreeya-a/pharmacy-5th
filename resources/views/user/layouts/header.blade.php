@@ -1,4 +1,6 @@
     <!--====== Navbar Style 7 Part Start ======-->
+
+
     <div class="navigation">
         <header class="navbar-style-7 position-relative">
             <div class="container">
@@ -27,7 +29,7 @@
                             <div class="navbar-cart">
                                 <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('viewCart')}}">
                                     <img src="{{asset('userpanel/assets/images/icon-svg/cart-1.svg')}}" alt="Icon">
-                                    <span class="icon-text text-style-1">88</span>
+                                    <span class="icon-text text-style-1">{{$count}}</span>
 
 
 
@@ -39,7 +41,7 @@
                                             <h6 class="title">Shopping Cart</h6>
                                         </div>
 
-                                  
+
 
                                         <div class="checkout-footer">
                                             <div class="checkout-sub-total d-flex justify-content-between">
@@ -81,11 +83,11 @@
                 <!-- navbar close  Ends -->
 
                 <!-- navbar top Start -->
-                <div class="navbar-top-wrapper">
+                <!-- <div class="navbar-top-wrapper">
                     <div class="container-lg">
-                        <div class="navbar-top d-lg-flex justify-content-between">
+                        <div class="navbar-top d-lg-flex justify-content-between"> -->
                             <!-- navbar top left Start -->
-                            <div class="navbar-top-left">
+                            <!-- <div class="navbar-top-left">
                                 <ul class="navbar-top-link">
                                     <li><a href="{{route('homepage')}}">Home</a></li>
                                     <li><a href="{{route('about')}}">About</a></li>
@@ -98,10 +100,10 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <!-- navbar top left Ends -->
                             <!-- navbar top right Start -->
-                            @guest
+                            <!-- @guest
                             <div class="navbar-top-right">
                                 <ul class="navbar-top-link">
 
@@ -119,11 +121,11 @@
                                     <li><a href="{{route('logout')}}"><i class="mdi mdi-account"></i>Logout</a></li>
                                 </ul>
                             </div>
-                            @endauth
+                            @endauth -->
                             <!-- navbar top right Ends -->
-                        </div>
+                        <!-- </div>
                     </div>
-                </div>
+                </div>  -->
                 <!-- navbar top Ends -->
 
                 <!-- main navbar Start -->
@@ -136,20 +138,6 @@
                                 <a href="{{route('homepage')}}"><img src="{{asset('userpanel/assets/images/logo-pharma.png')}}" alt="Logo" height="60px" width="200px"></a>
                             </div>
                             <!-- desktop logo Ends -->
-                            <!-- navbar menu Start -->
-                            <!-- <div class="navbar-menu">
-                                <ul class="main-menu">
-                                    <li><a href="{{url('/sectionnav/'.'1')}}">Ayurveda</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'2')}}">Hair Care</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'3')}}">Personal Care</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'4')}}">Baby Care</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'5')}}">Skin Care</a></li> -->
-                            <!-- <li><a href="{{url('/sectionnav/'.'Ayurveda')}}">Ayurveda</a></li> -->
-
-                            <!-- </ul>
-                            </div> -->
-                            <!-- navbar menu Ends -->
-
                             <!-- navbar menu Start -->
                             <div class="navbar-menu">
                                 <ul class="main-menu">
@@ -176,7 +164,7 @@
                             </div>
                             <!-- navbar menu Ends -->
 
-                            <div class="navbar-search-cart d-none d-lg-flex">
+                            <div class="navbar-search-cart d-none d-lg-flex ">
                                 <!-- navbar search start -->
                                 <div class="navbar-search search-style-5">
                                     <div class="search-input">
@@ -191,26 +179,54 @@
                                 <div class="navbar-cart">
                                     <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('viewCart')}}">
                                         <img src="{{asset('userpanel/assets/images/icon-svg/cart-1.svg')}}" alt="Icon">
-                                        <span class="icon-text text-style-1">88</span>
+                                        <span class="icon-text text-style-1">{{$count}}</span>
                                     </a>
 
-                                   
+
                                     <!-- navbar cart Ends -->
                                 </div>
-                                <div class="account">
-                                @guest
-                            <div class="navbar-top-right">
-                         
-                            <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('loginUser')}}">
-                            <i class="mdi mdi-account"></i>
+                                <div class="account mr-4">
+                                    @guest
+                                    <ul>
+                                        <li>
+                                            <a class="icon primary-icon-text icon-text-btn mt-2 ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account-key"></i>
+                                                <span> LOGIN</span>
 
-                            @endguest
+                                            </a>
+                                        </li>
+                                    </ul>
 
-                                    <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('myOrder')}}">
-                                        <!-- <i class="mdi mdi-account-circle"></i> -->
-                                        <i class="mdi mdi-account"></i>
-                                    </a>
+                                    <!-- <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('loginUser')}}">
+                                        <i class="mdi mdi-account">  <span class="black" style="font-size: 1rem;">Login</span></i>
+                                      
+                                        </a> -->
+                                    @endguest
+                                    @auth
+
+                                    <span class="navbar-menu" style="margin: -1px;">
+                                        <ul class="main-menu">
+                                            <li class="menu-item-has-children p-1">
+                                                <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
+                                                <a class="icon text-primary primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check"></i></a>
+
+                                                <!-- sub menu Start -->
+                                                <ul class="sub-menu mt-3 " style="width:175px;">
+
+
+                                                    <li class="p-3 mr-1 mt-1"> {{auth()->user()->name}}</li>
+                                                    <hr class="m-0 ">
+                                                    <li><a href="{{route('myPresOrder')}}">My prescription</a></li>
+                                                    <li><a href="{{route('myOrder')}}">My Orders</a></li>
+                                                    <hr class="m-0 ">
+                                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-logout"></i>Sign out</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                    @endauth
                                 </div>
+                            </div>
                         </nav>
                     </div>
                 </div>
