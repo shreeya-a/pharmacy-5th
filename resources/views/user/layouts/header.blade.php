@@ -166,13 +166,6 @@
                                             @endif
                                             <li><a href="{{url('/section/'.$cat->section.'/'.$cat->id)}}">{{$cat->section}}</a></li>
                                             @endforeach
-                                            <!-- 
-                                            <li><a href="{{url('/sectionnav/'.'Hair Care')}}">Hair Care</a></li>
-                                            <li><a href="{{url('/sectionnav/'.'Personal Care')}}">Personal Care</a></li>
-                                            <li><a href="{{url('/sectionnav/'.'Baby Care')}}">Baby Care</a></li>
-                                            <li><a href="{{url('/sectionnav/'.'Skin Care')}}">Skin Care</a></li>
-                                            <li><a href="{{url('/sectionnav/'.'Medicine')}}">Medicine</a></li> -->
-
                                         </ul>
                                         <!-- sub menu Ends -->
                                     </li>
@@ -205,6 +198,14 @@
                                     <!-- navbar cart Ends -->
                                 </div>
                                 <div class="account">
+                                @guest
+                            <div class="navbar-top-right">
+                         
+                            <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('loginUser')}}">
+                            <i class="mdi mdi-account"></i>
+
+                            @endguest
+
                                     <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('myOrder')}}">
                                         <!-- <i class="mdi mdi-account-circle"></i> -->
                                         <i class="mdi mdi-account"></i>
