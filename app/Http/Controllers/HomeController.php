@@ -21,8 +21,9 @@ class HomeController extends Controller
     {
         $featured_products = Product::where('featured', '1')->take(5)->get();
         $popular_products = Product::where('popular', '1')->take(5)->get();
+        $cats = Section::all();
 
-        return view('user.index', compact('featured_products', 'popular_products'));
+        return view('user.index', compact('featured_products', 'popular_products', 'cats'));
     }
     // $section = Section::all();
     // return view('product.editProduct', ['product' => $product,'category' => $category,'section' => $section]);
@@ -48,11 +49,11 @@ class HomeController extends Controller
     {
         return view('register');
     }
-    public  function section($section)
+    public  function section($section, $section_id)
     {
     
-        $section_product = Product::where('section_id', $section) ->orderBy('id','desc')->paginate(12);
-        $section = Section::where('id',$section)->get('section');
+        $section_product = Product::where('section_id', $section_id) ->orderBy('id','desc')->paginate(12);
+        $section = Section::where('id',$section_id)->get('section');
         // dd($section);
 
         return view('section', compact('section_product', 'section'));
