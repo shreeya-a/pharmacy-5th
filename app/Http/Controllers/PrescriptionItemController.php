@@ -15,6 +15,13 @@ class PrescriptionItemController extends Controller
             'prod_qty' => 'required',
             'message' => 'required'
         ]);
+        $prod_check = Product::where('id', $req->prod_id)->first();
+
+        if ($prod_check) {
+            if (PrescriptionItems::where('prod_id',  $req->prod_id)->where('pres_id', $req->pres_id )->exists()) {
+                return response()->json(['status' => " Already Added to table"]);
+            }
+       
         $presItem = new PrescriptionItems();
         $presItem->pres_id = $req->pres_id;
         $presItem->prod_id = $req->prod_id;
@@ -26,6 +33,7 @@ class PrescriptionItemController extends Controller
         $presItem->qty = $req->prod_qty;
         $presItem->message = $req->message;
         $presItem->save();
+    }
 
         return redirect()->route('viewPrescription',$req->pres_id)->with('success',"Product added successfully");
     }
