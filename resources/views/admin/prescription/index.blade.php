@@ -46,15 +46,11 @@
                                             <a href="{{url('cancel-prescription/'. $pres->id)}}" class="btn btn-danger delete" data-confirm="Are you sure you want to CANCEL?">Cancel</a>
                                         </td>
                                         @elseif ($pres ->status == '1')
-                                        <td><a href="{{url('view-prescription-order/'. $pres->id)}}" class="btn btn-primary">View</a></td>
+                                        <td><a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">View</a></td>
                                         @else
                                         <td></td>
                                         @endif
-                                        <!-- <td>
-                                <a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">Details</a>
-
-                                    
-                                </td> -->
+                           
 
                                     </tr>
                                     @endforeach

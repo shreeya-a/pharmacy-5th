@@ -126,7 +126,7 @@
     }
 </style>
 
-<div class="content-wrapper bg-white">
+<div class="content-wrapper bg-white "  style="min-height: 2646.8px;">
     <section class="content-header ">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -137,7 +137,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Prescription</li>
-                       
+
                     </ol>
                 </div>
             </div>
@@ -155,13 +155,14 @@
                         <img id="myImg" src="{{asset('/storage/'.$prescription->image)}}" class="product-image" alt="Prescription Image" style="max-height: 400px;">
 
                     </div>
-                    <!-- The Modal -->
+                    <!-- The Modal for opening prescription imahe -->
                     <div id="myModal" class="modal">
                         <span class="close">&times;</span>
                         <img class="modal-content" id="img01">
                         <div id="caption"></div>
                     </div>
                     <hr>
+                    @if($prescription->status == '0')
                     <form action="{{url('add-prescription-item')}}" method="post" class=" p-2">
                         @csrf
                         <!-- <div class="col-md-6"> -->
@@ -199,6 +200,8 @@
                 </tr>
 
                 </table>
+                @endif
+
 
                 </form>
 
@@ -208,28 +211,23 @@
 
         <div class="col-md-6">
             <div class="card">
-                <div class="d-flex justify-content-end">
-                                <a href="{{url('prescription')}}" class="btn btn-success m-2">Back</a>
-                                </div>
 
-                <div class="p-2">
+
+                <div class="p-0">
                     <div class="card-header">
-                        <h2 class="card-title"> <strong> Prescription Items </strong></h2>
-                        @if ($presItem->count()>0)
-                        @php
-                        $total =0;
-                        @endphp
-
-                        <div class="card-tools">
-                            <ul class="pagination pagination-sm float-right">
-                                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">»</a></li>
-                            </ul>
+                        <div class="d-flex justify-content-between">
+                        <div class="me-auto">
+                            <h5>Prescription Items</h5>
+                        </div>
+                            <a href="{{url('prescription')}}" class="btn btn-success m-2">Back</a>
                         </div>
                     </div>
+                    @if ($presItem->count()>0)
+                    @php
+                    $total =0;
+                    @endphp
+
+
                     <table class="table table-bordered table-responsive">
 
 
@@ -265,14 +263,18 @@
 
 
                     </table>
-
+                    <div class="row ml-3">
+                    {{$presItem->links()}}
                 </div>
+                </div>
+                
 
                 <div class="d-flex justify-content-between p-2">
                     <h4>Total: </h4>
                     <h5 class="mr-4 pr-2 ">Rs {{$total}}</h5>
                 </div>
             </div>
+           
             <div class="card ">
                 <div class="p-3">
                     <form action="{{url('update-prescription-order/'.$prescription->id)}}" method="post">
@@ -323,7 +325,7 @@
             <div class="p-3 mt-4">
                 <p>Prescription is yet to be processed.</p>
             </div>
-           
+
         </div>
 
     </div>

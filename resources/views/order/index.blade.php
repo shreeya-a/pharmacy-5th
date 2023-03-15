@@ -47,6 +47,9 @@
                                     <td>{{$order->status == '0' ? 'Pending' :($order->status == '1'?'Completed': 'Cancelled')}}</td>
                                     <td>
                                         <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">Details</a>
+                                        @if($order->status == 1)
+                                        <a href="{{url('order-invoice/'.$order->id)}}" class="btn btn-success">Generate Invoice</a>
+@endif
                                     </td>
                                     <!-- <td>
                                         @if($order->status == '0')

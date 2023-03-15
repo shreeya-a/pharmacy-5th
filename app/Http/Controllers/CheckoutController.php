@@ -24,20 +24,19 @@ class CheckoutController extends Controller
             'phone' => 'required|min:10|max:10',
             'address' => 'required',
             'city' => 'required',
-            'state' => 'required',
             'country' => 'required',
         ]);
         $order = new Order();
         $order->user_id = Auth::id();
         $order->fname = $req->input('fname');
-        $order->lname = $req->input('lname');
         $order->email = $req->input('email');
         $order->phone = $req->input('phone');
         $order->address = $req->input('address');
         $order->city = $req->input('city');
-        $order->state = $req->input('state');
         $order->country = $req->input('country');
-        $order->tracking_no = rand(1111, 9999);
+        $date = date('Ymd');
+        $order->tracking_no =$date. rand(1111, 9999);
+        // dd($order->tracking_no);
 
         //to claculate total price
         $total = 0;
@@ -64,7 +63,6 @@ class CheckoutController extends Controller
             $user->phone = $req->input('phone');
             $user->address = $req->input('address');
             $user->city = $req->input('city');
-            $user->state = $req->input('state');
             $user->country = $req->input('country');
             $user->update();
         }
