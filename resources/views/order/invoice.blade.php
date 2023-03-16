@@ -115,9 +115,9 @@
                         <div class="row">
                             <!-- accepted payments column -->
                             <div class="col-6">
-                                <p class="lead">Payment Methods: COD</p>
+                                <p class="lead">Payment Methods:  Cash on Delivery</p>
                                 <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                                    Cash on Delivery
+                                    <!-- Cash on Delivery -->
                                 </p>
                             </div>
                             <!-- /.col -->
@@ -127,7 +127,7 @@
                                     <table class="table">
                                         <tbody>
                                             <tr>
-                                                <th style="width:50%">Subtotal:</th>
+                                                <th style="width:50%">Total:</th>
                                                 <td>{{$order->total_price}}</td>
                                             </tr>
                                         </tbody>

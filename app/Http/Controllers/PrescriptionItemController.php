@@ -19,7 +19,10 @@ class PrescriptionItemController extends Controller
 
         if ($prod_check) {
             if (PrescriptionItems::where('prod_id',  $req->prod_id)->where('pres_id', $req->pres_id )->exists()) {
-                return response()->json(['status' => " Already Added to table"]);
+                // return response()->with(['status' => " Already Added to table"]);
+        return redirect()->route('viewPrescription',$req->pres_id)->with('status',"Product already added.");
+
+                // return response()->json(['status' => " Already Added to table"]);
             }
        
         $presItem = new PrescriptionItems();

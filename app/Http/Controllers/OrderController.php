@@ -26,7 +26,7 @@ class OrderController extends Controller
     {
         $order= Order::where('id',$id)->first();
         // dd($order);
-        $orderItem = OrderItem::where('order_id', $id)->paginate(5);
+        $orderItem = OrderItem::where('order_id', $id)->paginate(10);
 
         return view('order.viewOrder', compact('order','orderItem'));
         

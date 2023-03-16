@@ -16,6 +16,22 @@
     }
 </style>
 <div class="content-wrapper bg-white">
+<section class="content-header ">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-sm-6">
+                    <h5>Order History</h5>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Order</li>
+                        <li class="breadcrumb-item active">View</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
     <div class="container mt-2 ">
         <div class="row">
             <div class="col-md-12">
@@ -70,7 +86,9 @@
                             </div>
                             <div class="col-md-7 ">
                                 <h4>Order details</h4>
-                                <table class="table table-bordered text-center ">
+                                <div class="card-body table-responsive p-0" style="height: 400px;">
+                            <table class="table table-head-fixed table-bordered text-nowrap">
+
                                     <thead>
                                         <th>Product</th>
                                         <th>Quantity</th>
