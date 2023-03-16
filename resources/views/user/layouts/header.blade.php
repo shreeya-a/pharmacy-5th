@@ -189,7 +189,7 @@
                                     @guest
                                     <ul>
                                         <li>
-                                            <a class="icon primary-icon-text icon-text-btn mt-2 ml-4" href="{{route('loginUser')}}"><i class="mdi mdi-account-key"></i>
+                                            <a class="icon primary-icon-text icon-text-btn mt-1 ml-4" href="{{route('loginUser')}}"><i class="mdi mdi-account-key" style=" font-size:1.5rem;"></i>
                                                 <span> LOGIN</span>
 
                                             </a>
@@ -207,8 +207,9 @@
                                         <ul class="main-menu">
                                             <li class="menu-item-has-children p-1">
                                                 <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
-                                                <a class="icon text-primary primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check"></i></a>
-
+                                                <div class="navbar-cart">
+                                                <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
+                                                </div>
                                                 <!-- sub menu Start -->
                                                 <ul class="sub-menu mt-3 " style="width:175px;">
 
