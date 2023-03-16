@@ -1,17 +1,12 @@
 @extends('user.layouts.main')
 
 @section('content')
-<!-- <div class="py-3 mb-4 shadow-sm bg-primary-light border-top">
-    <div class="container">
-        <h6 class="mb-0">
-            <a href="{{url('/')}}">Home</a>
-            /
-          <a href="">{{$section_name}}</a>
-          /
-          <a href="">{{$product_name}}</a>
-        </h6>
-    </div>
-</div> -->
+<style>
+    p{
+        color: black;
+    }
+</style>
+
 <section class="breadcrumbs-wrapper pt-2 pb-2">
     <div class="container">
         <div class="row">
@@ -74,7 +69,7 @@
                     @endif
                 </div>
                 <div class="product-details my-4">
-                    <p class="details-title text-bold mb-1">Product Details</p>
+                    <p class="details-title text-bold mb-1" style="color:black;">Product Details</p>
                     <p class="description">{{$product->description}} </p>
                 </div>
             </div>

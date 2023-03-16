@@ -2,7 +2,12 @@
 
 @section('content')
 
-
+<style>
+    .card:hover{
+        border: 1px solid #3E7DC0 !important;
+        
+    }
+</style>
 <section class="breadcrumbs-wrapper pt-2 pb-2">
     <div class="container">
         <div class="row">

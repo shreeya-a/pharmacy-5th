@@ -101,20 +101,29 @@
             <div class="owl-carousel featured-carousel owl-theme">
                 @foreach($featured_products as $product)
                 <div class="item">
-                    <div class="card mb-3  text-center">
+                    <div class="card mb-3 product_data text-center">
                         <a href="{{url('section/'.$product->section->section.'/'.$product->product.'/'.$product->id)}}">
                             <div class="img-wrapper">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
-                            <div class="card-body justify-content-center ">
+                            <div class="card-body justify-content-center mb-3 ">
                                 <h4 class="text-capitalize "> {{$product->product}}</h4>
                                 <p>Rs {{$product->price}}</p>
-                                <div class="mt-4 mb-4">
-                                    <a href="#" class="main-btn primary-btn" style="max-width:150px">Add to Cart </a>
+                        </a>
+
+                            <!-- @if($product->prescribed == 0)
+                                <div class=" product-btn mt-4 mb-4"> -->
+                                    <!-- <a href="#" class="main-btn primary-btn" style="max-width:150px">Add to Cart </a> -->
+                                    <!-- <button type="button" class="main-btn primary-btn addToCartBtn" style="max-width:150px">Add to Cart </button>
+                                <input type="hidden" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1">
+
                                 </div>
+                                @else
+                            <p class="mt-2 mb-2 p-4" style="color:red;">*** Presciption required ***</p>
+                                @endif -->
+                                
 
                             </div>
-                        </a>
                     </div>
                 </div>
                 @endforeach
@@ -146,12 +155,12 @@
                             <div class="img-wrapper">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
-                            <div class="card-body justify-content-center ">
+                            <div class="card-body justify-content-center mb-3 ">
                                 <h4 class="text-capitalize "> {{$product->product}}</h4>
                                 <p>Rs {{$product->price}}</p>
-                                <div class="mt-4 mb-4">
+                                <!-- <div class="mt-4 mb-4">
                                     <a href="#" class="main-btn primary-btn">Add to Cart </a>
-                                </div>
+                                </div> -->
                             </div>
                         </a>
                     </div>
@@ -248,7 +257,9 @@
             </div>
         </div>
     </div>
+    
 </section>
+<script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
 <!--====== Features Part Ends ======-->
 
 <!--====== Clients Logo Part Start ======-->
@@ -337,6 +348,8 @@
             }
         }
     })
+
 </script>
 
 @endsection
+
