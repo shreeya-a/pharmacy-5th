@@ -16,13 +16,39 @@
     }
 </style>
 <div class="content-wrapper  bg-white">
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="card " style=" width: 80rem;height: 43rem;">
-            <div class="card-header bg-light">
-                <h3 class="text-center">Edit Product</h3>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-0 mt-0">
-                    <a href="{{route('product')}}" class="btn btn-primary me-md-2">Back</a>
+<section class="content-header ">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-sm-6">
+                    <h5>Product</h5>
                 </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">Edit Product</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <div class="container d-flex justify-content-center mt-3">
+        <div class="card " style=" width: 80rem;height: 45rem;">
+            <div class="card-header bg-light ">
+                <!-- <h3 class="">Edit Product</h3> -->
+                <div class="d-flex justify-content-between">
+                            <div class="me-auto">
+
+                                <h4 class="text-bold">Edit Product</h4>
+                            </div>
+
+
+                            <a href="{{route('product')}}" class="btn btn-success ">Back</a>
+
+                        </div>
+                <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end ml-5mb-0 mt-0">
+                    <a href="{{route('product')}}" class="btn btn-success ">Back</a>
+                </div> -->
 
             </div>
             <div class="box" style="display:flex;">

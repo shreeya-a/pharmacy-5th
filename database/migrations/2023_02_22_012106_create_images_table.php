@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('fname');
-            $table->string('lname');
             $table->string('email');
             $table->string('phone');
             $table->string('address');
@@ -30,7 +29,7 @@ return new class extends Migration
             $table->string('tracking_no')->nullable();
             $table->tinyInteger('discount')->default('5');
             $table->tinyInteger('tax')->default('13');
-
+            $table->string('message')->nullable();
             $table->timestamps();
         });
     }

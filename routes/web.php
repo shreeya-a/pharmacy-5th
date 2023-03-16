@@ -166,6 +166,10 @@ Route::get('/order',[OrderController::class, 'index'])->name('order');
 Route::get('/order-history',[OrderController::class, 'orderHistory'])->name('orderHistory');
 Route::get('view-order/{id}',[OrderController::class, 'viewOrder'])->name('viewOrder');
 Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('updateOrder');
+//invioce
+Route::get('order-invoice/{oid}',[OrderController::class, 'invoice'])->name('oinvoice');
+Route::get('print-order-invoice/{oid}',[OrderController::class, 'print_invoice'])->name('print_order_invoice');
+
 
 //prescription handling by admin
 Route::get('/prescription',[ImageController::class, 'prescription'])->name('prescription');
@@ -176,6 +180,7 @@ Route::put('save-prescription-item/{piid}/{pid}',[PrescriptionItemController::cl
 Route::put('update-prescription-order/{id}',[PrescriptionItemController::class, 'updatePresOrder'])->name('updatePresOrder');
 Route::get('cancel-prescription/{id}',[PrescriptionItemController::class, 'cancelPres'])->name('cancelPres');
 Route::get('delete-prescription-item/{id}/{pid}',[PrescriptionItemController::class, 'deletePresItem'])->name('deletePresItem');
+//invoice
 Route::post('invoice/{pid}',[PrescriptionItemController::class, 'invoice'])->name('invoice');
 Route::get('print-invoice/{pid}',[PrescriptionItemController::class, 'print_invoice'])->name('print_invoice');
 

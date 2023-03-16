@@ -1,9 +1,6 @@
 @extends('user.layouts.main')
 
 @section('content')
-
-
-
 <div class="container my-5">
     <form action="{{url('place-order')}}" method="POST">
         @csrf
@@ -15,18 +12,11 @@
                         <hr>
                         <div class="row checkout-form">
                             <!-- <div class="mb-3"> -->
-                           
-                      
                             <div class="col-md-6">
                                 <label for="">First Name</label>
                                 <input type="text" value="{{ Auth::user()->name}}" name="fname" class="form-control" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label for="">Last Name</label>
-                                <input type="text" value="{{ Auth::user()->lname}}" name="lname" class="form-control" >
-                            </div>
-
-                            <div class="col-md-6 mt-3">
                                 <label for="">Email</label>
                                 <input type="text" value="{{ Auth::user()->email}}" name="email" class="form-control" readonly>
                             </div>
@@ -52,15 +42,6 @@
                                 <label for="">City</label>
                                 <input type="text" value="{{ Auth::user()->city}}" name="city" class="form-control  @error('city') is-invalid @enderror" placeholder="Enter City">
                                 @error('city')
-                                <span class="invalid-feedback mt-2" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="">State</label>
-                                <input type="text" value="{{ Auth::user()->state}}" name="state" class="form-control  @error('state') is-invalid @enderror" placeholder="Enter State">
-                                @error('state')
                                 <span class="invalid-feedback mt-2" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

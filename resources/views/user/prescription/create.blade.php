@@ -45,13 +45,7 @@
                                 <input type="text" value="{{ Auth::user()->name}}" name="fname" class="form-control" placeholder="Enter First Name" readonly>
 
                             </div>
-                            <div class="col-md-6">
-                                <label for="">Last Name</label>
-                                <input type="text" value="{{ Auth::user()->lname}}" name="lname" class="form-control" placeholder="Enter Last Name">
-
-                            </div>
-
-                            <div class="col-md-6 mt-3">
+                            <div class="col-md-6 ">
                                 <label for="">Email</label>
                                 <input type="text" value="{{ Auth::user()->email}}" name="email" class="form-control" placeholder="Enter Email" readonly>
 

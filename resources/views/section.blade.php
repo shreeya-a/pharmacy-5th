@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <section class="breadcrumbs-wrapper pt-2 pb-2">
     <div class="container">
         <div class="row">
@@ -31,7 +32,7 @@
             <div class="row product_data">
                 @foreach($section_product as $product)
                 <div class="col-md-3 mb-3">
-                    <div class="card  product_data">
+                    <div class="card product product_data">
                         <!-- <a href="{{url($product->product.'/'.$product->id)}}"> -->
                         <a href="{{url('section/'.$product->section->section.'/'.$product->product.'/'.$product->id)}}">
                             <!-- <a href="{{url('product-details/'.$product->id)}}"> -->

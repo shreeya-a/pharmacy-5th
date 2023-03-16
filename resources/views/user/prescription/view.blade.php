@@ -11,6 +11,7 @@
                 </div>
                 @php
                 $SN=1;
+                $total=0;
                 @endphp
 
                 <div class="card-body" style="height: 500px;">
@@ -23,11 +24,6 @@
                                     <th>First Name</th>
                                     <th>:</th>
                                     <td>{{$presorder->fname}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Last Name</th>
-                                    <th>:</th>
-                                    <td>{{$presorder->lname}}</td>
                                 </tr>
                                 <tr>
                                     <th>Tracking Id</th>
@@ -53,15 +49,17 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Payment</th>
-                                    <th>:</th>
-                                    <td>Cash on Delivery</td>
-                                </tr>
-                                <tr>
                                     <th>Order Status</th>
                                     <th>:</th>
                                     <td>{{$presorder->status == '0'? 'Pending':($presorder->status =='1'? 'Completed':'Cancelled')}}</td>
                                 </tr>
+                                @if($presorder->status == '0' ||$presorder->status == '1' )
+                                <tr>
+                                    <th>Payment</th>
+                                    <th>:</th>
+                                    <td>Cash on Delivery</td>
+                                </tr>
+                                @endif
                             </table>
                         </div>
 
@@ -106,6 +104,9 @@
                                         <td>{{$item->price}}</td>
                                         <td>{{$item->price * $item->qty}}</td>
                                     </tr>
+                                    @php
+                            $total += $item->qty *$item->product->price;
+                            @endphp
                                     @endforeach
                                 </tbody>
                             </table>
@@ -121,7 +122,7 @@
 
                                                 <tr>
                                                     <th style="width:50%">Subtotal:</th>
-                                                    <td>{{$presorder->total_price}}</td>
+                                                    <td>{{$total}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th style="width:50%">Discount:</th>
@@ -131,9 +132,10 @@
                                                     <th style="width:50%">Tax:</th>
                                                     <td>{{$presorder->tax}}%</td>
                                                 </tr>
+                                                <!-- //final price -->
                                                 <tr>
                                                     <th style="width:50%">Total:</th>
-                                                    <td>{{$presorder->final_price}}</td>
+                                                    <td>{{($total) - ( ($presorder->discount/100) * $total) + (($presorder->tax/100) * $total)}}</td>
                                                 </tr>
 
 

@@ -67,9 +67,9 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  
-                  
-                  @foreach($pres as $order)
+                <b>Invoice:  Prescription Order</b><br>
+
+                @foreach($pres as $order)
                   <b>Invoice:  Ne#{{ $order->tracking_no}}</b><br>
                   
                   <b>Tracking ID:</b>{{ $order->tracking_no}}<br>
@@ -115,9 +115,8 @@
               <div class="row">
                 <!-- accepted payments column -->
                 <div class="col-6">
-                  <p class="lead">Payment Methods: COD</p>
+                <p class="lead"><strong>Payment Method:</strong> Cash on Delivery</p>
                   <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                   Cash on Delivery
                   </p>
                 </div>
                 <!-- /.col -->

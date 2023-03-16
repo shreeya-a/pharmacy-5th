@@ -2,10 +2,24 @@
 
 @section('content')
 
-<div class="content-wrapper">
-    <div class="content-header bg-white">
-        <h1 class="mt-8 text-center">Section</h1>
-    </div>
+<div class="content-wrapper bg-white">
+<section class="content-header ">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-sm-6">
+                    <h5>Section</h5>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Section</li>
+                        <li class="breadcrumb-item active">Edit Section</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+ 
     
     <div class="container d-flex justify-content-center">
         <div class="card " style=" width: 40rem;height: 17rem;">
