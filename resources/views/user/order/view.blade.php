@@ -23,14 +23,14 @@
 <div class="container my-2">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card mb-5">
 
                 @php
                 $SN=1;
                 $total =0;
                 @endphp
 
-                <div class="card-body" style="height: 500px;">
+                <div class="card-body" >
                     <div class="row">
                         <div class="col-md-4 order-details mr-5">
                             <h4>Shipping details</h4>
@@ -135,19 +135,7 @@
                                                     <th style="width:50%">Subtotal:</th>
                                                     <td>{{$total}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <th style="width:50%">Discount:</th>
-                                                    <td>{{$orders->discount}}%</td>
-                                                </tr>
-                                                <tr>
-                                                    <th style="width:50%">Tax:</th>
-                                                    <td>{{$orders->tax}}%</td>
-                                                </tr>
-                                                <!-- //final price -->
-                                                <tr>
-                                                    <th style="width:50%">Total:</th>
-                                                    <td>{{($total) - ( ($orders->discount/100) * $total) + (($orders->tax/100) * $total)}}</td>
-                                                </tr>
+                                         
                                             </tbody>
                                         </table>
                                     </div>

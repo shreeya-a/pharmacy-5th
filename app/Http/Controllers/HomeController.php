@@ -78,6 +78,15 @@ class HomeController extends Controller
         $orders = Order::where('id',$id)->where('user_id',Auth::id())->first();
         return view('user.order.view', compact('orders'));
     }
+     public function cancelmyOrder($id)
+    {
+        $orders = Order::where('id',$id)->where('user_id',Auth::id())->first();
+        $orders->status = 2;
+        $orders->update();
+        // return view('user.order.index', compact('orders'));
+        return redirect()->route('myOrder');
+        
+    }
 
     //prescription order details
     public function myPresOrder()

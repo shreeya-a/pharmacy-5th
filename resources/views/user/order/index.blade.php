@@ -50,6 +50,8 @@
                                 @if ($item ->status =='0')
                                 <td>
                                 <a href="{{url('view-my-order/'. $item->id)}}" class="btn btn-primary">View</a>
+                                <a href="{{url('cancel-my-order/'. $item->id)}}" class="btn btn-danger">Cancel</a>
+
                                 <!-- <a href="{{url('cancel-my-order/'. $item->id)}}" class="btn btn-danger delete" data-confirm="Are you sure you want to CANCEL?">Cancel</a> -->
                             </td>
                                 @elseif ($item ->status == '1')
