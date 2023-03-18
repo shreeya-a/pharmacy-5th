@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\VerifyEmail;
-use App\Models\User;
-use App\Models\VerifyUser;
 use Carbon\Carbon;
+use App\Models\Url;
+use App\Models\User;
+use App\Mail\EmailVerify;
+use App\Mail\VerifyEmail;
+use App\Models\VerifyUser;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,11 +32,14 @@ class UserController extends Controller
             'email' => $req->email,
             'password' => Hash::make($req->password),
         ]);
-        VerifyUser::create([
+        $verifyUser = VerifyUser::create([
             'token' => Str::random(60),
             'user_id' => $user->id,
         ]);
-        Mail::to($user->email)->send(new VerifyEmail($user));
+        $url = Url::create([
+            'url' => url('/user/verify/' . $verifyUser->token),
+        ]);
+        Mail::to($user->email)->send(new EmailVerify($user));
 
         return redirect()->route('login')->with('success', 'Registration complete.Please verify your Email.');
     }
