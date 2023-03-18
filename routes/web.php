@@ -183,3 +183,7 @@ Route::get('print-invoice/{pid}', [PrescriptionItemController::class, 'print_inv
 
 //email verification
 Route::get('user/verify/{token}', [UserController::class, 'verifyEmail'])->name('user.verify');
+
+//change password
+Route::get('/change-password', [HomeController::class, 'changePassword'])->name('change.password');
+Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('update.password');

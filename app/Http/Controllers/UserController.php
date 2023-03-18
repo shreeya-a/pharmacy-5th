@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Url;
 use App\Models\User;
 use App\Mail\EmailVerify;
-use App\Mail\VerifyEmail;
 use App\Models\VerifyUser;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -41,6 +39,7 @@ class UserController extends Controller
         return redirect()->route('login')->with('success', 'Registration complete.Please verify your Email.');
     }
 
+    //email verification
     public function verifyEmail($token)
     {
         $verifiedUser = VerifyUser::where('token', $token)->first();
@@ -68,13 +67,12 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt($req->only(['email', 'password']), $req->remember)) {
-            // dd('you are Logged In');
+
             //email verification logging in
             if (Auth::user()->email_verified_at == null) {
                 Auth::logout();
                 return redirect()->route('login')->with('fail', 'Please verify your email to login');
             }
-            return redirect()->route('homepage');
             // remember me cookie setting
             if ($req->remember === null) {
                 setcookie(
