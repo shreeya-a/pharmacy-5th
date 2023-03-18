@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Mail\VerifyEmail;
 use App\Models\User;
+use App\Models\VerifyUser;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -21,13 +25,35 @@ class UserController extends Controller
 
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $req->name,
             'email' => $req->email,
             'password' => Hash::make($req->password),
         ]);
+        VerifyUser::create([
+            'token' => Str::random(60),
+            'user_id' => $user->id,
+        ]);
+        Mail::to($user->email)->send(new VerifyEmail($user));
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Registration complete.Please verify your Email.');
+    }
+
+    public function verifyEmail($token)
+    {
+        $verifiedUser = VerifyUser::where('token', $token)->first();
+        if (isset($verifiedUser)) {
+            $user = $verifiedUser->user;
+            if (!$user->email_verified_at) {
+                $user->email_verified_at = Carbon::now();
+                $user->save();
+                return redirect()->route('login')->with('success', 'Your Email Has been Verified');
+            } else {
+                return redirect()->back()->with('fail', 'Your email has already been verified');
+            }
+        } else {
+            return redirect()->route('login')->with('fail', 'Something went wrong while verifying email');
+        }
     }
 
     public function loginUser(Request $req)
@@ -41,7 +67,12 @@ class UserController extends Controller
 
         if (Auth::attempt($req->only(['email', 'password']), $req->remember)) {
             // dd('you are Logged In');
-
+            //email verification logging in
+            if (Auth::user()->email_verified_at == null) {
+                Auth::logout();
+                return redirect()->route('login')->with('fail', 'Please verify your email to login');
+            }
+            return redirect()->route('homepage');
             // remember me cookie setting
             if ($req->remember === null) {
                 setcookie(
