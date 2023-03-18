@@ -17,9 +17,4 @@ class VerifyUser extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
-
-    public function url()
-    {
-        return $this->hasOne('App\Models\Url');
-    }
 }
