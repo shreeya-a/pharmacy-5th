@@ -36,12 +36,14 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::prefix('/dashboard', function() {
+Route::prefix('/dashboard')->middleware(['auth'])->group (function() {
 
-
+    Route::get('/dashboard', function () {
         return view('admin.dashboard');
+    });
 
-})->middleware('auth');
+
+});
 
 Route::get('/', function () {
     return view('user.index');
