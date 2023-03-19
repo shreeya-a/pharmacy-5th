@@ -20,7 +20,9 @@
                             <!-- desktop logo Start -->
                             <div class="mobile-logo text-center">
                                 <!-- <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.png')}}" alt="Logo"></a> -->
-                                <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.svg')}}" alt="Logo"></a>
+                                <!-- <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.svg')}}" alt="Logo"></a> -->
+                                <a href="{{route('homepage')}}"><img src="{{asset('userpanel/assets/images/logo-pharma.png')}}" alt="Logo" height="60px" width="200px"></a>
+
                             </div>
                             <!-- desktop logo Ends -->
                         </div>
@@ -35,7 +37,7 @@
 
                                 </a>
 
-                                <div class="navbar-cart-dropdown">
+                                <!-- <div class="navbar-cart-dropdown">
                                     <div class="checkout-style-2">
                                         <div class="checkout-header d-flex justify-content-between">
                                             <h6 class="title">Shopping Cart</h6>
@@ -55,7 +57,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <!-- navbar cart Ends -->
                         </div>
@@ -208,6 +210,7 @@
                                             <li class="menu-item-has-children p-1">
                                                 <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
                                                 <div class="navbar-cart">
+                                                <!-- <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:25px;"></i></a> -->
                                                 <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
                                                 </div>
                                                 <!-- sub menu Start -->

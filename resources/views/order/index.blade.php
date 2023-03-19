@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="content-wrapper bg-white">
+<div class="content-wrapper bg-white" style="min-height: 600px;">
     <!-- <div class="container"> -->
     <section class="content-header ">
         <div class="container-fluid">
