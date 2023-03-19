@@ -36,9 +36,13 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+Route::prefix('/dashboard', function() {
+
+
+        return view('admin.dashboard');
+
+})->middleware('auth');
+
 Route::get('/', function () {
     return view('user.index');
 });
