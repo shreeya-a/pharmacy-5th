@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use App\Mail\MailContact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 use Mail;
@@ -19,7 +20,7 @@ class ContactController extends Controller
             'msg' => $request->msg
         ];
 
-        FacadesMail::to('testd2258@gmail.com')->send(new ContactMail($details));
+        FacadesMail::to('testd2258@gmail.com')->send(new MailContact($details));
         return back()->with('success', 'Your message has been sent successfully.');
     }
 }
