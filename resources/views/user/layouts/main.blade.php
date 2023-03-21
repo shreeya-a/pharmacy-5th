@@ -56,13 +56,22 @@
 
 
     <!--====== alertify ======-->
-    <!--====== alertify ======-->
-
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-<!-- Default theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/> -->
+    <!-- Default theme -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/> -->
+    
+    <!--====== toastr ======-->
 
+<!-- <link rel="stylesheet" type="text/css" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
+     alpha/css/bootstrap.css" rel="stylesheet">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
  
 
@@ -79,7 +88,18 @@
     </div>
 
 
-   
+    <!-- <script>
+        if(session ('success')){
+  toastr.options =
+  {
+  	"closeButton" : true,
+  	"progressBar" : true
+  }
+  		toastr.success("{{ session('success') }}");
+        }
+</script> -->
+
+
     <!--====== Jquery js ======-->
     <script src="{{asset('userpanel/assets/js/vendor/jquery-3.5.1.min.js')}}"></script>
     <script src="{{asset('userpanel/assets/js/vendor/modernizr-3.7.1.min.js')}}"></script>
@@ -145,9 +165,9 @@
   button: "OK!",
 })
 
-            // Swal.fire("{{session('success')}}");
+             // Swal.fire("{{session('success')}}");
         </script>
-    @endif
+    <!-- @endif -->
 
     @yield('scripts')
 

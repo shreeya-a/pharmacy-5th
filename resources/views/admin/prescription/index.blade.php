@@ -30,7 +30,7 @@
                     $SN=1;
                     @endphp
                     <hr class="m-0">
-                    <div class="card-body table-responsive p-0" style="height: 550px;">
+                    <div class="card-body table-responsive p-0" style="height: 600px;">
                         <table class="table table-head-fixed table-bordered text-nowrap">
                             <thead>
                                 <tr>
@@ -77,9 +77,9 @@
                     </div>
                     <!-- </div> -->
                 </div>
-            </div>
-            <div class="row ml-5">
-                {{$prescription->links()}}
+                <div class="row ml-5">
+                    {{$prescription->links()}}
+                </div>
             </div>
         </div>
     </div>

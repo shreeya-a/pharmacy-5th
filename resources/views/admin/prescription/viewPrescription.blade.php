@@ -128,13 +128,14 @@
         .modal-content {
             width: 100%;
         }
+
         .alert-status {
             background-color: red;
         }
     }
 </style>
 
-<div class="content-wrapper bg-white " >
+<div class="content-wrapper bg-white ">
     <section class="content-header ">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -154,18 +155,17 @@
     </section>
 
 
-    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center mt-2 text-center">
-        @if(Session::has('status'))
-
-        <div class="alert alert-status " role="alert">
-            {{Session::get('status')}}
-        </div>
-        @endif
-    </div>
     <div class="container my-2">
-        <div class="row justify-content-center mt-3">
+        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center mt-2 text-center">
+            @if(Session::has('status'))
 
-            <div class="row">
+            <div class="alert alert-status " role="alert">
+                {{Session::get('status')}}
+            </div>
+            @endif
+        </div>
+        <div class="row justify-content-center mt-3">
+            <!-- <div class="row"> -->
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card">
@@ -181,71 +181,77 @@
                             <div id="caption"></div>
                         </div>
                         <hr>
+
+                         <!-- add medicine -->
                         @if($prescription->status == '0')
-                        <form action="{{url('add-prescription-item')}}" method="post" class=" p-2">
-                            @csrf
-                            <!-- <div class="col-md-6"> -->
-                            <p>Add items from prescription</p>
-                            <table>
-                                <tr>
-                                    <td class=" col-4 p-1">
-                                        <input type="hidden" name="pres_id" value="{{$prescription->id}}">
-                                        <label for="medicine" class="form-label   ">Medicine:</label>
-                                        <select class=" form-control" name="prod_id" id="product">
-                                            @foreach($product as $product)
-                                            <option value="{{$product ->id }}">{{$product ->product }}</option>
-                                            <!-- {{$itemprice = $product->price}} -->
-                                            @endforeach
-                                        </select>
-                                    </td>
-                                    <!-- </div> -->
-                                    <td class="col-2">
-                                        <div>
-                                            <label for="prod_qty">Qty:</label>
-                                            <input type="number" class="form-control text-center qty-input  @error('prod_qty') is-invalid @enderror" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
+                            <form action="{{url('add-prescription-item')}}" method="post" class=" p-2">
+                                @csrf
+                                <!-- <div class="col-md-6"> -->
+                                <p>Add items from prescription</p>
+                                <table>
+                                    <tr>
+                                        <td class=" col-4 p-1">
+                                            <input type="hidden" name="pres_id" value="{{$prescription->id}}">
+                                            <label for="medicine" class="form-label   ">Medicine:</label>
+                                            <select class=" form-control" name="prod_id" id="product">
+                                                @foreach($product as $product)
+                                                <option value="{{$product ->id }}">{{$product ->product }}</option>
+                                                <!-- {{$itemprice = $product->price}} -->
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                        <!-- </div> -->
+                                        <td class="col-2">
+                                            <div>
+                                                <label for="prod_qty">Qty:</label>
+                                                <input type="number" class="form-control text-center qty-input  @error('prod_qty') is-invalid @enderror" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
 
-                                        </div>
-                                    </td>
+                                            </div>
+                                        </td>
 
-                                    <td class=" col-8 p-1">
-                                        <label for="message" class="form-label">Message:</label>
-                                        <textarea name="message" id="message" class="form-control col-md-12  @error('message') is-invalid @enderror" cols="30" rows="1" placeholder="How to use?"></textarea>
-                                    </td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary mt-4">Add</button>
-                                    </td>
+                                        <td class=" col-8 p-1">
+                                            <label for="message" class="form-label">Message:</label>
+                                            <textarea name="message" id="message" class="form-control col-md-12  @error('message') is-invalid @enderror" cols="30" rows="1" placeholder="How to use?"></textarea>
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary mt-4">Add</button>
+                                        </td>
 
+                                    </tr>
+
+                                </table>
+                            </form>
+                        @endif
+                        <!-- add medicine -->
+
+                        <!-- invoice -->
+                        @if($prescription->status == 1)
+                            <table class="mt-2 mb-2">
+                                <form action="{{url('invoice/'.$prescription->id)}}" method="post">
+                                    @csrf
+                                    <tr>
+                                        <td class="col-sm-5">
+                                            <label for="dis" class="form-label">Discount: </label>
+                                            <input type="number" name="discount" class="form-control" id="dis" value="{{$prescription->discount}}" min="1" max="100">
+                                        </td>
+                                        <td class="col-sm-5"><label for="tax" class="form-label">Tax: </label>
+                                            <input type="number" name="tax" class="form-control" id="dis" value="{{$prescription->tax}}" min="1" max="13">
+                                        </td>
+                                        <input type="hidden" name="final_price" value="{{($prescription->total_price) - ( ($prescription->discount/100) * $prescription->total_price) + (($prescription->tax/100) * $prescription->total_price)}}">
+                                        <td class="col-sm-12 ">
+                                            <button type="submit" class="btn btn-success mt-3">Generate Invoice</button>
+                                        </td>
+                                    </tr>
+                                </form>
+                            </table>
+                        @endif
+                        <!-- invoice -->
+                        
                     </div>
-                    </tr>
 
-                    </table>
-                    @endif
-
-
-                    </form>
-                    @if($prescription->status == 1)
-                    <table class="mt-2 mb-2">
-                        <form action="{{url('invoice/'.$prescription->id)}}" method="post">
-                            @csrf
-                            <tr>
-                                <td class="col-sm-5">
-                                    <label for="dis" class="form-label">Discount: </label>
-                                    <input type="number" name="discount" class="form-control" id="dis" value="{{$prescription->discount}}" min="1" max="100">
-                                </td>
-                                <td class="col-sm-5"><label for="tax" class="form-label">Tax: </label>
-                                    <input type="number" name="tax" class="form-control" id="dis" value="{{$prescription->tax}}" min="1" max="13">
-                                </td>
-                                <input type="hidden" name="final_price" value="{{($prescription->total_price) - ( ($prescription->discount/100) * $prescription->total_price) + (($prescription->tax/100) * $prescription->total_price)}}">
-                                <td class="col-sm-12 ">
-                                    <button type="submit" class="btn btn-success mt-3">Generate Invoice</button>
-                                </td>
-                            </tr>
-                        </form>
-                    </table>
-                    @endif
                 </div>
                 <!-- row class end -->
-            </div>
+            <!-- </div> -->
 
             <div class="col-md-6">
                 <div class="card">
@@ -261,65 +267,50 @@
                             </div>
                         </div>
                         @if ($presItem->count()>0)
-                        @php
-                        $total =0;
-                        @endphp
+                                @php
+                                $total =0;
+                                @endphp
 
-                        @if($prescription->status == 1 || $prescription->status == 0)
+                                <div class="card-body table-responsive p-0" style="height: 350px;">
+                                    <table class="table table-head-fixed table-bordered text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Message</th>
+                                                <th>Qty</th>
+                                                <th>Rate</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($presItem as $item)
+                                            <tr>
+                                                <td>{{$item->product->product}}</td>
+                                                <td class="col-10 " style="word-break: break-all">{{$item->message}}</td>
+                                                <td>{{$item->qty}}</td>
+                                                <td>{{$item->product->price}}</td>
+                                                <td>
+                                                    <a href="{{url('edit-prescription-item/'.$item->id)}}" class=""><i class="fas fa-pen" aria-hidden="true"></i> </a>
+                                                    <a href="{{url('/delete-prescription-item/'.$item->id .'/'.$prescription->id)}}" class="delete" data-confirm="Are you sure to delete {{$item->product->product}}?"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
 
+                                                </td>
+                                            </tr>
+                                            @php
+                                            $total += $item->qty *$item->product->price;
+                                            @endphp
 
-                        <div class="card-body table-responsive p-0" style="height: 350px;">
-                            <table class="table table-head-fixed table-bordered text-nowrap">
-
-
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Message</th>
-                                        <th>Qty</th>
-                                        <th>Rate</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    @foreach($presItem as $item)
-                                    <tr>
-                                        <td>{{$item->product->product}}</td>
-                                        <td class="col-10 " style="word-break: break-all">{{$item->message}}</td>
-                                        <td>{{$item->qty}}</td>
-                                        <td>{{$item->product->price}}</td>
-                                        <td>
-                                            <a href="{{url('edit-prescription-item/'.$item->id)}}" class=""><i class="fas fa-pen" aria-hidden="true"></i> </a>
-                                            <a href="{{url('/delete-prescription-item/'.$item->id .'/'.$prescription->id)}}" class="delete" data-confirm="Are you sure to delete {{$item->product->product}}?"><i class="fas fa-archive" style="color:red" aria-hidden="true"></i></a>
-
-                                        </td>
-                                    </tr>
-                                    @php
-                                    $total += $item->qty *$item->product->price;
-                                    @endphp
-
-                                    @endforeach
-                                </tbody>
-
-
-                            </table>
-                            <div class="row ml-3 mt-2">
-                                {{$presItem->links()}}
-                            </div>
-
-                        </div>
-
-
-                        <div class="d-flex justify-content-between p-2">
-                            <h4>Total: </h4>
-                            <h5 class="mr-4 pr-2 ">Rs {{$total}}</h5>
-                        </div>
-                        @else
-                        <div class="msg p-5 my-2">
-                            Order has been cancelled.
-                        </div>
-                        @endif
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <div class="row ml-3 mt-2">
+                                        {{$presItem->links()}}
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between p-2">
+                                    <h4>Total: </h4>
+                                    <h5 class="mr-4 pr-2 ">Rs {{$total}}</h5>
+                                </div>
+                        
                     </div>
 
                     <div class="card ">
@@ -344,40 +335,49 @@
                                     </tr>
                                 </table>
                             </form>
-                            <!-- @if($prescription->status == 1)
-                    <table class="mt-2">
-                        <form action="{{url('invoice/'.$prescription->id)}}" method="post">
-                            @csrf
-                            <tr>
-                                <td class="col-sm-5">
-                                    <label for="dis" class="form-label">Discount: </label>
-                                    <input type="number" name="discount" class="form-control" id="dis" value="{{$prescription->discount}}" min="1" max="100">
-                                </td>
-                                <td class="col-sm-5"><label for="tax" class="form-label">Tax: </label>
-                                    <input type="number" name="tax" class="form-control" id="dis" value="{{$prescription->tax}}" min="1" max="13">
-                                </td>
-                                <input type="hidden" name="final_price" value="{{($prescription->total_price) - ( ($prescription->discount/100) * $prescription->total_price) + (($prescription->tax/100) * $prescription->total_price)}}">
-                                <td class="col-sm-12 ">
-                                    <button type="submit" class="btn btn-success mt-3">Generate Invoice</button>
-                                </td>
-                            </tr>
-                    </table>
-                    @endif -->
+     
                         </div>
                     </div>
-                    @else
+                    @elseif ($prescription->status == 0)
 
+                        <div class="p-3 mt-4">
+                            <p>Prescription is yet to be processed.</p>
+                        </div>
+                    @else
                     <div class="p-3 mt-4">
-                        <p>Prescription is yet to be processed.</p>
-                    </div>
+                            <p>Prescription order is cancelled.</p>
+
+                            <form action="{{url('update-prescription-order/'.$prescription->id)}}" method="post" class="mt-3">
+                                @csrf
+                                @method('PUT')
+                                <table>
+                                    <tr>
+                                        <td class="col-12">
+                                            <label for="" class="form-label">Order Status: </label>
+                                            <select class="form-control" name="order_status">
+                                                <option {{$prescription->status == '0'? 'selected': ''}} value="0">Pending</option>
+                                                <option {{$prescription->status == '1'? 'selected': ''}} value="1">Completed</option>
+                                                <option {{$prescription->status == '2'? 'selected': ''}} value="2">Cancelled</option>
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary  mt-4 col-20">Update</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+
+     
 
                 </div>
 
             </div>
 
 
+            @endif
         </div>
-        @endif
 
 
         <script>
