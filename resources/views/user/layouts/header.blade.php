@@ -170,7 +170,7 @@
                                 <!-- navbar search start -->
                                 <div class="navbar-search search-style-5">
                                     <div class="search-input">
-                                        <input type="text" placeholder="Search">
+                                        <input type="search" id="search_product" placeholder="Search products">
                                     </div>
                                     <div class="search-btn">
                                         <button><i class="lni lni-search-alt"></i></button>

@@ -49,6 +49,18 @@ class HomeController extends Controller
     {
         return view('register');
     }
+
+public function searchAjax()
+{
+    $products = Product::select('product')->get();
+    $data =[];
+    foreach($products as $item){
+        $data[] = $item['product'];
+    }
+    return $data;
+
+}
+
     public  function section($section, $section_id)
     {
     

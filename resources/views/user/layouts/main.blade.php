@@ -55,6 +55,8 @@
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/owl.theme.default.min.css')}}">
 
 
+    <!--====== search autocomplete ======-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <!--====== alertify ======-->
     
     <!-- CSS -->
@@ -105,9 +107,31 @@
     <script src="{{asset('userpanel/assets/js/vendor/modernizr-3.7.1.min.js')}}"></script>
     
 
+
     <!-- carousel -->
     <script src="{{asset('userpanel/assets/js/jquery-3.6.3.min.js')}}"></script>
     <script src="{{asset('userpanel/assets/js/owl.carousel.min.js')}}"></script>
+
+    <!-- search autocomplete -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+
+    var availableTags = [];
+    $.ajax({
+        method: 'GET',
+        url: "/search-product",
+        success: function(response){
+            startAutoComplete(response);
+        }
+
+    });
+    function startAutoComplete(availableTags){
+        $( "#search_product" ).autocomplete({
+        source: availableTags
+        });
+    }
+  </script>
     
     <!--====== Bootstrap 5 js ======-->
     <script src="{{asset('userpanel/assets/js/popper.min.js')}}"></script>

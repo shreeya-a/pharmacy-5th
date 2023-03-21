@@ -60,6 +60,7 @@ Route::get('/', function () {
 //     return view('product.product');
 // });
 
+// section dynamic for navbar
 Facades\View::composer('*', function (View $view ) {
     // ...
     $cats = Section::all();
@@ -68,6 +69,7 @@ Facades\View::composer('*', function (View $view ) {
 
 });
 
+// cart count dynamic
 Facades\View::composer('*', function (View $count ) {
     // ...
 
@@ -82,6 +84,8 @@ Facades\View::composer('*', function (View $count ) {
 
 });
 
+// search bar
+Route::get('/search-product',[HomeController::class, 'searchAjax'])->name('search');
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
