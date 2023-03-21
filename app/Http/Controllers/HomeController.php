@@ -8,7 +8,7 @@ use App\Models\Order;
 use App\Models\PrescriptionItems;
 use App\Models\Product;
 use App\Models\Section;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,6 +41,12 @@ class HomeController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+    // admin users view index table
+    public function users()
+    {
+        $users = User::orderBy('id', 'desc')->paginate(10);
+        return view('admin.user.index',compact('users'));
     }
 
 

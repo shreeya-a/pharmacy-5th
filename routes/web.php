@@ -48,6 +48,10 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
+//user list in dashboard
+Route::get('/user', function () {
+    return view('admin.user.index');
+});
 
 // invoice
 Route::get('/invoice', function () {
@@ -64,32 +68,26 @@ Facades\View::composer('*', function (View $view ) {
     // ...
     $cats = Section::all();
     $view->with('cats', $cats);
-
-
 });
 
 Facades\View::composer('*', function (View $count ) {
-    // ...
-
-    // if (Auth::check()) {
-    //     $count = Cart::where('user_id' , Auth::id())->count();
-    // }
     $count->with('count',Cart::where('user_id' , Auth::id())->count());
-    // dd($count);
-    // return $count;
-    // $count->with('count', $count);
-//   return  $count-> with(['count' => $count]);
-
 });
 
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
 Route::get('/about-page', [HomeController::class, 'about'])->name('about');
+Route::get('/users', [HomeController::class, 'users'])->name('users');
 
 //Contact Page
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('send');
+
+// contact admin 
+Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contactUs');
+
+
 
 // Prescription page
 Route::get('/upload-prescription', [ImageController::class, 'create'])->name('image');
@@ -100,11 +98,8 @@ Route::post('/prescription', [ImageController::class, 'store'])->name('prescript
 //home controller main views
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
-// Route::get('/sectionnav/{section}', [HomeController::class, 'section'])->name('section');
-// Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('section');
 Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
-// Route::get('{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 
 
 //user login

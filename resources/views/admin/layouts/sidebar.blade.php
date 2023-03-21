@@ -98,16 +98,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::is('contact') ? 'active':''; }}">
+            <a href="" class="nav-link {{ Request::is('contact-us') ? 'active':''; }}">
               <i class="nav-icon  fas sign-out"></i>
               <p>
-                Contact
+                Contact Us
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::is('admin') ? 'active':''; }}">
+            <a href="" class="nav-link {{ Request::is('user-list') ? 'active':''; }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                Admin
@@ -117,7 +117,7 @@
           </li>
    
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::is('user') ? 'active':''; }}">
+            <a href="{{route('users')}}" class="nav-link {{ Request::is('users') ? 'active':''; }}">
               <i class="nav-icon fas fa-user"></i>
               <p>
                Users
