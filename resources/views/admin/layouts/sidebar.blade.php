@@ -51,8 +51,17 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{route('prescription')}}" class="nav-link {{ Request::is('prescription') ? 'active':''; }}">
+              <i class="nav-icon fas fa-file-medical"></i>
+              <p>
+               Prescription Uploads
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{route('order')}}" class="nav-link {{ Request::is('order') ? 'active':''; }}">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fab fa-first-order"></i>
               <p>
                Orders
                 <!-- <span class="right badge badge-danger">New</span> -->
@@ -60,10 +69,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('prescription')}}" class="nav-link {{ Request::is('prescription') ? 'active':''; }}">
-              <i class="nav-icon fas fa-user"></i>
+            <a href="{{route('product')}}" class="nav-link {{ Request::is('product') ? 'active':''; }}">
+            <i class=" nav-icon fab fa-product-hunt" aria-hidden="true"></i>
               <p>
-               Prescription
+               Product
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
@@ -78,44 +87,27 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="{{route('section')}}" class="nav-link {{ Request::is('section') ? 'active':''; }}">
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
-            <i class="nav-icon fas fa-th"></i>
+            <i class=" nav-icon fas fa-th-large" aria-hidden="true"></i>
               <p>
               Section
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{route('product')}}" class="nav-link {{ Request::is('product') ? 'active':''; }}">
-            <i class=" nav-icon fab fa-product-hunt" aria-hidden="true"></i>
-              <p>
-               Product
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+      
           <li class="nav-item">
             <a href="" class="nav-link {{ Request::is('contact-us') ? 'active':''; }}">
-              <i class="nav-icon  fas sign-out"></i>
+              <i class="nav-icon  fas fa-envelope"></i>
               <p>
                 Contact Us
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="" class="nav-link {{ Request::is('user-list') ? 'active':''; }}">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-               Admin
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
-   
+
           <li class="nav-item">
             <a href="{{route('users')}}" class="nav-link {{ Request::is('users') ? 'active':''; }}">
               <i class="nav-icon fas fa-user"></i>
@@ -125,17 +117,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::is('settings') ? 'active':''; }}">
-            <i class="nav-icon fas fa-cog"></i>
-              <p>
-               Settings
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
-
-
         </ul>
 
       </nav>
