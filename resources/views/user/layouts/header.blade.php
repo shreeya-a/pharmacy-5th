@@ -36,42 +36,25 @@
 
 
                                 </a>
-
-                                <!-- <div class="navbar-cart-dropdown">
-                                    <div class="checkout-style-2">
-                                        <div class="checkout-header d-flex justify-content-between">
-                                            <h6 class="title">Shopping Cart</h6>
-                                        </div>
-
-
-
-                                        <div class="checkout-footer">
-                                            <div class="checkout-sub-total d-flex justify-content-between">
-                                                <p class="value">Subtotal Price:</p>
-                                                <p class="price">$144</p>
-                                            </div>
-                                            <br>
-                                            <div class="checkout-btn">
-                                                <a href="cart-page.html" class="main-btn primary-btn-border">View Cart</a>
-                                                <a href="checkout-page.html" class="main-btn primary-btn">Checkout</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                             <!-- navbar cart Ends -->
                         </div>
                     </div>
                     <!-- navbar search start -->
-                    <div class="navbar-search mt-15 search-style-5">
+                    <!-- <div class="navbar-search mt-15 search-style-5"> -->
 
-                        <div class="search-input">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div class="search-btn">
-                            <button><i class="lni lni-search-alt"></i></button>
-                        </div>
-                    </div>
+                    <form action="{{route('searchProduct')}}" method="POST"class=" mt-2">
+                                    @csrf
+                                    <div class="navbar-search search-style-5">
+                                        <div class="search-input">
+                                            <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
+                                        </div>
+                                        <div class="search-btn">
+                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                    <!-- </div> -->
                     <!-- navbar search Ends -->
                 </div>
                 <!-- navbar mobile Start -->
