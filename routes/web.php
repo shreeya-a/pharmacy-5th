@@ -48,10 +48,7 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
-//user list in dashboard
-Route::get('/user', function () {
-    return view('admin.user.index');
-});
+
 
 // invoice
 Route::get('/invoice', function () {
@@ -85,7 +82,7 @@ Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('send');
 
 // contact admin 
-Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contactUs');
+// Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contactUs');
 
 
 
