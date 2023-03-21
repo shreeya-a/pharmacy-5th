@@ -91,7 +91,7 @@
                                             <th>Product</th>
                                             <th>Qty</th>
                                             <th>Rate</th>
-                                            <th>Subtotal</th>
+                                            <th>Amt</th>
                                         </tr>
                                     </thead>
                                     <tbody>
