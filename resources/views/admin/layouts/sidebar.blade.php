@@ -117,6 +117,16 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('logout')}}" class="nav-link {{ Request::is('logout') ? 'active':''; }}">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <i class="fas fa-sign-out"></i>
+              <p>
+               Log out
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
         </ul>
 
       </nav>
