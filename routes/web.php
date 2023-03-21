@@ -85,7 +85,8 @@ Facades\View::composer('*', function (View $count ) {
 });
 
 // search bar
-Route::get('/search-product',[HomeController::class, 'searchAjax'])->name('search');
+Route::get('/product-list',[HomeController::class, 'searchAjax'])->name('search');
+Route::post('/search-product',[HomeController::class, 'searchProduct'])->name('searchProduct');
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);

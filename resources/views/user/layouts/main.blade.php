@@ -120,7 +120,7 @@
     var availableTags = [];
     $.ajax({
         method: 'GET',
-        url: "/search-product",
+        url: "/product-list",
         success: function(response){
             startAutoComplete(response);
         }
@@ -191,7 +191,7 @@
 
              // Swal.fire("{{session('success')}}");
         </script>
-    <!-- @endif -->
+    @endif
 
     @yield('scripts')
 

@@ -88,8 +88,8 @@
                 <!-- <div class="navbar-top-wrapper">
                     <div class="container-lg">
                         <div class="navbar-top d-lg-flex justify-content-between"> -->
-                            <!-- navbar top left Start -->
-                            <!-- <div class="navbar-top-left">
+                <!-- navbar top left Start -->
+                <!-- <div class="navbar-top-left">
                                 <ul class="navbar-top-link">
                                     <li><a href="{{route('homepage')}}">Home</a></li>
                                     <li><a href="{{route('about')}}">About</a></li>
@@ -103,9 +103,9 @@
                                     </li>
                                 </ul>
                             </div> -->
-                            <!-- navbar top left Ends -->
-                            <!-- navbar top right Start -->
-                            <!-- @guest
+                <!-- navbar top left Ends -->
+                <!-- navbar top right Start -->
+                <!-- @guest
                             <div class="navbar-top-right">
                                 <ul class="navbar-top-link">
 
@@ -124,8 +124,8 @@
                                 </ul>
                             </div>
                             @endauth -->
-                            <!-- navbar top right Ends -->
-                        <!-- </div>
+                <!-- navbar top right Ends -->
+                <!-- </div>
                     </div>
                 </div>  -->
                 <!-- navbar top Ends -->
@@ -168,14 +168,17 @@
 
                             <div class="navbar-search-cart d-none d-lg-flex ">
                                 <!-- navbar search start -->
-                                <div class="navbar-search search-style-5">
-                                    <div class="search-input">
-                                        <input type="search" id="search_product" placeholder="Search products">
+                                <form action="{{route('searchProduct')}}" method="POST">
+                                    @csrf
+                                    <div class="navbar-search search-style-5">
+                                        <div class="search-input">
+                                            <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
+                                        </div>
+                                        <div class="search-btn">
+                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="search-btn">
-                                        <button><i class="lni lni-search-alt"></i></button>
-                                    </div>
-                                </div>
+                                </form>
                                 <!-- navbar search Ends -->
                                 <!-- navbar cart start -->
                                 <div class="navbar-cart">
@@ -210,8 +213,8 @@
                                             <li class="menu-item-has-children p-1">
                                                 <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
                                                 <div class="navbar-cart">
-                                                <!-- <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:25px;"></i></a> -->
-                                                <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
+                                                    <!-- <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:25px;"></i></a> -->
+                                                    <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
                                                 </div>
                                                 <!-- sub menu Start -->
                                                 <ul class="sub-menu mt-3 " style="width:175px;">
