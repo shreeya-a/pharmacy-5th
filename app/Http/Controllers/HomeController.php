@@ -143,6 +143,6 @@ class HomeController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
         Auth::logout();
-        return redirect()->route('login')->with("status", "Password changed successfully!");
+        return redirect()->route('login')->with("great", "Password changed successfully!");
     }
 }

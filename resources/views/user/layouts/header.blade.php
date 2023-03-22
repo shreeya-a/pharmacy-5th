@@ -218,7 +218,7 @@
                                                     <hr class="m-0 ">
                                                     <li><a href="{{route('myPresOrder')}}">My Prescription</a></li>
                                                     <li><a href="{{route('myOrder')}}">My Orders</a></li>
-                                                    <li><a href="{{route('change.password')}}">Change Password</a></li>
+                                                    <li><a href="{{route('changepass')}}">Change Password</a></li>
                                                     <hr class="m-0 ">
                                                     <li><a href="{{route('logout')}}"><i class="mdi mdi-logout"></i>Sign out</a></li>
 

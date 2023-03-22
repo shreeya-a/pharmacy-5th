@@ -11,7 +11,7 @@
                         {{ __('Change Password') }}
                     </div>
 
-                    <form action="{{ route('update.password') }}" method="POST">
+                    <form action="{{ route('updatepass') }}" method="POST">
                         @csrf
                         <div class="card-body">
                             @if (session('status'))

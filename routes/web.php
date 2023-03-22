@@ -1,27 +1,27 @@
 <?php
 
 
-use GuzzleHttp\Middleware;
-use App\Http\Controllers\CartController;
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SectionController;
-use App\Http\Controllers\PrescriptionItemController;
-use Illuminate\Routing\Route as RoutingRoute;
-use App\Http\Controllers\ImageController;
 use App\Models\Cart;
 use App\Models\Section;
-// use Illuminate\Contracts\View\View;
+
+use Illuminate\View\View;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SectionController;
+// use Illuminate\Contracts\View\View;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
+use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\PrescriptionItemController;
 
 
 /*
@@ -185,5 +185,5 @@ Route::get('print-invoice/{pid}', [PrescriptionItemController::class, 'print_inv
 Route::get('user/verify/{token}', [UserController::class, 'verifyEmail'])->name('user.verify');
 
 //change password
-Route::get('/change-password', [HomeController::class, 'changePassword'])->name('change.password');
-Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('update.password');
+Route::get('/change-password', [HomeController::class, 'changePassword'])->name('changepass')->middleware('auth');
+Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('updatepass');

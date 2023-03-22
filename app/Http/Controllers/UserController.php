@@ -36,7 +36,7 @@ class UserController extends Controller
         ]);
         Mail::to($user->email)->send(new EmailVerify($user));
 
-        return redirect()->route('login')->with('success', 'Registration complete.Please verify your Email.');
+        return redirect()->route('login')->with('great', 'Registration complete.Please verify your Email.');
     }
 
     //email verification
@@ -48,7 +48,7 @@ class UserController extends Controller
             if (!$user->email_verified_at) {
                 $user->email_verified_at = Carbon::now();
                 $user->save();
-                return redirect()->route('login')->with('success', 'Your Email Has been Verified');
+                return redirect()->route('login')->with('great', 'Your Email Has been Verified');
             } else {
                 return redirect()->back()->with('fail', 'Your email has already been verified');
             }
