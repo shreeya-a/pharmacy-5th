@@ -49,6 +49,36 @@ class HomeController extends Controller
     {
         return view('register');
     }
+
+public function searchAjax()
+{
+    $products = Product::select('product')->get();
+    $data =[];
+    foreach($products as $item){
+        $data[] = $item['product'];
+    }
+    return $data;
+
+}
+public function searchProduct(Request $req)
+{
+   $searched_product = $req->product_name;
+//    dd($searched_product);
+   if($searched_product != "")
+   {
+        $product = Product::where("product", "LIKE", "%$searched_product%")->first();
+        if($product)
+        {
+            return redirect('section/'.$product->section->section.'/'.$product->product.'/'.$product->id);
+        }else{
+            return redirect()->back()->with("fail", "No products matched your search");
+        }
+   }
+   else{
+    return redirect()->back();
+   }
+}
+
     public  function section($section, $section_id)
     {
     
