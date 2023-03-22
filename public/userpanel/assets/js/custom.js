@@ -28,10 +28,10 @@ $(document).ready(function () {
                 product_qty: product_qty,
             },
             success: function (response) {
-                window.location.reload();
+                // window.location.reload();
 
-                alert(response.status);
-                // swal(response.status);
+                // alert(response.status);
+                swal(response.status);
                 // sweetalert
             },
         });
@@ -96,7 +96,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 window.location.reload();
-                alert(response.status);
+                // alert(response.status);
                 // swal("".response.status."success");
                 // sweetalert
             },

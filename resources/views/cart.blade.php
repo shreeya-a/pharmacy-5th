@@ -84,7 +84,7 @@
                                 </span>
                             </td>
                             <td>
-                                <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove</button>
+                                <button class="btn btn-danger delete-cart-item "><i class="fa fa-trash-o" aria-hidden="true"></i> Remove</button>
                             </td>
                         </tr>
                         @php

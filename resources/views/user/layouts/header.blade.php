@@ -20,7 +20,9 @@
                             <!-- desktop logo Start -->
                             <div class="mobile-logo text-center">
                                 <!-- <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.png')}}" alt="Logo"></a> -->
-                                <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.svg')}}" alt="Logo"></a>
+                                <!-- <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.svg')}}" alt="Logo"></a> -->
+                                <a href="{{route('homepage')}}"><img src="{{asset('userpanel/assets/images/logo-pharma.png')}}" alt="Logo" height="60px" width="200px"></a>
+
                             </div>
                             <!-- desktop logo Ends -->
                         </div>
@@ -34,42 +36,25 @@
 
 
                                 </a>
-
-                                <div class="navbar-cart-dropdown">
-                                    <div class="checkout-style-2">
-                                        <div class="checkout-header d-flex justify-content-between">
-                                            <h6 class="title">Shopping Cart</h6>
-                                        </div>
-
-
-
-                                        <div class="checkout-footer">
-                                            <div class="checkout-sub-total d-flex justify-content-between">
-                                                <p class="value">Subtotal Price:</p>
-                                                <p class="price">$144</p>
-                                            </div>
-                                            <br>
-                                            <div class="checkout-btn">
-                                                <a href="cart-page.html" class="main-btn primary-btn-border">View Cart</a>
-                                                <a href="checkout-page.html" class="main-btn primary-btn">Checkout</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <!-- navbar cart Ends -->
                         </div>
                     </div>
                     <!-- navbar search start -->
-                    <div class="navbar-search mt-15 search-style-5">
+                    <!-- <div class="navbar-search mt-15 search-style-5"> -->
 
-                        <div class="search-input">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div class="search-btn">
-                            <button><i class="lni lni-search-alt"></i></button>
-                        </div>
-                    </div>
+                    <form action="{{route('searchProduct')}}" method="POST"class=" mt-2">
+                                    @csrf
+                                    <div class="navbar-search search-style-5">
+                                        <div class="search-input">
+                                            <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
+                                        </div>
+                                        <div class="search-btn">
+                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                    <!-- </div> -->
                     <!-- navbar search Ends -->
                 </div>
                 <!-- navbar mobile Start -->
@@ -86,8 +71,8 @@
                 <!-- <div class="navbar-top-wrapper">
                     <div class="container-lg">
                         <div class="navbar-top d-lg-flex justify-content-between"> -->
-                            <!-- navbar top left Start -->
-                            <!-- <div class="navbar-top-left">
+                <!-- navbar top left Start -->
+                <!-- <div class="navbar-top-left">
                                 <ul class="navbar-top-link">
                                     <li><a href="{{route('homepage')}}">Home</a></li>
                                     <li><a href="{{route('about')}}">About</a></li>
@@ -101,9 +86,9 @@
                                     </li>
                                 </ul>
                             </div> -->
-                            <!-- navbar top left Ends -->
-                            <!-- navbar top right Start -->
-                            <!-- @guest
+                <!-- navbar top left Ends -->
+                <!-- navbar top right Start -->
+                <!-- @guest
                             <div class="navbar-top-right">
                                 <ul class="navbar-top-link">
 
@@ -122,8 +107,8 @@
                                 </ul>
                             </div>
                             @endauth -->
-                            <!-- navbar top right Ends -->
-                        <!-- </div>
+                <!-- navbar top right Ends -->
+                <!-- </div>
                     </div>
                 </div>  -->
                 <!-- navbar top Ends -->
@@ -166,14 +151,17 @@
 
                             <div class="navbar-search-cart d-none d-lg-flex ">
                                 <!-- navbar search start -->
-                                <div class="navbar-search search-style-5">
-                                    <div class="search-input">
-                                        <input type="text" placeholder="Search">
+                                <form action="{{route('searchProduct')}}" method="POST">
+                                    @csrf
+                                    <div class="navbar-search search-style-5">
+                                        <div class="search-input">
+                                            <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
+                                        </div>
+                                        <div class="search-btn">
+                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="search-btn">
-                                        <button><i class="lni lni-search-alt"></i></button>
-                                    </div>
-                                </div>
+                                </form>
                                 <!-- navbar search Ends -->
                                 <!-- navbar cart start -->
                                 <div class="navbar-cart">
@@ -208,7 +196,8 @@
                                             <li class="menu-item-has-children p-1">
                                                 <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
                                                 <div class="navbar-cart">
-                                                <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
+                                                    <!-- <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:25px;"></i></a> -->
+                                                    <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
                                                 </div>
                                                 <!-- sub menu Start -->
                                                 <ul class="sub-menu mt-3 " style="width:175px;">
