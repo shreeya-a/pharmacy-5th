@@ -140,7 +140,7 @@
 
                                                 <tr>
                                                     <th style="width:50%">Subtotal:</th>
-                                                    <td>{{$total}}</td>
+                                                    <td>Rs {{$total}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th style="width:50%">Discount:</th>
@@ -150,10 +150,14 @@
                                                     <th style="width:50%">Tax:</th>
                                                     <td>{{$presorder->tax}}%</td>
                                                 </tr>
+                                                <tr>
+                                                    <th style="width:50%">Delivery Charges:</th>
+                                                    <td>Rs {{$presorder->delivery}}</td>
+                                                </tr>
                                                 <!-- //final price -->
                                                 <tr>
                                                     <th style="width:50%">Total:</th>
-                                                    <td>{{($total) - ( ($presorder->discount/100) * $total) + (($presorder->tax/100) * $total)}}</td>
+                                                    <td>Rs {{($total) + ($presorder->delivery) - (($presorder->discount/100) * $total) + (($presorder->tax/100) * $total)}}</td>
                                                 </tr>
 
 

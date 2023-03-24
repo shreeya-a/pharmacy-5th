@@ -158,7 +158,7 @@
                       @foreach($pres as $order)  
                       <tr>
                         <th style="width:50%">Subtotal:</th>
-                        <td>{{$order->total_price}}</td>
+                        <td>Rs {{$order->total_price}}</td>
                       </tr>
                       <tr>
                         <th style="width:50%">Discount:</th>
@@ -169,8 +169,12 @@
                         <td>{{$order->tax}}%</td>
                       </tr>
                       <tr>
+                        <th style="width:50%">Delivery Charges:</th>
+                        <td>Rs {{$order->delivery}}</td>
+                      </tr>
+                      <tr>
                         <th style="width:50%">Total:</th>
-                        <td>{{($order->total_price) - ( ($order->discount/100) * $order->total_price) + (($order->tax/100) * $order->total_price)}}</td>
+                        <td>Rs {{($order->total_price) + ($order->delivery) - ( ($order->discount/100) * $order->total_price) + (($order->tax/100) * $order->total_price)}}</td>
                       </tr>
                       @endforeach
                    
