@@ -38,9 +38,9 @@ use Illuminate\View\View;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/register', function () {
-    return view('register');
-});
+// Route::get('/register', function () {
+//     return view('register');
+// });
 Route::get('/login', function () {
     return view('login');
 });
@@ -57,19 +57,7 @@ Route::get('/invoice', function () {
 Route::get('/', function () {
     return view('user.index');
 });
-// Route::get('/product', function () {
-//     return view('product.product');
-// });
 
-Facades\View::composer('*', function (View $view ) {
-    // ...
-    $cats = Section::all();
-    $view->with('cats', $cats);
-});
-
-Facades\View::composer('*', function (View $count ) {
-    $count->with('count',Cart::where('user_id' , Auth::id())->count());
-});
 
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
@@ -95,7 +83,7 @@ Route::post('/prescription', [ImageController::class, 'store'])->name('prescript
 //home controller main views
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
-Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('section');
+Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('sections');
 Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 
 
@@ -123,7 +111,7 @@ Route::put('/update-product', [ProductController::class, 'updateProduct'])->name
 //admin section
 Route::get('/section', [SectionController::class,'section'])->name('section');
 Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');
-Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit');
+Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('editsec');
 Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
 Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
 
