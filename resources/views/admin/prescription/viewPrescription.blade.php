@@ -156,14 +156,6 @@
 
 
     <div class="container my-2">
-        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 text-center mt-2 text-center">
-            @if(Session::has('status'))
-
-            <div class="alert alert-status " role="alert">
-                {{Session::get('status')}}
-            </div>
-            @endif
-        </div>
         <div class="row justify-content-center mt-3">
             <!-- <div class="row"> -->
             <div class="col-md-6">

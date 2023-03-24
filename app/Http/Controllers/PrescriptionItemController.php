@@ -20,7 +20,7 @@ class PrescriptionItemController extends Controller
         if ($prod_check) {
             if (PrescriptionItems::where('prod_id',  $req->prod_id)->where('pres_id', $req->pres_id )->exists()) {
                 // return response()->with(['status' => " Already Added to table"]);
-        return redirect()->route('viewPrescription',$req->pres_id)->with('status',"Product already added.");
+        return redirect()->route('viewPrescription',$req->pres_id)->with('error',"Product already added.");
 
                 // return response()->json(['status' => " Already Added to table"]);
             }
@@ -62,7 +62,7 @@ class PrescriptionItemController extends Controller
 
  $order->total_price = $total;
         $order->update();
-        return redirect()->route('viewPrescription',$id)->with('success',"Product added successfully");
+        return redirect()->route('viewPrescription',$id)->with('success',"Order status changed successully.");
 
 
     }
@@ -73,7 +73,7 @@ class PrescriptionItemController extends Controller
         $prescription = Image::all();
         
         $order->update();
-        return view('admin.prescription.index', compact('prescription'));  
+        return view('admin.prescription.index', compact('prescription'))->with('warning',"Order Cancelled.");
 
      
   
@@ -86,7 +86,7 @@ class PrescriptionItemController extends Controller
         // dd("hello");s
         $item = PrescriptionItems::find($id);
         $item->delete();
-        return redirect()->route('viewPrescription',$pid)->with('success',"Product deleted successfully");
+        return redirect()->route('viewPrescription',$pid)->with('success',"Item deleted successfully");
 
 
     }

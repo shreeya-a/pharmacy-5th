@@ -149,7 +149,7 @@
         <script>
              
              swal({
-  title: "Good job!",
+ 
   text: "{{session('status')}}",
   icon: "success",
   button: "OK!",
@@ -159,7 +159,7 @@
     @if(session('success'))
         <script>
              swal({
-  title: "Good job!",
+
   text: "{{session('success')}}",
   icon: "success",
   button: "OK!",

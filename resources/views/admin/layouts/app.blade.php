@@ -91,18 +91,37 @@
 <!-- sweetalert -->
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+@if(session('success'))
 <script>
-          if(session('success')){
              
              swal({
-  title: "Good job!",
   text: "{{session('success')}}",
   icon: "success",
   button: "OK!",
 })
-          }
-        </script>
-   
+</script>
+  @endif 
+@if(session('error'))
+<script>
+             
+             swal({
+  title: "Alert!",
+  text: "{{session('error')}}",
+  icon: "error",
+  button: "OK!",
+})
+</script>
+  @endif 
+@if(session('warning'))
+<script>
+             
+             swal({
+  text: "{{session('warning')}}",
+  icon: "warning",
+  button: "OK!",
+})
+</script>
+  @endif 
 
 </body>
 
