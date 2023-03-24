@@ -30,6 +30,12 @@
                                     {{Session::get('fail')}}
                                 </div>
                                 @endif
+                                @if(Session::has('great'))
+
+                                <div class="alert alert-success" role="alert">
+                                    {{Session::get('great')}}
+                                </div>
+                                @endif
                                 <p class="text-center h1 fw-bold text-black mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
                                 <form action="{{route('loginUser')}}" method="POST" class="mx-1 mx-md-4">

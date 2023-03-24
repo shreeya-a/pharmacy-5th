@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\User;
 use App\Models\Image;
 use App\Models\Order;
-use App\Models\PrescriptionItems;
 use App\Models\Product;
 use App\Models\Section;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
+use App\Models\PrescriptionItems;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -81,9 +83,9 @@ public function searchProduct(Request $req)
 
     public  function section($section, $section_id)
     {
-    
-        $section_product = Product::where('section_id', $section_id) ->orderBy('id','desc')->paginate(12);
-        $section = Section::where('id',$section_id)->get('section');
+
+        $section_product = Product::where('section_id', $section_id)->orderBy('id', 'desc')->paginate(12);
+        $section = Section::where('id', $section_id)->get('section');
         // dd($section);
 
         return view('section', compact('section_product', 'section'));
@@ -98,53 +100,79 @@ public function searchProduct(Request $req)
     }
 
     //order details
-     public function myOrder()
+    public function myOrder()
     {
-        $orders = Order::where('user_id',Auth::id())->orderBy('id','desc')->paginate(5);
+        $orders = Order::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(5);
         return view('user.order.index', compact('orders'));
     }
-     public function viewmyOrder($id)
+    public function viewmyOrder($id)
     {
-        $orders = Order::where('id',$id)->where('user_id',Auth::id())->first();
+        $orders = Order::where('id', $id)->where('user_id', Auth::id())->first();
         return view('user.order.view', compact('orders'));
     }
-     public function cancelmyOrder($id)
+    public function cancelmyOrder($id)
     {
-        $orders = Order::where('id',$id)->where('user_id',Auth::id())->first();
+        $orders = Order::where('id', $id)->where('user_id', Auth::id())->first();
         $orders->status = 2;
         $orders->update();
         // return view('user.order.index', compact('orders'));
         return redirect()->route('myOrder');
-        
     }
 
     //prescription order details
     public function myPresOrder()
     {
-        $prescription = Image::where('user_id',Auth::id())->orderBy('id','desc')->paginate(5);
+        $prescription = Image::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(5);
         return view('user.prescription.index', compact('prescription'));
     }
     public function viewmyPresOrder($id)
     {                         //prescription id
-        $presorder = Image::where('id',$id)->where('user_id',Auth::id())->first();
+        $presorder = Image::where('id', $id)->where('user_id', Auth::id())->first();
         // dd($presorder);
-        $presItem = PrescriptionItems::where('pres_id',$id)->get();
+        $presItem = PrescriptionItems::where('pres_id', $id)->get();
         // dd($presItem);
 
-        return view('user.prescription.view', compact('presorder','presItem'));
+        return view('user.prescription.view', compact('presorder', 'presItem'));
     }
     public function cancelPresOrder($id)
     {
-        $presorder = Image::where('id',$id)->where('user_id',Auth::id())->first();
-        
+        $presorder = Image::where('id', $id)->where('user_id', Auth::id())->first();
+
         $presorder->status = 2;
         // dd($presorder);     
-        
+
         $presorder->update();
-        $prescription = Image::where('user_id',Auth::id())->get();
+        $prescription = Image::where('user_id', Auth::id())->get();
 
         return view('user.prescription.index', compact('prescription'));
+    }
 
-        
+    //change password
+    public function changePassword()
+    {
+        return view('change-password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:4',
+        ]);
+
+
+        #Match The Old Password
+        if (!Hash::check($request->old_password, auth()->user()->password)) {
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+
+        #Update the new Password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+        Auth::logout();
+        return redirect()->route('login')->with("great", "Password changed successfully!");
     }
 }

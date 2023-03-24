@@ -1,27 +1,27 @@
 <?php
 
 
-use GuzzleHttp\Middleware;
-use App\Http\Controllers\CartController;
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SectionController;
-use App\Http\Controllers\PrescriptionItemController;
-use Illuminate\Routing\Route as RoutingRoute;
-use App\Http\Controllers\ImageController;
 use App\Models\Cart;
 use App\Models\Section;
-// use Illuminate\Contracts\View\View;
+
+use Illuminate\View\View;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SectionController;
+// use Illuminate\Contracts\View\View;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
+use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\PrescriptionItemController;
 
 
 /*
@@ -61,32 +61,29 @@ Route::get('/', function () {
 // });
 
 // section dynamic for navbar
-Facades\View::composer('*', function (View $view ) {
+Facades\View::composer('*', function (View $view) {
     // ...
     $cats = Section::all();
     $view->with('cats', $cats);
-
-
 });
 
-// cart count dynamic
-Facades\View::composer('*', function (View $count ) {
+Facades\View::composer('*', function (View $count) {
     // ...
 
     // if (Auth::check()) {
     //     $count = Cart::where('user_id' , Auth::id())->count();
     // }
-    $count->with('count',Cart::where('user_id' , Auth::id())->count());
+    $count->with('count', Cart::where('user_id', Auth::id())->count());
     // dd($count);
     // return $count;
     // $count->with('count', $count);
-//   return  $count-> with(['count' => $count]);
+    //   return  $count-> with(['count' => $count]);
 
 });
 
 // search bar
-Route::get('/product-list',[HomeController::class, 'searchAjax'])->name('search');
-Route::post('/search-product',[HomeController::class, 'searchProduct'])->name('searchProduct');
+Route::get('/product-list', [HomeController::class, 'searchAjax'])->name('search');
+Route::post('/search-product', [HomeController::class, 'searchProduct'])->name('searchProduct');
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
@@ -134,59 +131,63 @@ Route::put('/update-product', [ProductController::class, 'updateProduct'])->name
 
 
 //admin section
-Route::get('/section', [SectionController::class,'section'])->name('section');
-Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');
-Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('edit');
-Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
-Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
+Route::get('/section', [SectionController::class, 'section'])->name('section');
+Route::post('/add-section', [SectionController::class, 'addSection'])->name('addSection');
+Route::get('/edit-section/{id}', [SectionController::class, 'edit'])->name('edit');
+Route::get('/delete-section/{id}', [SectionController::class, 'deleteSection'])->name('deleteSection');
+Route::post('/edit-section', [SectionController::class, 'editSection'])->name('editSection');
 
 
 
 //cart
-Route::post('add-to-cart',[CartController::class,'addProduct'])->name('addCartProduct');
-Route::post('delete-cart-item',[CartController::class,'deleteProduct'])->name('deleteCartProduct');
-Route::post('update-to-cart',[CartController::class,'updateProduct'])->name('updateCartProduct');
+Route::post('add-to-cart', [CartController::class, 'addProduct'])->name('addCartProduct');
+Route::post('delete-cart-item', [CartController::class, 'deleteProduct'])->name('deleteCartProduct');
+Route::post('update-to-cart', [CartController::class, 'updateProduct'])->name('updateCartProduct');
 
-Route::middleware(['auth'])->group(function (){
-    Route::get('cart',[CartController::class, 'viewCart'])->name('viewCart');
-    Route::get('clear-cart',[CartController::class, 'clearCart'])->name('clearCart');
+Route::middleware(['auth'])->group(function () {
+    Route::get('cart', [CartController::class, 'viewCart'])->name('viewCart');
+    Route::get('clear-cart', [CartController::class, 'clearCart'])->name('clearCart');
 
     //checkout
-    Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
-    Route::post('place-order',[CheckoutController::class,'placeOrder'])->name('placeOrder');
+    Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::post('place-order', [CheckoutController::class, 'placeOrder'])->name('placeOrder');
     //my-order
-    Route::get('my-order',[HomeController::class,'myOrder'])->name('myOrder');
-    Route::get('view-my-order/{id}',[HomeController::class,'viewmyOrder'])->name('viewmyOrder');
-    Route::get('cancel-my-order/{id}',[HomeController::class,'cancelmyOrder'])->name('cancelmyOrder');
+    Route::get('my-order', [HomeController::class, 'myOrder'])->name('myOrder');
+    Route::get('view-my-order/{id}', [HomeController::class, 'viewmyOrder'])->name('viewmyOrder');
+    Route::get('cancel-my-order/{id}', [HomeController::class, 'cancelmyOrder'])->name('cancelmyOrder');
 
     //prescription order
-    Route::get('my-prescription',[HomeController::class,'myPresOrder'])->name('myPresOrder');
-    Route::get('view-prescription-order/{id}',[HomeController::class,'viewmyPresOrder'])->name('viewmyPresOrder');
-    Route::get('cancel-prescription-order/{id}',[HomeController::class,'cancelPresOrder'])->name('cancelPresOrder');
-
-
+    Route::get('my-prescription', [HomeController::class, 'myPresOrder'])->name('myPresOrder');
+    Route::get('view-prescription-order/{id}', [HomeController::class, 'viewmyPresOrder'])->name('viewmyPresOrder');
+    Route::get('cancel-prescription-order/{id}', [HomeController::class, 'cancelPresOrder'])->name('cancelPresOrder');
 });
 
 //order handling by admin
-Route::get('/order',[OrderController::class, 'index'])->name('order');
-Route::get('/order-history',[OrderController::class, 'orderHistory'])->name('orderHistory');
-Route::get('view-order/{id}',[OrderController::class, 'viewOrder'])->name('viewOrder');
-Route::put('update-order/{id}',[OrderController::class, 'updateOrder'])->name('updateOrder');
+Route::get('/order', [OrderController::class, 'index'])->name('order');
+Route::get('/order-history', [OrderController::class, 'orderHistory'])->name('orderHistory');
+Route::get('view-order/{id}', [OrderController::class, 'viewOrder'])->name('viewOrder');
+Route::put('update-order/{id}', [OrderController::class, 'updateOrder'])->name('updateOrder');
 //invioce
-Route::get('order-invoice/{oid}',[OrderController::class, 'invoice'])->name('oinvoice');
-Route::get('print-order-invoice/{oid}',[OrderController::class, 'print_invoice'])->name('print_order_invoice');
+Route::get('order-invoice/{oid}', [OrderController::class, 'invoice'])->name('oinvoice');
+Route::get('print-order-invoice/{oid}', [OrderController::class, 'print_invoice'])->name('print_order_invoice');
 
 
 //prescription handling by admin
-Route::get('/prescription',[ImageController::class, 'prescription'])->name('prescription');
-Route::get('/view-prescription/{presId}',[ImageController::class, 'viewPrescription'])->name('viewPrescription');
-Route::post('add-prescription-item',[PrescriptionItemController::class, 'addPresItem'])->name('addPresItem');
-Route::get('edit-prescription-item/{piid}',[PrescriptionItemController::class, 'editPresItem'])->name('editPresItem');
-Route::put('save-prescription-item/{piid}/{pid}',[PrescriptionItemController::class, 'savePresItem'])->name('savePresItem');
-Route::put('update-prescription-order/{id}',[PrescriptionItemController::class, 'updatePresOrder'])->name('updatePresOrder');
-Route::get('cancel-prescription/{id}',[PrescriptionItemController::class, 'cancelPres'])->name('cancelPres');
-Route::get('delete-prescription-item/{id}/{pid}',[PrescriptionItemController::class, 'deletePresItem'])->name('deletePresItem');
+Route::get('/prescription', [ImageController::class, 'prescription'])->name('prescription');
+Route::get('/view-prescription/{presId}', [ImageController::class, 'viewPrescription'])->name('viewPrescription');
+Route::post('add-prescription-item', [PrescriptionItemController::class, 'addPresItem'])->name('addPresItem');
+Route::get('edit-prescription-item/{piid}', [PrescriptionItemController::class, 'editPresItem'])->name('editPresItem');
+Route::put('save-prescription-item/{piid}/{pid}', [PrescriptionItemController::class, 'savePresItem'])->name('savePresItem');
+Route::put('update-prescription-order/{id}', [PrescriptionItemController::class, 'updatePresOrder'])->name('updatePresOrder');
+Route::get('cancel-prescription/{id}', [PrescriptionItemController::class, 'cancelPres'])->name('cancelPres');
+Route::get('delete-prescription-item/{id}/{pid}', [PrescriptionItemController::class, 'deletePresItem'])->name('deletePresItem');
 //invoice
-Route::post('invoice/{pid}',[PrescriptionItemController::class, 'invoice'])->name('invoice');
-Route::get('print-invoice/{pid}',[PrescriptionItemController::class, 'print_invoice'])->name('print_invoice');
+Route::post('invoice/{pid}', [PrescriptionItemController::class, 'invoice'])->name('invoice');
+Route::get('print-invoice/{pid}', [PrescriptionItemController::class, 'print_invoice'])->name('print_invoice');
 
+//email verification
+Route::get('user/verify/{token}', [UserController::class, 'verifyEmail'])->name('user.verify');
+
+//change password
+Route::get('/change-password', [HomeController::class, 'changePassword'])->name('changepass')->middleware('auth');
+Route::post('/change-password', [HomeController::class, 'updatePassword'])->name('updatepass');
