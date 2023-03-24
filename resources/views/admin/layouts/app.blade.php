@@ -88,6 +88,22 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js')}}"></script>
 
+<!-- sweetalert -->
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+<script>
+          if(session('success')){
+             
+             swal({
+  title: "Good job!",
+  text: "{{session('success')}}",
+  icon: "success",
+  button: "OK!",
+})
+          }
+        </script>
+   
+
 </body>
 
 

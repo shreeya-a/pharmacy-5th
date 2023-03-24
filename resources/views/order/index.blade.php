@@ -24,7 +24,7 @@
                     <div class="card-header  ">
                         <div class="d-flex justify-content-between">
                             <div class="me-auto">
-                                <h4 class="text-bold">New Orders</h4>
+                                <h4 class="text-bold"> Orders</h4>
                             </div>
 
                             <a href="{{url('order-history')}}" class="btn btn-success">Order History</a>
