@@ -9,20 +9,21 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class EmailVerify extends Mailable
 {
     use Queueable, SerializesModels;
+    public $user;
 
-    public $details;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($user)
     {
         //
-        $this->details = $details;
+        $this->user = $user;
+        //$this->url = $url;
     }
 
     /**
@@ -33,7 +34,7 @@ class ContactMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Contact Mail',
+            subject: 'Email Verification',
         );
     }
 
@@ -45,7 +46,7 @@ class ContactMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'contacts.message',
+            markdown: 'contacts.emailVerify'
         );
     }
 
