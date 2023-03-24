@@ -20,7 +20,7 @@ class ContactController extends Controller
         ];
 
         FacadesMail::to('testd2258@gmail.com')->send(new ContactMail($details));
-        return redirect()->back()->with('success', 'Your message has been sent successfully.');
+        return redirect()->back();
     }
     // public function contactUs()
     // {
