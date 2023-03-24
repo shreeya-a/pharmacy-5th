@@ -61,7 +61,32 @@
                                         <a href="{{url('cancel-prescription/'. $pres->id)}}" class="btn btn-danger delete" data-confirm="Are you sure you want to CANCEL?">Cancel</a>
                                     </td>
                                     @elseif ($pres ->status == '1')
-                                    <td><a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">View</a></td>
+                                    <td>
+                                        <div class="d-flex justify-content-md-start">
+                                        <form class="mr-3">
+                                    <a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">View</a>
+                                    </form>
+                                        <form action="{{url('invoice/'.$pres->id)}}" method="post">
+                                            @csrf
+
+
+
+                                            <input type="hidden" name="discount" class="form-control" id="discount" value="{{$pres->discount}}" min="1" max="100">
+
+                                            <input type="hidden" name="tax" class="form-control" id="tax" value="{{$pres->tax}}" min="1" max="13">
+
+                                            <input type="hidden" name="delivery" class="form-control" id="dis" value="{{$pres->delivery}}" min="0">
+                                    
+                                    <input type="hidden" name="final_price" value="{{($pres->total_price) + ($pres->delivery) - ( ($pres->discount/100) * $pres->total_price) + (($pres->tax/100) * $pres->total_price)}}">
+
+                                    <button type="submit" class="btn btn-success">Generate Invoice</button>
+                                    </div>
+                                    </td>
+                                    </form>
+                                    
+
+                                    <!-- invoice -->
+
                                     @else
                                     <td>
                                         <a href="{{url('view-prescription/'. $pres->id)}}" class="btn btn-primary">View</a>
