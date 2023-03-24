@@ -14,12 +14,12 @@
 
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                @if(Session::has('success'))
+                                {{-- @if(Session::has('success'))
 
                                 <div class="alert alert-success" role="alert">
                                     {{Session::get('success')}}
                                 </div>
-                                @endif
+                                @endif --}}
                                 <p class="text-center h1 fw-bold text-black mb-5 mx-1 mx-md-4 mt-4">Contact Form</p>
 
                                 <form action="{{route('send')}}" method="POST" class="mx-1 mx-md-4">
@@ -29,7 +29,7 @@
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="cname">Your Name</label>
-                                            <input type="text" name="name" id="cname" class="form-control "/>
+                                            <input type="text" name="name" id="cname" class="form-control " required/>
 
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="mail">Your Email</label>
-                                            <input type="email" name="email" id="mail" class="form-control "/>
+                                            <input type="email" name="email" id="mail" class="form-control " required/>
 
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="num">Your Phone</label>
-                                            <input type="text" name="phone" id="num" class="form-control "/>
+                                            <input type="text" name="phone" id="num" class="form-control " required/>
 
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                             <div>
                                             <label class="form-label" for="msg">Message</label>
                                             </div>
-                                            <textarea class="form-control" name="msg" id="msg" cols="35" rows="3"></textarea>
+                                            <textarea class="form-control" name="msg" id="msg" cols="35" rows="3" required></textarea>
                                             </div>
                                     </div>
 
