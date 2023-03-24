@@ -230,14 +230,17 @@
                                 <form action="{{url('invoice/'.$prescription->id)}}" method="post">
                                     @csrf
                                     <tr>
-                                        <td class="col-sm-5">
+                                        <td class="col-sm-3">
                                             <label for="dis" class="form-label">Discount: </label>
                                             <input type="number" name="discount" class="form-control" id="dis" value="{{$prescription->discount}}" min="1" max="100">
                                         </td>
-                                        <td class="col-sm-5"><label for="tax" class="form-label">Tax: </label>
+                                        <td class="col-sm-3"><label for="tax" class="form-label">Tax: </label>
                                             <input type="number" name="tax" class="form-control" id="dis" value="{{$prescription->tax}}" min="1" max="13">
                                         </td>
-                                        <input type="hidden" name="final_price" value="{{($prescription->total_price) - ( ($prescription->discount/100) * $prescription->total_price) + (($prescription->tax/100) * $prescription->total_price)}}">
+                                        <td class="col-sm-4"><label for="delivery" class="form-label">Delivery Charge: </label>
+                                            <input type="number" name="delivery" class="form-control" id="dis" value="{{$prescription->delivery}}" min="0">
+                                        </td>
+                                        <input type="hidden" name="final_price" value="{{($prescription->total_price) + ($prescription->delivery) - ( ($prescription->discount/100) * $prescription->total_price) + (($prescription->tax/100) * $prescription->total_price)}}">
                                         <td class="col-sm-12 ">
                                             <button type="submit" class="btn btn-success mt-3">Generate Invoice</button>
                                         </td>
