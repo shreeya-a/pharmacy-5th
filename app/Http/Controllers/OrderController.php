@@ -35,16 +35,17 @@ class OrderController extends Controller
     {
         $order= Order::find($id);
         $order->status = $req->input('order_status');
-        $msg = $req->input('order_status');
-        if($msg == 1){
-            $order->message = "Your order has been processed. Thank you for shopping with us.";
-        }
-        if($msg == 2){
-            $order->message = "Sorry, your order has been cancelled. Contact us for more details.";
-        }
+        // $msg = $req->input('order_status');
+        // if($msg == 1){
+        //     $order->message = "Your order has been processed. Thank you for shopping with us.";
+        // }
+        // if($msg == 2){
+        //     $order->message = "Sorry, your order has been cancelled. Contact us for more details.";
+        // }
 
         $order->update();
-        return redirect('order')-> with('status', "Order updated successfully");
+        return redirect()->route('viewOrder',$id)->with('success',"Order updated successfully");
+
 
     }
     public function invoice ($oid)
