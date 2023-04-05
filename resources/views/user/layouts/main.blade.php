@@ -170,9 +170,9 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if(session('status'))
+
     <script>
         swal({
-            title: "Good job!",
             text: "{{session('status')}}",
             icon: "success",
             button: "OK!",
@@ -182,7 +182,6 @@
     @if(session('success'))
     <script>
         swal({
-            title: "Good job!",
             text: "{{session('success')}}",
             icon: "success",
             button: "OK!",
@@ -199,6 +198,7 @@
         })
     </script>
     @endif
+
 
     @yield('scripts')
 

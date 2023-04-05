@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Starter</title>
+  <title>NePharma | Admin</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -87,6 +87,41 @@
 <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/adminlte.min.js')}}"></script>
+
+<!-- sweetalert -->
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+@if(session('success'))
+<script>
+             
+             swal({
+  text: "{{session('success')}}",
+  icon: "success",
+  button: "OK!",
+})
+</script>
+  @endif 
+@if(session('error'))
+<script>
+             
+             swal({
+  title: "Alert!",
+  text: "{{session('error')}}",
+  icon: "error",
+  button: "OK!",
+})
+</script>
+  @endif 
+@if(session('warning'))
+<script>
+             
+             swal({
+  text: "{{session('warning')}}",
+  icon: "warning",
+  button: "OK!",
+})
+</script>
+  @endif 
 
 </body>
 

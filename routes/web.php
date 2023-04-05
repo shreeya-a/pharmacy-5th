@@ -38,9 +38,9 @@ use App\Http\Controllers\PrescriptionItemController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/register', function () {
-    return view('register');
-});
+// Route::get('/register', function () {
+//     return view('register');
+// });
 Route::get('/login', function () {
     return view('login');
 });
@@ -49,6 +49,7 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
+
 // invoice
 Route::get('/invoice', function () {
     return view('admin.invoice');
@@ -56,30 +57,14 @@ Route::get('/invoice', function () {
 Route::get('/', function () {
     return view('user.index');
 });
+
+
+======
 // Route::get('/product', function () {
 //     return view('product.product');
 // });
 
-// section dynamic for navbar
-Facades\View::composer('*', function (View $view) {
-    // ...
-    $cats = Section::all();
-    $view->with('cats', $cats);
-});
 
-Facades\View::composer('*', function (View $count) {
-    // ...
-
-    // if (Auth::check()) {
-    //     $count = Cart::where('user_id' , Auth::id())->count();
-    // }
-    $count->with('count', Cart::where('user_id', Auth::id())->count());
-    // dd($count);
-    // return $count;
-    // $count->with('count', $count);
-    //   return  $count-> with(['count' => $count]);
-
-});
 
 // search bar
 Route::get('/product-list', [HomeController::class, 'searchAjax'])->name('search');
@@ -88,10 +73,16 @@ Route::post('/search-product', [HomeController::class, 'searchProduct'])->name('
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
 Route::get('/about-page', [HomeController::class, 'about'])->name('about');
+Route::get('/users', [HomeController::class, 'users'])->name('users');
 
 //Contact Page
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('send');
+
+// contact admin 
+// Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contactUs');
+
+
 
 // Prescription page
 Route::get('/upload-prescription', [ImageController::class, 'create'])->name('image');
@@ -102,11 +93,8 @@ Route::post('/prescription', [ImageController::class, 'store'])->name('prescript
 //home controller main views
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
-// Route::get('/sectionnav/{section}', [HomeController::class, 'section'])->name('section');
-// Route::get('/product-details/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
-Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('section');
+Route::get('/section/{section}/{sec_id}', [HomeController::class, 'section'])->name('sections');
 Route::get('section/{section}/{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
-// Route::get('{product}/{id}', [HomeController::class, 'productDetails'])->name('productDetails');
 
 
 //user login
@@ -131,13 +119,12 @@ Route::put('/update-product', [ProductController::class, 'updateProduct'])->name
 
 
 //admin section
-Route::get('/section', [SectionController::class, 'section'])->name('section');
-Route::post('/add-section', [SectionController::class, 'addSection'])->name('addSection');
-Route::get('/edit-section/{id}', [SectionController::class, 'edit'])->name('edit');
-Route::get('/delete-section/{id}', [SectionController::class, 'deleteSection'])->name('deleteSection');
-Route::post('/edit-section', [SectionController::class, 'editSection'])->name('editSection');
 
-
+Route::get('/section', [SectionController::class,'section'])->name('section');
+Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');
+Route::get('/edit-section/{id}', [SectionController::class,'edit'])->name('editsec');
+Route::get('/delete-section/{id}', [SectionController::class,'deleteSection'])->name('deleteSection');
+Route::post('/edit-section', [SectionController::class,'editSection'])->name('editSection');
 
 //cart
 Route::post('add-to-cart', [CartController::class, 'addProduct'])->name('addCartProduct');

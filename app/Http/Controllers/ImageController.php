@@ -79,7 +79,7 @@ class ImageController extends Controller
 
     public function viewPrescription($presId){
         $prescription= Image::where('id',$presId)->first();
-        $product = Product::all();
+        $product = Product::orderBy('product')->get();
         $presItem = PrescriptionItems::where('pres_id',$presId)->paginate(10);
        return view('admin.prescription.viewPrescription', compact('prescription','product','presItem'));
     }

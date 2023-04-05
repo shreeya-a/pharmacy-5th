@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
                         <li class="breadcrumb-item active">Order</li>
                     </ol>
                 </div>
@@ -56,7 +56,9 @@
                                 <td>{{$order->status == '2' ? 'Cancelled' : 'Complete'}}</td>
                                 <td>
                                     <a href="{{url('view-order/'. $order->id)}}" class="btn btn-primary">View</a>
+                                    @if($order->status==1)
                                     <a href="{{url('order-invoice/'.$order->id)}}" class="btn btn-success">Generate Invoice</a>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
