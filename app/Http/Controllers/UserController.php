@@ -30,6 +30,7 @@ class UserController extends Controller
             'email' => $req->email,
             'password' => Hash::make($req->password),
         ]);
+
         // $verifyUser = VerifyUser::create([
         //     'token' => Str::random(60),
         //     'user_id' => $user->id,
