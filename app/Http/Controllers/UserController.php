@@ -104,7 +104,7 @@ class UserController extends Controller
             // remember me cookie setting ends
             return redirect()->route('homepage');
         } else {
-            return back()->with('fail', 'User not found');
+            return back()->with('message', 'User not found');
         }
     }
     public function logout()

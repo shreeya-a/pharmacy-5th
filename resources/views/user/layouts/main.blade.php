@@ -165,6 +165,40 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 
+<!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if(session('status'))
+
+    <script>
+        swal({
+            text: "{{session('status')}}",
+            icon: "success",
+            button: "OK!",
+        })
+    </script>
+    @endif
+    @if(session('success'))
+    <script>
+        swal({
+            text: "{{session('success')}}",
+            icon: "success",
+            button: "OK!",
+        })
+    </script>
+    @endif
+    @if(session('fail'))
+    <script>
+        swal({
+            title: "Sorry!",
+            text: "{{session('fail')}}",
+            icon: "error",
+            button: "OK!",
+        })
+    </script>
+    @endif
+
+
+
     @yield('scripts')
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
