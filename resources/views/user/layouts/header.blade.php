@@ -43,17 +43,17 @@
                     <!-- navbar search start -->
                     <!-- <div class="navbar-search mt-15 search-style-5"> -->
 
-                    <form action="{{route('searchProduct')}}" method="POST"class=" mt-2">
-                                    @csrf
-                                    <div class="navbar-search search-style-5">
-                                        <div class="search-input">
-                                            <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
-                                        </div>
-                                        <div class="search-btn">
-                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
+                    <form action="{{route('searchProduct')}}" method="POST" class=" mt-2">
+                        @csrf
+                        <div class="navbar-search search-style-5">
+                            <div class="search-input">
+                                <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
+                            </div>
+                            <div class="search-btn">
+                                <button type="submit"><i class="lni lni-search-alt"></i></button>
+                            </div>
+                        </div>
+                    </form>
                     <!-- </div> -->
                     <!-- navbar search Ends -->
                 </div>
