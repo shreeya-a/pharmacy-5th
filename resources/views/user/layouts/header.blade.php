@@ -197,7 +197,7 @@
                                                 <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
                                                 <div class="navbar-cart">
                                                     <!-- <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:25px;"></i></a> -->
-                                                    <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
+                                                    <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i> <i class="mdi mdi-menu-down"  style="color:#542DED; font-size:1.5rem;"></i></a>
                                                 </div>
                                                 <!-- sub menu Start -->
                                                 <ul class="sub-menu mt-3 " style="width:175px;">
