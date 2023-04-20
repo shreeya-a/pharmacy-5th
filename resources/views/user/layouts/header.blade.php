@@ -43,11 +43,11 @@
                     <!-- navbar search start -->
                     <!-- <div class="navbar-search mt-15 search-style-5"> -->
 
-                    <form action="{{route('searchProduct')}}" method="POST"class=" mt-2">
+                    <form action="{{route('searchProduct')}}" method="POST" class=" mt-2">
                                     @csrf
                                     <div class="navbar-search search-style-5">
                                         <div class="search-input">
-                                            <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
+                                            <input type="search" id="" name="product_name" placeholder="Search products" required>
                                         </div>
                                         <div class="search-btn">
                                             <button type="submit"><i class="lni lni-search-alt"></i></button>
@@ -151,7 +151,8 @@
 
                             <div class="navbar-search-cart d-none d-lg-flex ">
                                 <!-- navbar search start -->
-                                <form action="{{route('searchProduct')}}" method="POST">
+                               
+                                <form action="{{route('searchProduct')}}" method="POST"class=" mt-2">
                                     @csrf
                                     <div class="navbar-search search-style-5">
                                         <div class="search-input">
