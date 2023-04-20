@@ -3,9 +3,9 @@
 @section('content')
 
 <style>
-    .card:hover{
+    .card:hover {
         border: 1px solid #3E7DC0 !important;
-        
+
     }
 </style>
 <!-- <h1 class="mt-8">Welcome to Home Page</h1> -->
@@ -15,21 +15,36 @@
     <!-- <div class="header-items-active"> -->
 
     <div class="container">
-        <div class="row align-items-center slider-animated-1">
-            <div class="col-lg-5 col-md-6">
-                <div class="hero-slider-content-2">
-                    <h4 class="animated">Trade-in offer</h4>
-                    <h2 class="animated fw-900">Supper value deals</h2>
-                    <h1 class="animated fw-900 text-brand">On all products</h1>
-                    <p class="animated">Save more with coupons & up to 70% off</p>
-                    <!-- <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Shop Now </a> -->
-                    <a class="main-btn primary-btn" href="{{route('image')}}"> Upload Now </a>
-                    <!-- <a class="btn btn-primary" href="{{route('image')}}"> Upload Now </a> -->
+        <div class="row justify-content-center slider-animated-1 mt-4">
+            <div class="col-lg-5 col-md-6 justify-content-center mt-5 p-0">
+
+
+                <div class="hero-slider-content-2 mt-5 text-center">
+                    <div class="m-2" >
+                        <h2 class="mt-5"> Welcome to <span style="color: #542DED"> NePharma</span></h2>
+                    </div>
+                    <div class="m-2">
+                        <p class="fw-normal" style="color: black">Your health, our priority: Shop with confidence at our online pharmacy.</p>
+                    </div>
+                    <div class="m-4">
+                        <p class="fw-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio nemo itaque asperiores ducimus minus. 
+                            Illo itaque et libero 
+                            ullam in autem, laborum illum vel mollitia asperiores tempore voluptatum expedita aliquam.</p>
+                    </div>
+                    <div class="mt-5">
+                        <h3>Upload your Prescription </h3>
+                        <h5 class="mt-2">Have your medications delivered to your door. </h5>
+                    </div>
+                    <div class="m-4">
+                        <a class="main-btn primary-btn" href="{{route('image')}}"> <i class="mdi mdi-camera"></i> Upload Now </a>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-lg-7 col-md-6">
-                <div class="single-slider-img single-slider-img-1">
-                    <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/banner.png')}}" style="width:700px;height:700px;" alt="">
+            <div class="col-lg-7 col-md-6  ">
+                <div class="single-slider-img single-slider-img-1 mt-5  mb-5">
+                    <!-- <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/Picsart_slider.jpg')}}" style="width:800px;height:500px;" alt=""> -->
+                    <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/slider.jpg')}}" style="width:7500px;height:500px;" alt="">
                 </div>
             </div>
         </div>
@@ -112,24 +127,24 @@
                                 <p>Rs {{$product->price}}</p>
                         </a>
 
-                            <!-- @if($product->prescribed == 0)
+                        <!-- @if($product->prescribed == 0)
                                 <div class=" product-btn mt-4 mb-4"> -->
-                                    <!-- <a href="#" class="main-btn primary-btn" style="max-width:150px">Add to Cart </a> -->
-                                    <!-- <button type="button" class="main-btn primary-btn addToCartBtn" style="max-width:150px">Add to Cart </button>
+                        <!-- <a href="#" class="main-btn primary-btn" style="max-width:150px">Add to Cart </a> -->
+                        <!-- <button type="button" class="main-btn primary-btn addToCartBtn" style="max-width:150px">Add to Cart </button>
                                 <input type="hidden" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1">
 
                                 </div>
                                 @else
                             <p class="mt-2 mb-2 p-4" style="color:red;">*** Presciption required ***</p>
                                 @endif -->
-                                
 
-                            </div>
+
                     </div>
                 </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
+    </div>
     </div>
 </section>
 
@@ -138,7 +153,7 @@
 
 
 <!--====== Popular products Part Start ======-->
-<section class="product-wrapper pt-10 gray-bg ">
+<section class="product-wrapper pt-10  ">
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -258,7 +273,7 @@
             </div>
         </div>
     </div>
-    
+
 </section>
 <script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
 <!--====== Features Part Ends ======-->
@@ -349,8 +364,6 @@
             }
         }
     })
-
 </script>
 
 @endsection
-
