@@ -10,7 +10,7 @@
                     <div class="col-lg-5 col-md-7 col-sm-10 mt-4">
                         <div class="footer-logo ">
                             <a href="index.html">
-                                <img src="{{asset('userpanel/assets/images/nefooter.png')}}" alt="Logo" height="60px" width="150px">
+                                <img src="{{asset('userpanel/assets/images/nefooter.png')}}" alt="Logo" height="80px" width="200px">
                             </a>
                         </div>
                         <h5 class="heading-5  text-center mt-5">Follow Us</h5>
