@@ -204,4 +204,7 @@ public function searchProduct(Request $req)
         Auth::logout();
         return redirect()->route('login')->with("great", "Password changed successfully!");
     }
+
+
+
 }

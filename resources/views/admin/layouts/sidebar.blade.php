@@ -14,14 +14,14 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="{{ asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Admin</a>
         </div>
-      </div> -->
+      </div>
 
       <!-- SidebarSearch Form -->
       <!-- <div class="form-inline">
@@ -43,7 +43,7 @@
           <li class="nav-item menu-open">
 
           <li class="nav-item">
-            <a href="{{url('dashboard')}}" class="nav-link  {{ Request::is('dashboard') ? 'active':''; }}">
+            <a href="{{url('/dashboard')}}" class="nav-link  {{ Request::is('dashboard') ? 'active':''; }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                Dashboard
@@ -94,16 +94,6 @@
             <i class=" nav-icon fas fa-th-large" aria-hidden="true"></i>
               <p>
               Section
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
-      
-          <li class="nav-item">
-            <a href="" class="nav-link {{ Request::is('contact-us') ? 'active':''; }}">
-              <i class="nav-icon  fas fa-envelope"></i>
-              <p>
-                Contact Us
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
