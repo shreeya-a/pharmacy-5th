@@ -26,7 +26,6 @@
         <div class="image mr-2">
           <img src="{{ asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
-        <h5 class="mt-1 mr-5">{{auth()->user()->name}}</h5>
       </div>
     </li>
     <!-- <li class="nav-item">

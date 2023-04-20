@@ -40,22 +40,22 @@ class UserController extends Controller
     }
 
     //email verification
-    public function verifyEmail($token)
-    {
-        $verifiedUser = VerifyUser::where('token', $token)->first();
-        if (isset($verifiedUser)) {
-            $user = $verifiedUser->user;
-            if (!$user->email_verified_at) {
-                $user->email_verified_at = Carbon::now();
-                $user->save();
-                return redirect()->route('login')->with('great', 'Your Email Has been Verified');
-            } else {
-                return redirect()->back()->with('fail', 'Your email has already been verified');
-            }
-        } else {
-            return redirect()->route('login')->with('fail', 'Something went wrong while verifying email');
-        }
-    }
+    // public function verifyEmail($token)
+    // {
+    //     $verifiedUser = VerifyUser::where('token', $token)->first();
+    //     if (isset($verifiedUser)) {
+    //         $user = $verifiedUser->user;
+    //         if (!$user->email_verified_at) {
+    //             $user->email_verified_at = Carbon::now();
+    //             $user->save();
+    //             return redirect()->route('login')->with('great', 'Your Email Has been Verified');
+    //         } else {
+    //             return redirect()->back()->with('fail', 'Your email has already been verified');
+    //         }
+    //     } else {
+    //         return redirect()->route('login')->with('fail', 'Something went wrong while verifying email');
+    //     }
+    // }
 
     public function loginUser(Request $req)
     {
@@ -69,10 +69,10 @@ class UserController extends Controller
         if (Auth::attempt($req->only(['email', 'password']), $req->remember)) {
 
             //email verification logging in
-            if (Auth::user()->email_verified_at == null) {
-                Auth::logout();
-                return redirect()->route('login')->with('fail', 'Please verify your email to login');
-            }
+            // if (Auth::user()->email_verified_at == null) {
+            //     Auth::logout();
+            //     return redirect()->route('login')->with('fail', 'Please verify your email to login');
+            // }
             // remember me cookie setting
             if ($req->remember === null) {
                 setcookie(
