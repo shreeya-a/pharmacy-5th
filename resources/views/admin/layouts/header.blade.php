@@ -23,16 +23,16 @@
     <li class="nav-item">
       <div class="user-panel d-flex">
 
-        <div class="image mr-2">
+        <!-- <div class="image mr-2">
           <img src="{{ asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
-      </div>
+      </div> -->
     </li>
-    <!-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li> -->
+      </li>
 
 </nav>
 <!-- /.navbar -->

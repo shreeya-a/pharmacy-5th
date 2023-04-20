@@ -44,6 +44,7 @@
                     <!-- <div class="navbar-search mt-15 search-style-5"> -->
 
                     <form action="{{route('searchProduct')}}" method="POST" class=" mt-2">
+
                                     @csrf
                                     <div class="navbar-search search-style-5">
                                         <div class="search-input">
@@ -54,6 +55,7 @@
                                         </div>
                                     </div>
                                 </form>
+
                     <!-- </div> -->
                     <!-- navbar search Ends -->
                 </div>
@@ -198,7 +200,7 @@
                                                 <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
                                                 <div class="navbar-cart">
                                                     <!-- <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:25px;"></i></a> -->
-                                                    <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i></a>
+                                                    <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i> <i class="mdi mdi-menu-down"  style="color:#542DED; font-size:1.5rem;"></i></a>
                                                 </div>
                                                 <!-- sub menu Start -->
                                                 <ul class="sub-menu mt-3 " style="width:175px;">
@@ -206,11 +208,11 @@
 
                                                     <li class="p-3 mr-1 mt-1"> {{auth()->user()->name}}</li>
                                                     <hr class="m-0 ">
-                                                    <li><a href="{{route('myPresOrder')}}">My Prescription</a></li>
-                                                    <li><a href="{{route('myOrder')}}">My Orders</a></li>
-                                                    <li><a href="{{route('changepass')}}">Change Password</a></li>
+                                                    <li><a href="{{route('myPresOrder')}}" style="text-transform:capitalize;">My Prescription</a></p></li>
+                                                    <li><a href="{{route('myOrder')}}" style="text-transform:capitalize;">My Orders</a></li>
                                                     <hr class="m-0 ">
-                                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-logout"></i>Sign out</a></li>
+                                                    <li><a href="{{route('changepass')}}" style="text-transform:capitalize;">Change Password</a></li>
+                                                    <li><a href="{{route('logout')}}" style="text-transform:capitalize;"><i class="mdi mdi-logout"></i>Sign out</a></li>
 
                                                 </ul>
                                             </li>

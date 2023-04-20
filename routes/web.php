@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AdminController;
 use App\Models\Cart;
 use App\Models\Section;
 
@@ -22,7 +22,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\PrescriptionItemController;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +45,8 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+
+
 
 
 // invoice
@@ -69,6 +68,8 @@ Route::get('/', function () {
 Route::get('/product-list', [HomeController::class, 'searchAjax'])->name('search');
 Route::post('/search-product', [HomeController::class, 'searchProduct'])->name('searchProduct');
 
+// home pages
+// User Pages
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
 Route::get('/about-page', [HomeController::class, 'about'])->name('about');
@@ -118,6 +119,11 @@ Route::put('/update-product', [ProductController::class, 'updateProduct'])->name
 
 
 //admin section
+
+
+// Dashboard
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
 
 Route::get('/section', [SectionController::class,'section'])->name('section');
 Route::post('/add-section', [SectionController::class,'addSection'])->name('addSection');

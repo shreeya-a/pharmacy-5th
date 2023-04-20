@@ -30,13 +30,16 @@ class UserController extends Controller
             'email' => $req->email,
             'password' => Hash::make($req->password),
         ]);
-        $verifyUser = VerifyUser::create([
-            'token' => Str::random(60),
-            'user_id' => $user->id,
-        ]);
+
+        // $verifyUser = VerifyUser::create([
+        //     'token' => Str::random(60),
+        //     'user_id' => $user->id,
+        // ]);
         // Mail::to($user->email)->send(new EmailVerify($user));
 
-        return redirect()->route('login')->with('great', 'Registration complete.Please verify your Email.');
+
+        // return redirect()->route('login')->with('great', 'Registration complete.Please verify your Email.');
+        return redirect()->route('login')->with('great', 'Registration complete. Please Login to Continue');
     }
 
     //email verification

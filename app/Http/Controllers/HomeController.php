@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\User;
 use App\Models\Image;
 use App\Models\Order;
@@ -101,7 +102,30 @@ public function searchProduct(Request $req)
     public function productDetails($section_name, $product_name, $id)
     {
         $product_details = Product::where('id', $id)->get();
-        return view('product-details', ['product_details' => $product_details, 'product_name' => $product_name, 'section_name' => $section_name]);
+        // $cart_items = "false";
+        // if (Auth::check()) {
+        //     $prod_check = Product::where('id',$id)->first();
+
+        //     if ($prod_check) {
+        //         if (Cart::where('prod_id', $id)->where('user_id', Auth::id())->exists()) {
+        //         $cart_items = "true";
+                   
+        //         }}}
+            
+                // dd($product_details->product->prescribed);
+                // if($product_details->prescribed == 1){
+                //     $cart_items = "false";
+                // }
+
+        // if (Auth::check()) {
+        //         $cart_items = Cart::where('user_id', Auth::id())->get();                
+        //     }
+        //     else{
+        //         $cart_items = "Null";
+        //     }
+            // dd($cart_items);
+        return view('product-details', ['product_details' => $product_details, 'product_name' => $product_name, 'section_name' => $section_name ]);
+        // return view('product-details', ['product_details' => $product_details, 'product_name' => $product_name, 'section_name' => $section_name , 'cart_items' => $cart_items]);
     }
 
     //order details
@@ -180,4 +204,7 @@ public function searchProduct(Request $req)
         Auth::logout();
         return redirect()->route('login')->with("great", "Password changed successfully!");
     }
+
+
+
 }

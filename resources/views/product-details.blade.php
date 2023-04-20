@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-    p{
+    p {
         color: black;
     }
 </style>
@@ -27,29 +27,30 @@
     </div>
 </section>
 
-    <div class="container my-5">
-        <div class="row ">
-            @foreach($product_details as $product)
+<div class="container my-5">
+    <div class="row ">
+        @foreach($product_details as $product)
 
-            <div class="col-md-5">
-                <div class="main-img">
-                    <img class="img-fluid" src="{{asset('/storage/'.$product->image)}}" alt="ProductS">
-                </div>
+        <div class="col-md-5">
+            <div class="main-img">
+                <img class="img-fluid" src="{{asset('/storage/'.$product->image)}}" alt="ProductS">
             </div>
-            <div class="col-md-7">
-                <div class="main-description product_data px-2 ">
-                    <div class="category text-bold">
-                        Category: {{$product->section->section}}
-                    </div>
-                    <div class="product-title text-bold my-3">
-                        {{$product->product}}
-                    </div>
-                    <div class="price-area my-4">
-                        <p class="new-price  mb-2">Rs {{$product->price}}</p>
-                        <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
-                    </div>
-                    <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
-                    @if($product->prescribed == 0)
+        </div>
+        <div class="col-md-7">
+            <div class="main-description product_data px-2 ">
+                <div class="category text-bold">
+                    Category: {{$product->section->section}}
+                </div>
+                <div class="product-title text-bold my-3">
+                    {{$product->product}}
+                </div>
+                <div class="price-area my-4">
+                    <p class="new-price  mb-2">Rs {{$product->price}}</p>
+                    <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
+                </div>
+                <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
+                @if($product->prescribed == 0)
+                
                     <div class="buttons d-flex my-5">
                         <div class="product-btn mr-10">
                             <button type="button" class="main-btn primary-btn addToCartBtn">
@@ -63,9 +64,10 @@
                             <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
                         </div>
                     </div>
+                    
                     @else
-                    <h5  class="p-3" style="color:red;">*** Presciption required ***</h5>
-                   
+                    <h5 class="p-3" style="color:red;">*** Presciption required ***</h5>
+
                     @endif
                 </div>
                 <div class="product-details my-4">
@@ -78,8 +80,8 @@
     </div>
 
 
-@endsection
+    @endsection
 
-@section('scripts')
-<script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
-@endsection
+    @section('scripts')
+    <script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
+    @endsection
