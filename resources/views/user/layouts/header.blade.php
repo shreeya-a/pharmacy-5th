@@ -205,11 +205,11 @@
 
                                                     <li class="p-3 mr-1 mt-1"> {{auth()->user()->name}}</li>
                                                     <hr class="m-0 ">
-                                                    <li><a href="{{route('myPresOrder')}}">My Prescription</a></li>
-                                                    <li><a href="{{route('myOrder')}}">My Orders</a></li>
-                                                    <li><a href="{{route('changepass')}}">Change Password</a></li>
+                                                    <li><a href="{{route('myPresOrder')}}" style="text-transform:capitalize;">My Prescription</a></p></li>
+                                                    <li><a href="{{route('myOrder')}}" style="text-transform:capitalize;">My Orders</a></li>
                                                     <hr class="m-0 ">
-                                                    <li><a href="{{route('logout')}}"><i class="mdi mdi-logout"></i>Sign out</a></li>
+                                                    <li><a href="{{route('changepass')}}" style="text-transform:capitalize;">Change Password</a></li>
+                                                    <li><a href="{{route('logout')}}" style="text-transform:capitalize;"><i class="mdi mdi-logout"></i>Sign out</a></li>
 
                                                 </ul>
                                             </li>
