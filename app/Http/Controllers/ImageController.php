@@ -54,6 +54,12 @@ class ImageController extends Controller
         $image->city = $request->input('city');
         $image->country = $request->input('address');
         $image->image = $request->file('image')->store('prescription', 'public');
+        
+        $date = date('Ymd');
+        $image->tracking_no = $date . rand(11111, 99999);
+
+        // dd($date);
+      
 
         $image->save();
 

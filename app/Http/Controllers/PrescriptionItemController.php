@@ -38,7 +38,7 @@ class PrescriptionItemController extends Controller
         $presItem->save();
     }
 
-        return redirect()->route('viewPrescription',$req->pres_id)->with('success',"Product added successfully");
+        return redirect()->route('viewPrescription',$req->pres_id);
     }
 
     public function updatePresOrder(Request $req , $id)
@@ -46,12 +46,12 @@ class PrescriptionItemController extends Controller
         $order= Image::find($id);
         $order->status = $req->input('order_status');
    
-        $date = date('Ymd');
-        // dd($date);
-        if($order->tracking_no == NULL){
+        // $date = date('Ymd');
+        // // dd($date);
+        // if($order->tracking_no == NULL){
 
-            $order->tracking_no = $date . rand(11111, 99999);
-        }
+        //     $order->tracking_no = $date . rand(11111, 99999);
+        // }
  //to claculate total price
  $total = 0;
  $presItem_total = PrescriptionItems::where('pres_id', $id)->get();
