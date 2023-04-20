@@ -34,7 +34,7 @@ class UserController extends Controller
             'token' => Str::random(60),
             'user_id' => $user->id,
         ]);
-        Mail::to($user->email)->send(new EmailVerify($user));
+        // Mail::to($user->email)->send(new EmailVerify($user));
 
         return redirect()->route('login')->with('great', 'Registration complete.Please verify your Email.');
     }
