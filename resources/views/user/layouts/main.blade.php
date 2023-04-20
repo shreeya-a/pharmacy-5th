@@ -108,6 +108,26 @@
     <!--====== Carousel Index js ======-->
     <script src="{{asset('userpanel/assets/js/carousel-index.js')}}"></script>
 
+     <!-- search autocomplete -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    var availableTags = [];
+    $.ajax({
+        method: 'GET',
+        url: "/search-product",
+        success: function(response){
+            startAutoComplete(response);
+        }
+    });
+    function startAutoComplete(availableTags){
+        $( "#search_product" ).autocomplete({
+        source: availableTags
+        });
+    }
+  </script>
+
     @yield('scripts')
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
