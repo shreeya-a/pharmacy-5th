@@ -1,16 +1,16 @@
      <!--====== Footer Style 3 Part Start ======-->
-     <section class="footer-style-3 pt-100 pb-100 bg-primary-4">
+     <section class="footer-style-3  bg-primary-4">
         <div class="container">
-            <div class="footer-top text-center">
+            <!-- <div class="footer-top text-center"> -->
 
                 {{-- footer logo commented --}}
 
                 
-                {{-- <div class="row justify-content-center">
+              <!-- <div class="row justify-content-start">
                     <div class="col-lg-5 col-md-7 col-sm-10">
                         <div class="footer-logo ">
                             <a href="index.html">
-                                <img src="{{asset('userpanel/assets/images/logo.svg')}}" alt="">
+                                <img src="{{asset('userpanel/assets/images/nefooter.png')}}" alt="Logo" height="50px" width="150px">
                             </a>
                         </div>
                         <h5 class="heading-5  text-center mt-30">Follow Us</h5>
@@ -23,9 +23,9 @@
                         </ul>
                     </div>
                 </div>
-            </div> --}}
+            </div> -->
 
-            <div class="footer-widget-wrapper text-center pt-20">
+            <!-- <div class="footer-widget-wrapper text-center pt-20">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="footer-widget">
@@ -93,10 +93,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div class="footer-copyright text-center">
+            <div class="footer-copyright text-start">
                 <p>Developed by <a href="#" rel="nofollow" target="_blank">GrayGrids</a>. Basesd on <a href="https://ecommercehtml.com/" rel="nofollow" target="_blank">eCommerceHTML</a>
                 </p>
             </div>

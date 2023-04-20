@@ -59,6 +59,7 @@
 <!--====== Content Card Style 4 Part Start ======-->
 <section class="content-card-style-4 pt-70 pb-100">
     <div class="container">
+      
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-7 col-sm-8">
                 <div class="single-content mt-15 text-center">
@@ -110,11 +111,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="mb-50">
-                        <h1 class="heading-1 font-weight-400">Featured Items</h1>
+                    <div class=" mb-5 features-title text-center ">
+            <h2 class="heading-1 font-weight-600"  style=" color:#393D8E ;">Featured Products</h2>
+        </div>
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel featured-carousel owl-theme">
+            <div class="owl-carousel featured-carousel owl-theme mt-3">
                 @foreach($featured_products as $product)
                 <div class="item">
                     <div class="card mb-3 product_data text-center">
@@ -158,8 +161,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="mb-50">
-                        <h1 class="heading-1 font-weight-400">Popular Items</h1>
+                    <div class="mb-50 features-title text-center ">
+                    <h4 class="heading-1 font-weight-600"  style=" color:#393D8E ;">Popular Products</h1>
                     </div>
                 </div>
             </div>
@@ -200,87 +203,31 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="features-title text-center mb-50">
-                    <h1 class="heading-1 font-weight-700">Contact Us Form </h1>
+                    <h1 class="heading-1 font-weight-600" style=" color:#393D8E ;">Our Pharmacy</h1>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-cog"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Bootstrap 5</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
+        <div class="single-slider-img single-slider-img-1 ">
+                    <!-- <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/Picsart_slider.jpg')}}" style="width:800px;height:500px;" alt=""> -->
+                    <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/pharmacy-background.jpg')}}" style="width:7500px;height:400px;" alt="">
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-code"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Clean Design</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-layers"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Included Business Pages</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-laptop-phone"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Fully Responsive</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-brush"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Completely Customizable</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-rocket"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Fast and Well-optimized</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            
 
 </section>
 <script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
 <!--====== Features Part Ends ======-->
 
-<!--====== Clients Logo Part Start ======-->
-<!-- <section class="clients-logo-section pt-70 pb-70">
+<!--====== Clients Logo Part Start ======--> 
+ <section class="clients-logo-section pt-70 pb-70">
         <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="features-title text-center mb-50">
+                    <h1 class="heading-1 font-weight-600" style=" color:#393D8E ;">Brands</h1>
+                </div>
+            </div>
+        </div>
             <div class="row client-logo-active">
                 <div class="col-lg-3">
                     <div class="single-logo-wrapper">
@@ -304,28 +251,10 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> 
 <!--====== Clients Logo Part Ends ======-->
 
-<!--====== Subscribe Part Start ======-->
-<!-- <section class="subscribe-section pt-70 pb-70 bg-primary-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 mx-auto">
-                    <div class="heading text-center">
-                        <h1 class="heading-1 font-weight-700 text-white mb-10">You are using free lite version</h1>
-                        <p class="gray-3">Please, purchase full version of the template to get all pages, sections, features and permission to remove footer credits.</p>
-                        </br>
-                        <a href="https://rebrand.ly/estore-gg" rel="nofollow" target="_blank" class="main-btn secondary-1-btn">
-                                <img src="{{asset('userpanel/assets/images/icon-svg/cart-7.svg')}}" alt="">
-                                PURCHASE NOW
-                            </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-<!--====== Subscribe Part Ends ======-->
+
 @endsection
 
 @section('scripts')
