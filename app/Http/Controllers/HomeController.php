@@ -21,8 +21,8 @@ class HomeController extends Controller
 
     public  function homepage()
     {
-        $featured_products = Product::where('featured', '1')->take(5)->get();
-        $popular_products = Product::where('popular', '1')->take(5)->get();
+        $featured_products = Product::where('featured', '1')->take(15)->get();
+        $popular_products = Product::where('popular', '1')->take(15)->get();
         $cats = Section::all();
 
         return view('user.index', compact('featured_products', 'popular_products', 'cats'));

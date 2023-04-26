@@ -284,7 +284,7 @@
                                     @foreach($presItem as $item)
                                     <tr>
                                         <td>{{$item->product->product}}</td>
-                                        <td class="col-10 " style="word-break: break-all">{{$item->message}}</td>
+                                        <td class="col-10 " style="word-break:break-all; word-break:break-word;  overflow-wrap: break-word;">{{$item->message}}</td>
                                         <td>{{$item->qty}}</td>
                                         <td>{{$item->product->price}}</td>
                                         @if($prescription->status == 0)

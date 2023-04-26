@@ -23,7 +23,7 @@
 <div class="container my-2 mb-5">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card mt-4">
                 <!-- <div class="card-header">
                     <h4>Prescription order</h4>
                 </div> -->
@@ -123,12 +123,12 @@
                                         <td>{{$item->price * $item->qty}}</td>
                                     </tr>
                                     @php
-                            $total += $item->qty *$item->product->price;
-                            @endphp
+                                    $total += $item->qty *$item->product->price;
+                                    @endphp
                                     @endforeach
                                 </tbody>
                             </table>
-                          
+
                             <div class="d-flex justify-content-end">
                                 <div class="col-6">
 
@@ -173,5 +173,7 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        @endsection
+@endsection

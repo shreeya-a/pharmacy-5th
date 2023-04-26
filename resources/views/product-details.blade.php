@@ -27,16 +27,16 @@
     </div>
 </section>
 
-<div class="container my-5">
+<div class="container my-5 ">
     <div class="row ">
         @foreach($product_details as $product)
 
-        <div class="col-md-5">
-            <div class="main-img">
-                <img class="img-fluid" src="{{asset('/storage/'.$product->image)}}" alt="ProductS">
+        <div class="col-md-6">
+            <div class="">
+                <img class="" src="{{asset('/storage/'.$product->image)}}" alt="ProductS" width="500px" height="400px">
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6 ">
             <div class="main-description product_data px-2 ">
                 <div class="category text-bold">
                     Category: {{$product->section->section}}
@@ -50,38 +50,39 @@
                 </div>
                 <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
                 @if($product->prescribed == 0)
-                
-                    <div class="buttons d-flex my-5">
-                        <div class="product-btn mr-10">
-                            <button type="button" class="main-btn primary-btn addToCartBtn">
-                                <!-- <a href="" class="main-btn primary-btn addToCartBtn"> -->
-                                <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
-                                Add to cart
-                                <!-- </a> -->
-                            </button>
-                        </div>
-                        <div class="block quantity">
-                            <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
-                        </div>
-                    </div>
-                    
-                    @else
-                    <h5 class="p-3" style="color:red;">*** Presciption required ***</h5>
 
-                    @endif
+                <div class="buttons d-flex my-5">
+                    <div class="product-btn mr-10">
+                        <button type="button" class="main-btn primary-btn addToCartBtn">
+                            <!-- <a href="" class="main-btn primary-btn addToCartBtn"> -->
+                            <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
+                            Add to cart
+                            <!-- </a> -->
+                        </button>
+                    </div>
+                    <div class="block quantity">
+                        <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
+                    </div>
                 </div>
-                <div class="product-details my-4">
-                    <p class="details-title text-bold mb-1" style="color:black;">Product Details</p>
-                    <p class="description">{{$product->description}} </p>
-                </div>
+
+                @else
+                <h5 class="p-3" style="color:red;">*** Presciption required ***</h5>
+
+                @endif
+            </div>
+            <div class="product-details my-4">
+                <p class="details-title text-bold mb-1" style="color:black;">Product Details</p>
+                <p class="description">{{$product->description}} </p>
             </div>
         </div>
-        @endforeach
     </div>
+    @endforeach
+</div>
+</div>
 
 
-    @endsection
+@endsection
 
-    @section('scripts')
-    <script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
-    @endsection
+@section('scripts')
+<script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
+@endsection
