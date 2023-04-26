@@ -64,11 +64,7 @@
                                         {{$orders->state}}, {{$orders->country}}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>Order Status</th>
-                                    <th>:</th>
-                                    <td>{{$orders->status == '0'? 'Pending':($orders->status =='1'? 'Completed':'Cancelled')}}</td>
-                                </tr>
+                               
                                 @if($orders->status == '0' ||$orders->status == '1' )
                                 <tr>
                                     <th>Payment method</th>
@@ -76,6 +72,11 @@
                                     <td>Cash on Delivery</td>
                                 </tr>
                                 @endif
+                                <tr>
+                                    <th>Order Status</th>
+                                    <th>:</th>
+                                    <th>{{$orders->status == '0'? 'Pending':($orders->status =='1'? 'Completed':'Cancelled')}}</th>
+                                </tr>
 
                             </table>
                         </div>
@@ -86,10 +87,47 @@
                                     <h4 class=" pl-10">Order details</h4>
                                     <hr>
                                 </div>
-                                <div class="box p-10">
-                                    <p>Your order is yet to be processed. </p>
+                          
+                            <table class="table table-bordered text-center ">
+                                <thead>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Rate</th>
+                                    <th>Amt</th>
+                                </thead>
+                                <tbody>
+                                    @foreach($orders->orderitems as $item)
+                                    <tr>
+                                        <td>{{$item->product->product}}</td>
+                                        <td>{{$item->qty}}</td>
+                                        <td>{{$item->price}}</td>
+                                        <td>{{$item->price * $item->qty}}</td>
+                                    </tr>
+                                    @php
+                                    $total += $item->qty *$item->product->price;
+                                    @endphp
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                            <div class="d-flex justify-content-end">
+                                <div class="col-6">
+
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th style="width:50%">Subtotal:</th>
+                                                    <td>{{$total}}</td>
+                                                </tr>
+                                         
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
+                            </div>
+
                             @elseif ($orders->status == '2')
                             <div class="card shadow-none  pl-50">
                                 <div class="">

@@ -268,7 +268,7 @@
 
                         @if($prescription->status == 1 || $prescription->status == 0)
                         <div class="card-body table-responsive p-0" style="height: 350px;">
-                            <table class="table table-head-fixed table-bordered text-nowrap">
+                            <table class="table table-head-fixed table-bordered ">
                                 <thead>
                                     <tr>
                                         <th>Product</th>
@@ -284,7 +284,8 @@
                                     @foreach($presItem as $item)
                                     <tr>
                                         <td>{{$item->product->product}}</td>
-                                        <td class="col-10 " style="word-break:break-all; word-break:break-word;  overflow-wrap: break-word;">{{$item->message}}</td>
+                                        <td class="col-10 " style="word-wrap: break-word;min-width: 160px;max-width: 160px;">{{$item->message}}</td>
+                                        <!-- <td class="col-10 " style="word-break:break-all; word-break:break-word;  overflow-wrap: break-word;">{{$item->message}}</td> -->
                                         <td>{{$item->qty}}</td>
                                         <td>{{$item->product->price}}</td>
                                         @if($prescription->status == 0)
