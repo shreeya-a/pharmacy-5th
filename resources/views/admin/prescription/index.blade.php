@@ -102,6 +102,7 @@
                     </div>
                     <!-- </div> -->
                 </div>
+                
                 <div class="row ml-5">
                     {{$prescription->links()}}
                 </div>

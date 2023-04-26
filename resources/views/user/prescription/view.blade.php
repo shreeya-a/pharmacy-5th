@@ -66,11 +66,7 @@
                                         {{$presorder->country}}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>Order Status</th>
-                                    <th>:</th>
-                                    <td>{{$presorder->status == '0'? 'Pending':($presorder->status =='1'? 'Completed':'Cancelled')}}</td>
-                                </tr>
+                             
                                 @if($presorder->status == '0' ||$presorder->status == '1' )
                                 <tr>
                                     <th>Payment</th>
@@ -78,6 +74,11 @@
                                     <td>Cash on Delivery</td>
                                 </tr>
                                 @endif
+                                <tr>
+                                    <th>Order Status</th>
+                                    <th>:</th>
+                                    <th>{{$presorder->status == '0'? 'Pending':($presorder->status =='1'? 'Completed':'Cancelled')}}</th>
+                                </tr>
                             </table>
                         </div>
 

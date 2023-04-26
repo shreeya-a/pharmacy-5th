@@ -206,7 +206,7 @@
                                                 <ul class="sub-menu mt-3 " style="width:175px;">
 
 
-                                                    <li class="p-3 mr-1 mt-1"> {{auth()->user()->name}}</li>
+                                                    <li class="p-3 mr-1 mt-1" style="text-transform:capitalize;"> {{auth()->user()->name}}</li>
                                                     <hr class="m-0 ">
                                                     <li><a href="{{route('myPresOrder')}}" style="text-transform:capitalize;">My Prescription</a></p></li>
                                                     <li><a href="{{route('myOrder')}}" style="text-transform:capitalize;">My Orders</a></li>
