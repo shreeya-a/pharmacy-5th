@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
-use App\Models\Order;
-use App\Models\Product;
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     //
+
     public function dashboard(){
         // dd("hello??????????");
         $orders = Order::count();
@@ -39,4 +34,5 @@ class AdminController extends Controller
 
         
     }
+
 }

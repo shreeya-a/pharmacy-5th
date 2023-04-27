@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+
 use App\Models\Cart;
 use App\Models\Section;
-
 use Illuminate\View\View;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades;
@@ -46,6 +46,14 @@ Route::get('/login', function () {
 });
 
 
+// admin login
+Route::middleware(['auth', 'isAdmin'])->group (function() {
+
+  
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+
+
 
 
 
@@ -53,6 +61,7 @@ Route::get('/login', function () {
 Route::get('/invoice', function () {
     return view('admin.invoice');
 });
+
 Route::get('/', function () {
     return view('user.index');
 });
@@ -72,6 +81,7 @@ Route::post('/search-product', [HomeController::class, 'searchProduct'])->name('
 // User Pages
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
+
 Route::get('/about-page', [HomeController::class, 'about'])->name('about');
 Route::get('/users', [HomeController::class, 'users'])->name('users');
 
@@ -81,6 +91,7 @@ Route::post('/send-contact', [ContactController::class, 'sendEmail'])->name('sen
 
 // contact admin 
 // Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contactUs');
+
 
 
 
