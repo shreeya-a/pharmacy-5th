@@ -15,13 +15,13 @@ class ProductController extends Controller
     //
     public  function product()
     {
-        $product = Product::all();
-        return view('product.product',compact('product'));
+        $product = Product::orderBy('id', 'desc')->paginate(10);
+        return view('product.product', compact('product'));
     }
     public  function addProduct()
     {
-        $category = Category::all();
-        $section = Section::all();
+        $category = Category::orderBy('category')->get();
+        $section = Section::orderBy('section')->get();
 
         return view('product.addProduct', ['category' => $category], ['section' => $section]);
     }
@@ -31,6 +31,7 @@ class ProductController extends Controller
             'product' => 'required',
             'price' => 'required',
             'description' => 'required',
+            'image' => 'required',
         ]);
 
         if ($req->hasFile('image')) {
@@ -50,71 +51,64 @@ class ProductController extends Controller
             $productObj->description = $req->description;
             $productObj->category_id = $req->category;
             $productObj->section_id = $req->section;
-            $productObj->featured = $req->input('featured')==TRUE? '1':'0';
-            $productObj->popular = $req->input('popular')==TRUE? '1':'0';
-            $productObj->prescribed = $req->input('prescribed')==TRUE? '1':'0';
+            $productObj->featured = $req->input('featured') == TRUE ? '1' : '0';
+            $productObj->popular = $req->input('popular') == TRUE ? '1' : '0';
+            $productObj->prescribed = $req->input('prescribed') == TRUE ? '1' : '0';
 
             $productObj->save();
-        return redirect()->route('product')->with('success',"Product added successfully");
-
+            return redirect()->route('product')->with('success', "Product added successfully");
         }
     }
-        // return redirect()->route('product');
+    // return redirect()->route('product');
     public function deleteProduct($id)
-        {
-            $productObj= Product::find($id);
-          
+    {
+        $productObj = Product::find($id);
 
-                $path = 'storage/'. $productObj->image;
-                if(File::exists($path))
-                {
-                    File::delete($path);
-                }
-            
-            $productObj->delete();
-            return redirect()->route('product')->with('success',"Product deleted successfully");
 
-            
+        $path = 'storage/' . $productObj->image;
+        if (File::exists($path)) {
+            File::delete($path);
         }
-        public function editProduct($id)
-        {
-            $product= Product::find($id);
-            $category = Category::all();
-            $section = Section::all();
-            return view('product.editProduct', ['product' => $product,'category' => $category,'section' => $section]);
-        
-            
-        }
-        public function updateProduct(Request $req)
-        {
-            $productObj = Product::find($req->id);
-        
-            if ($req->hasFile('image')) {
 
-                $destination = 'storage/'. $productObj->image;
-                if(File::exists($destination))
-                {
-                    File::delete($destination);
-                }
+        $productObj->delete();
+        return redirect()->route('product')->with('success', "Product deleted successfully");
+    }
+    public function editProduct($id)
+    {
 
-                $name = $req->file('image');
-                $file_path = $name->store('product', 'public');
-                $productObj->image = $file_path;            
+        $product = Product::find($id);
+        $category = Category::orderBy('category')->get();
+        $section = Section::orderBy('section')->get();
+        return view('product.editProduct', ['product' => $product, 'category' => $category, 'section' => $section]);
+    }
+    public function updateProduct(Request $req)
+    {
+
+
+        $productObj = Product::find($req->id);
+
+        if ($req->hasFile('image')) {
+
+            $destination = 'storage/' . $productObj->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
             }
-        
-            $productObj->product = $req->product;
-            $productObj->price = $req->price;
-            $productObj->description = $req->description;
-            $productObj->category_id = $req->category;
-            $productObj->section_id = $req->section;
-            $productObj->featured = $req->input('featured')==TRUE? '1':'0';
-            $productObj->popular = $req->input('popular')==TRUE? '1':'0';
-            $productObj->prescribed = $req->input('prescribed')==TRUE? '1':'0';
-            $productObj->update();
 
-        return redirect()->route('product')->with('success',"Product updated successfully");
-        
+            $name = $req->file('image');
+            $file_path = $name->store('product', 'public');
+            $productObj->image = $file_path;
+        }
+
+        $productObj->product = $req->product;
+        $productObj->price = $req->price;
+        $productObj->description = $req->description;
+        $productObj->category_id = $req->category;
+        $productObj->section_id = $req->section;
+        $productObj->featured = $req->input('featured') == TRUE ? '1' : '0';
+        $productObj->popular = $req->input('popular') == TRUE ? '1' : '0';
+        $productObj->prescribed = $req->input('prescribed') == TRUE ? '1' : '0';
+        $productObj->update();
+
+        return redirect()->route('product')->with('success', "Product updated successfully");
     }
 }
-    
-

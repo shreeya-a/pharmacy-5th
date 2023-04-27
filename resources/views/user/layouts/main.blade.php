@@ -50,7 +50,32 @@
     <!-- owl carousel     -->
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('userpanel/assets/css/owl.theme.default.min.css')}}">
- 
+
+
+
+    <!--====== search autocomplete ======-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
+    <!--====== alertify ======-->
+
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/> -->
+    <!-- Default theme -->
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/> -->
+
+    <!--====== toastr ======-->
+
+    <!-- <link rel="stylesheet" type="text/css" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
+     alpha/css/bootstrap.css" rel="stylesheet">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
+
 
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
@@ -74,7 +99,33 @@
     <!-- carousel -->
     <script src="{{asset('userpanel/assets/js/jquery-3.6.3.min.js')}}"></script>
     <script src="{{asset('userpanel/assets/js/owl.carousel.min.js')}}"></script>
-    
+
+
+    <!-- search autocomplete -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        var availableTags = [];
+        $.ajax({
+            method: 'GET',
+            url: "/product-list",
+            success: function(response) {
+                startAutoComplete(response);
+            }
+
+        });
+
+        function startAutoComplete(availableTags) {
+            $("#search_product").autocomplete({
+                source: availableTags
+            });
+        }
+
+    </script>
+
+ 
+
+
     <!--====== Bootstrap 5 js ======-->
     <script src="{{asset('userpanel/assets/js/popper.min.js')}}"></script>
     <script src="{{asset('userpanel/assets/js/bootstrap.min.js')}}"></script>
@@ -107,6 +158,46 @@
     
     <!--====== Carousel Index js ======-->
     <script src="{{asset('userpanel/assets/js/carousel-index.js')}}"></script>
+
+     <!-- search autocomplete -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+<!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if(session('status'))
+
+    <script>
+        swal({
+            text: "{{session('status')}}",
+            icon: "success",
+            button: "OK!",
+        })
+    </script>
+    @endif
+    @if(session('success'))
+    <script>
+        swal({
+            text: "{{session('success')}}",
+            icon: "success",
+            button: "OK!",
+        })
+    </script>
+    @endif
+    @if(session('fail'))
+    <script>
+        swal({
+            title: "Sorry!",
+            text: "{{session('fail')}}",
+            icon: "error",
+            button: "OK!",
+        })
+    </script>
+    @endif
+
+
 
     @yield('scripts')
 

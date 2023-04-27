@@ -16,13 +16,39 @@
     }
 </style>
 <div class="content-wrapper  bg-white">
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="card " style=" width: 80rem;height: 43rem;">
-            <div class="card-header bg-light">
-                <h3 class="text-center">Edit Product</h3>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-0 mt-0">
-                    <a href="{{route('product')}}" class="btn btn-primary me-md-2">Back</a>
+<section class="content-header ">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-sm-6">
+                    <h5>Product</h5>
                 </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">Edit Product</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <div class="container d-flex justify-content-center mt-3">
+        <div class="card " style=" width: 80rem;height: 45rem;">
+            <div class="card-header bg-light ">
+                <!-- <h3 class="">Edit Product</h3> -->
+                <div class="d-flex justify-content-between">
+                            <div class="me-auto">
+
+                                <h4 class="text-bold">Edit Product</h4>
+                            </div>
+
+
+                            <a href="{{route('product')}}" class="btn btn-success ">Back</a>
+
+                        </div>
+                <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end ml-5mb-0 mt-0">
+                    <a href="{{route('product')}}" class="btn btn-success ">Back</a>
+                </div> -->
 
             </div>
             <div class="box" style="display:flex;">
@@ -39,7 +65,7 @@
                                     <!-- <div class="mb-2"> -->
                                     <td> <label for="product" class="form-label">Product:</label></td>
 
-                                    <td class="col-sm-12 p-2"> <input type="text" class="form-control text-capitalize" name="product" id="product" value="{{$product->product}}"></td>
+                                    <td class="col-sm-12 p-2"> <input type="text" class="form-control text-capitalize" name="product" id="product" value="{{$product->product}}" required></td>
 
                                 </tr>
                                 <tr>
@@ -47,7 +73,7 @@
                                     <td><label for="category" class="form-label">Category:</label></td>
                                     <td class="p-2">
                                         <select class=" form-control" name="category" id="category">
-                                            <option type="hidden" value="{{$product->category_id }}">{{$product->category_id }}</option>
+                                            <option type="hidden" value="{{$product->category_id }}">{{$product->category->category }}</option>
                                             @foreach($category as $category)
                                             <option value="{{$category ->id }}">{{$category ->category }}</option>
                                             @endforeach
@@ -58,7 +84,7 @@
                                     <!-- <div class="mb-2"> -->
                                     <td> <label for="section" class="form-label">Section:</label></td>
                                     <td class="p-2"> <select class=" form-control" name="section" id="section">
-                                    <option type="hidden" value="{{$product->section_id }}">{{$product->section_id }}</option>
+                                    <option type="hidden" value="{{$product->section_id }}">{{$product->section->section }}</option>
                                             @foreach($section as $section)
                                             <option value="{{$section ->id }}">{{$section ->section }}</option>
                                             @endforeach
@@ -70,7 +96,7 @@
                                     <!-- <div class="mb-2"> -->
                                     <td><label for="price" class="form-label">Price:</label></td>
                                     <td class="p-2">
-                                        <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}">
+                                        <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}" required>
                                     </td>
                                 </tr>
 
@@ -78,13 +104,13 @@
                                     <!-- <div class="mb-4"> -->
                                     <td><label for="description" class="form-label">Description:</label></td>
                                     <td class="p-2">
-                                        <textarea rows="3" class="form-control" name="description" id="description" value=""> {{$product->description}}</textarea>
+                                        <textarea rows="3" class="form-control" name="description" id="description" value="" required> {{$product->description}}</textarea>
                                     </td>
                                 </tr>
                                 <tr>
                                     <!-- <div class="input-group mb-2"> -->
                                     <td> <label for="image" class="form-label">Image:</label></td>
-                                    <td class="p-2"> <input type="file" name="image" class="form-control p-1"></td>
+                                    <td class="p-2"> <input type="file" name="image" class="form-control p-1" required></td>
                                     <!--  -->
                                 </tr>
                                 </tr>

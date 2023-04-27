@@ -1,4 +1,6 @@
     <!--====== Navbar Style 7 Part Start ======-->
+
+
     <div class="navigation">
         <header class="navbar-style-7 position-relative">
             <div class="container">
@@ -18,7 +20,9 @@
                             <!-- desktop logo Start -->
                             <div class="mobile-logo text-center">
                                 <!-- <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.png')}}" alt="Logo"></a> -->
-                                <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.svg')}}" alt="Logo"></a>
+                                <!-- <a href="index.html"><img src="{{asset('userpanel/assets/images/logo.svg')}}" alt="Logo"></a> -->
+                                <a href="{{route('homepage')}}"><img src="{{asset('userpanel/assets/images/logo-pharma.png')}}" alt="Logo" height="60px" width="200px"></a>
+
                             </div>
                             <!-- desktop logo Ends -->
                         </div>
@@ -27,87 +31,32 @@
                             <div class="navbar-cart">
                                 <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('viewCart')}}">
                                     <img src="{{asset('userpanel/assets/images/icon-svg/cart-1.svg')}}" alt="Icon">
-                                    <span class="icon-text text-style-1">88</span>
+                                    <span class="icon-text text-style-1">{{$count}}</span>
+
+
+
                                 </a>
-
-                                <div class="navbar-cart-dropdown">
-                                    <div class="checkout-style-2">
-                                        <div class="checkout-header d-flex justify-content-between">
-                                            <h6 class="title">Shopping Cart</h6>
-                                        </div>
-
-                                        <div class="checkout-table table-responsive">
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="checkout-product">
-                                                            <div class="product-cart d-flex">
-                                                                <div class="product-thumb">
-                                                                    <img src="{{asset('userpanel/assets/images/product-cart/product-1.png')}}" alt="Product">
-                                                                </div>
-                                                                <div class="product-content media-body">
-                                                                    <h5 class="title">
-                                                                        <a href="product-details-page.html">Hollow Port</a>
-                                                                    </h5>
-                                                                    <ul>
-                                                                        <li><span>Brown</span></li>
-                                                                        <li><span>XL</span></li>
-                                                                        <li>
-                                                                            <a class="delete" href="javascript:void(0)">
-                                                                                <i class="mdi mdi-delete"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="checkout-quantity">
-                                                            <div class="product-quantity d-inline-flex">
-                                                                <button type="button" id="sub" class="sub">
-                                                                    <i class="mdi mdi-minus"></i>
-                                                                </button>
-                                                                <input type="text" value="1">
-                                                                <button type="button" id="add" class="add">
-                                                                    <i class="mdi mdi-plus"></i>
-                                                                </button>
-                                                            </div>
-                                                        </td>
-                                                        <td class="checkout-price">
-                                                            <p class="price">$36.00</p>
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <div class="checkout-footer">
-                                            <div class="checkout-sub-total d-flex justify-content-between">
-                                                <p class="value">Subtotal Price:</p>
-                                                <p class="price">$144</p>
-                                            </div>
-                                            <br>
-                                            <div class="checkout-btn">
-                                                <a href="cart-page.html" class="main-btn primary-btn-border">View Cart</a>
-                                                <a href="checkout-page.html" class="main-btn primary-btn">Checkout</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <!-- navbar cart Ends -->
                         </div>
                     </div>
                     <!-- navbar search start -->
-                    <div class="navbar-search mt-15 search-style-5">
+                    <!-- <div class="navbar-search mt-15 search-style-5"> -->
 
-                        <div class="search-input">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div class="search-btn">
-                            <button><i class="lni lni-search-alt"></i></button>
-                        </div>
-                    </div>
+                    <form action="{{route('searchProduct')}}" method="POST" class=" mt-2">
+
+                                    @csrf
+                                    <div class="navbar-search search-style-5">
+                                        <div class="search-input">
+                                            <input type="search" id="" name="product_name" placeholder="Search products" required>
+                                        </div>
+                                        <div class="search-btn">
+                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                    <!-- </div> -->
                     <!-- navbar search Ends -->
                 </div>
                 <!-- navbar mobile Start -->
@@ -121,15 +70,16 @@
                 <!-- navbar close  Ends -->
 
                 <!-- navbar top Start -->
-                <div class="navbar-top-wrapper">
+                <!-- <div class="navbar-top-wrapper">
                     <div class="container-lg">
-                        <div class="navbar-top d-lg-flex justify-content-between">
-                            <!-- navbar top left Start -->
-                            <div class="navbar-top-left">
+                        <div class="navbar-top d-lg-flex justify-content-between"> -->
+                <!-- navbar top left Start -->
+                <!-- <div class="navbar-top-left">
                                 <ul class="navbar-top-link">
                                     <li><a href="{{route('homepage')}}">Home</a></li>
-                                    <li><a href="about-page.html">About</a></li>
-                                    <li><a href="contact-page.html">Contact</a></li>
+                                    <li><a href="{{route('about')}}">About</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li><a href="{{route('myPresOrder')}}">prescription</a></li>
                                     <li>
                                         <a href="javascript:void(0)">
                                             <i class="mdi mdi-phone-in-talk"></i>
@@ -137,10 +87,10 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
-                            <!-- navbar top left Ends -->
-                            <!-- navbar top right Start -->
-                            @guest
+                            </div> -->
+                <!-- navbar top left Ends -->
+                <!-- navbar top right Start -->
+                <!-- @guest
                             <div class="navbar-top-right">
                                 <ul class="navbar-top-link">
 
@@ -158,15 +108,15 @@
                                     <li><a href="{{route('logout')}}"><i class="mdi mdi-account"></i>Logout</a></li>
                                 </ul>
                             </div>
-                            @endauth
-                            <!-- navbar top right Ends -->
-                        </div>
+                            @endauth -->
+                <!-- navbar top right Ends -->
+                <!-- </div>
                     </div>
-                </div>
+                </div>  -->
                 <!-- navbar top Ends -->
 
                 <!-- main navbar Start -->
-                <div class="navbar-wrapper">
+                <div class="navbar-wrapper pt-2 pb-2">
                     <div class="container-lg">
                         <nav class="main-navbar d-lg-flex justify-content-between align-items-center">
                             <!-- desktop logo Start -->
@@ -178,98 +128,99 @@
                             <!-- navbar menu Start -->
                             <div class="navbar-menu">
                                 <ul class="main-menu">
-                                    <li><a href="{{url('/sectionnav/'.'1')}}">Ayurveda</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'2')}}">Hair Care</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'3')}}">Personal Care</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'4')}}">Baby Care</a></li>
-                                    <li><a href="{{url('/sectionnav/'.'5')}}">Skin Care</a></li>
-                                    <!-- <li><a href="{{url('/sectionnav/'.'Ayurveda')}}">Ayurveda</a></li> -->
+                                    <li class="active"><a href="{{route('homepage')}}">Home</a></li>
+                                    <li><a href="{{route('about')}}">About</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Sections</a>
+                                        <!-- sub menu Start -->
+                                        <ul class="sub-menu">
+                                            @foreach($cats as $cat)
+                                            @if ($cat->section == 'Medicine')
+                                            @continue;
+                                            @endif
+                                            <li><a href="{{url('/section/'.$cat->section.'/'.$cat->id)}}">{{$cat->section}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                        <!-- sub menu Ends -->
+                                    </li>
+                                </ul>
 
                                 </ul>
+
                             </div>
                             <!-- navbar menu Ends -->
-                            <div class="navbar-search-cart d-none d-lg-flex">
+
+                            <div class="navbar-search-cart d-none d-lg-flex ">
                                 <!-- navbar search start -->
-                                <div class="navbar-search search-style-5">
-                                    <div class="search-input">
-                                        <input type="text" placeholder="Search">
+                               
+                                <form action="{{route('searchProduct')}}" method="POST"class=" mt-2">
+                                    @csrf
+                                    <div class="navbar-search search-style-5">
+                                        <div class="search-input">
+                                            <input type="search" id="search_product" name="product_name" placeholder="Search products" required>
+                                        </div>
+                                        <div class="search-btn">
+                                            <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="search-btn">
-                                        <button><i class="lni lni-search-alt"></i></button>
-                                    </div>
-                                </div>
+                                </form>
                                 <!-- navbar search Ends -->
                                 <!-- navbar cart start -->
                                 <div class="navbar-cart">
                                     <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('viewCart')}}">
                                         <img src="{{asset('userpanel/assets/images/icon-svg/cart-1.svg')}}" alt="Icon">
-                                        <span class="icon-text text-style-1">88</span>
+                                        <span class="icon-text text-style-1">{{$count}}</span>
                                     </a>
 
-                                    <div class="navbar-cart-dropdown">
-                                        <div class="checkout-style-2">
-                                            <div class="checkout-header d-flex justify-content-between">
-                                                <h6 class="title">Shopping Cart</h6>
-                                            </div>
 
-                                            <div class="checkout-table">
-                                                <table class="table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="checkout-product">
-                                                                <div class="product-cart d-flex">
-                                                                    <div class="product-thumb">
-                                                                        <img src="{{asset('userpanel/assets/images/product-cart/product-1.png')}}" alt="Product">
-                                                                    </div>
-                                                                    <div class="product-content media-body">
-                                                                        <h5 class="title">
-                                                                            <a href="product-details-page.html">Hollow Port</a>
-                                                                        </h5>
-                                                                        <ul>
-                                                                            <li><span>Brown</span></li>
-                                                                            <li><span>XL</span></li>
-                                                                            <li>
-                                                                                <a class="delete" href="javascript:void(0)">
-                                                                                    <i class="mdi mdi-delete"></i>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="checkout-quantity">
-                                                                <div class="product-quantity d-inline-flex">
-                                                                    <button type="button" id="sub" class="sub">
-                                                                        <i class="mdi mdi-minus"></i>
-                                                                    </button>
-                                                                    <input type="text" value="1">
-                                                                    <button type="button" id="add" class="add">
-                                                                        <i class="mdi mdi-plus"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                            <td class="checkout-price">
-                                                                <p class="price">$36.00</p>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div class="checkout-footer">
-                                                    <div class="checkout-sub-total d-flex justify-content-between">
-                                                        <p class="value">Subtotal Price:</p>
-                                                        <p class="price">$144</p>
-                                                    </div>
-                                                    <br>
-                                                    <div class="checkout-btn">
-                                                        <a href="cart-page.html" class="main-btn primary-btn-border">View Cart</a>
-                                                        <a href="checkout-page.html" class="main-btn primary-btn">Checkout</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <!-- navbar cart Ends -->
                                 </div>
+                                <div class="account mr-4">
+                                    @guest
+                                    <ul>
+                                        <li>
+                                            <a class="icon primary-icon-text icon-text-btn mt-1 ml-4" href="{{route('loginUser')}}"><i class="mdi mdi-account-key" style=" font-size:1.5rem;"></i>
+                                                <span> LOGIN</span>
+
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <!-- <a class="icon-btn primary-icon-text icon-text-btn" href="{{route('loginUser')}}">
+                                        <i class="mdi mdi-account">  <span class="black" style="font-size: 1rem;">Login</span></i>
+                                      
+                                        </a> -->
+                                    @endguest
+                                    @auth
+
+                                    <span class="navbar-menu" style="margin: -1px;">
+                                        <ul class="main-menu">
+                                            <li class="menu-item-has-children p-1">
+                                                <!-- <a class="icon text-primary primary-icon-text icon-text-btn  ml-2" href="{{route('loginUser')}}"><i class="mdi mdi-account"></i>LOGIN</a> -->
+                                                <div class="navbar-cart">
+                                                    <!-- <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:25px;"></i></a> -->
+                                                    <a class="icon  primary-icon-text icon-text-btn  ml-2"><i class="mdi mdi-account-check" style="color:#542DED; font-size:1.5rem;"></i> <i class="mdi mdi-menu-down"  style="color:#542DED; font-size:1.5rem;"></i></a>
+                                                </div>
+                                                <!-- sub menu Start -->
+                                                <ul class="sub-menu mt-3 " style="width:175px;">
+
+
+                                                    <li class="p-3 mr-1 mt-1" style="text-transform:capitalize;"> {{auth()->user()->name}}</li>
+                                                    <hr class="m-0 ">
+                                                    <li><a href="{{route('myPresOrder')}}" style="text-transform:capitalize;">My Prescription</a></p></li>
+                                                    <li><a href="{{route('myOrder')}}" style="text-transform:capitalize;">My Orders</a></li>
+                                                    <hr class="m-0 ">
+                                                    <li><a href="{{route('changepass')}}" style="text-transform:capitalize;">Change Password</a></li>
+                                                    <li><a href="{{route('logout')}}" style="text-transform:capitalize;"><i class="mdi mdi-logout"></i>Sign out</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                    @endauth
+                                </div>
+                            </div>
                         </nav>
                     </div>
                 </div>

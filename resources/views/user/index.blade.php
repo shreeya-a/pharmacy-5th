@@ -1,6 +1,13 @@
 @extends('user.layouts.main')
 
 @section('content')
+
+<style>
+    .card:hover {
+        border: 1px solid #3E7DC0 !important;
+
+    }
+</style>
 <!-- <h1 class="mt-8">Welcome to Home Page</h1> -->
 <!--====== Header Style 1 Part Start ======-->
 <section class="header-style-1">
@@ -8,20 +15,36 @@
     <!-- <div class="header-items-active"> -->
 
     <div class="container">
-        <div class="row align-items-center slider-animated-1">
-            <div class="col-lg-5 col-md-6">
-                <div class="hero-slider-content-2">
-                    <h4 class="animated">Trade-in offer</h4>
-                    <h2 class="animated fw-900">Supper value deals</h2>
-                    <h1 class="animated fw-900 text-brand">On all products</h1>
-                    <p class="animated">Save more with coupons & up to 70% off</p>
-                    <!-- <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Shop Now </a> -->
-                    <a class="btn btn-primary" href="#"> Upload Now </a>
+        <div class="row justify-content-center slider-animated-1 mt-4">
+            <div class="col-lg-5 col-md-6 justify-content-center mt-5 p-0">
+
+
+                <div class="hero-slider-content-2 mt-5 text-center">
+                    <div class="m-2" >
+                        <h2 class="mt-5"> Welcome to <span style="color: #542DED"> NePharma</span></h2>
+                    </div>
+                    <div class="m-2">
+                        <p class="fw-normal" style="color: black">Your health, our priority: Shop with confidence at our online pharmacy.</p>
+                    </div>
+                    <div class="m-4">
+                        <p class="fw-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio nemo itaque asperiores ducimus minus. 
+                            Illo itaque et libero 
+                            ullam in autem, laborum illum vel mollitia asperiores tempore voluptatum expedita aliquam.</p>
+                    </div>
+                    <div class="mt-5">
+                        <h3>Upload your Prescription </h3>
+                        <h5 class="mt-2">Have your medications delivered to your door. </h5>
+                    </div>
+                    <div class="m-4">
+                        <a class="main-btn primary-btn" href="{{route('image')}}"> <i class="mdi mdi-camera"></i> Upload Now </a>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-lg-7 col-md-6">
-                <div class="single-slider-img single-slider-img-1">
-                    <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/banner.png')}}" style="width:700px;height:700px;" alt="">
+            <div class="col-lg-7 col-md-6  ">
+                <div class="single-slider-img single-slider-img-1 mt-5  mb-5">
+                    <!-- <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/Picsart_slider.jpg')}}" style="width:800px;height:500px;" alt=""> -->
+                    <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/slider.jpg')}}" style="width:7500px;height:500px;" alt="">
                 </div>
             </div>
         </div>
@@ -36,6 +59,7 @@
 <!--====== Content Card Style 4 Part Start ======-->
 <section class="content-card-style-4 pt-70 pb-100">
     <div class="container">
+      
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-7 col-sm-8">
                 <div class="single-content mt-15 text-center">
@@ -87,32 +111,43 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="mb-50">
-                        <h1 class="heading-1 font-weight-400">Featured Items</h1>
+                    <div class=" mb-5 features-title text-center ">
+            <h2 class="heading-1 font-weight-600"  style=" color:#393D8E ;">Featured Products</h2>
+        </div>
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel featured-carousel owl-theme">
+            <div class="owl-carousel featured-carousel owl-theme mt-3">
                 @foreach($featured_products as $product)
                 <div class="item">
-                    <div class="card mb-3  text-center">
+                    <div class="card mb-3 product_data text-center">
                         <a href="{{url('section/'.$product->section->section.'/'.$product->product.'/'.$product->id)}}">
                             <div class="img-wrapper">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
-                            <div class="card-body justify-content-center gray-bg ">
+                            <div class="card-body justify-content-center mb-3 ">
                                 <h4 class="text-capitalize "> {{$product->product}}</h4>
                                 <p>Rs {{$product->price}}</p>
-                                <div class="mt-4 mb-4">
-                                    <a href="#" class="main-btn primary-btn">Add to Cart </a>
-                                </div>
-
-                            </div>
                         </a>
+
+                        <!-- @if($product->prescribed == 0)
+                                <div class=" product-btn mt-4 mb-4"> -->
+                        <!-- <a href="#" class="main-btn primary-btn" style="max-width:150px">Add to Cart </a> -->
+                        <!-- <button type="button" class="main-btn primary-btn addToCartBtn" style="max-width:150px">Add to Cart </button>
+                                <input type="hidden" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1">
+
+                                </div>
+                                @else
+                            <p class="mt-2 mb-2 p-4" style="color:red;">*** Presciption required ***</p>
+                                @endif -->
+
+
                     </div>
                 </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
+    </div>
     </div>
 </section>
 
@@ -121,13 +156,13 @@
 
 
 <!--====== Popular products Part Start ======-->
-<section class="product-wrapper pt-10 gray-bg ">
+<section class="product-wrapper pt-10  ">
     <div class="py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="mb-50">
-                        <h1 class="heading-1 font-weight-400">Popular Items</h1>
+                    <div class="mb-50 features-title text-center ">
+                    <h4 class="heading-1 font-weight-600"  style=" color:#393D8E ;">Popular Products</h1>
                     </div>
                 </div>
             </div>
@@ -139,12 +174,12 @@
                             <div class="img-wrapper">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
-                            <div class="card-body justify-content-center gray-bg ">
+                            <div class="card-body justify-content-center mb-3 ">
                                 <h4 class="text-capitalize "> {{$product->product}}</h4>
                                 <p>Rs {{$product->price}}</p>
-                                <div class="mt-4 mb-4">
+                                <!-- <div class="mt-4 mb-4">
                                     <a href="#" class="main-btn primary-btn">Add to Cart </a>
-                                </div>
+                                </div> -->
                             </div>
                         </a>
                     </div>
@@ -168,85 +203,31 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="features-title text-center mb-50">
-                    <h1 class="heading-1 font-weight-700">Contact Us Form </h1>
+                    <h1 class="heading-1 font-weight-600" style=" color:#393D8E ;">Our Pharmacy</h1>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-cog"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Bootstrap 5</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
+        <div class="single-slider-img single-slider-img-1 ">
+                    <!-- <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/slider/Picsart_slider.jpg')}}" style="width:800px;height:500px;" alt=""> -->
+                    <img class="animated slider-1-1" src="{{asset('userpanel/assets/images/pharmacy-background.jpg')}}" style="width:7500px;height:400px;" alt="">
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-code"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Clean Design</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-layers"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Included Business Pages</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-laptop-phone"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Fully Responsive</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-brush"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Completely Customizable</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-feature-wrapper">
-                    <div class="feature-icon">
-                        <i class="lni lni-rocket"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h5 class="heading-5 font-weight-500 mb-10">Fast and Well-optimized</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quos iste veniam.</p>
-                    </div>
+            
+
+</section>
+<script src="{{asset('userpanel/assets/js/custom.js')}}"></script>
+<!--====== Features Part Ends ======-->
+
+<!--====== Clients Logo Part Start ======--> 
+ <section class="clients-logo-section pt-70 pb-70">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="features-title text-center mb-50">
+                    <h1 class="heading-1 font-weight-600" style=" color:#393D8E ;">Brands</h1>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!--====== Features Part Ends ======-->
-
-<!--====== Clients Logo Part Start ======-->
-<!-- <section class="clients-logo-section pt-70 pb-70">
-        <div class="container">
             <div class="row client-logo-active">
                 <div class="col-lg-3">
                     <div class="single-logo-wrapper">
@@ -270,28 +251,10 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> 
 <!--====== Clients Logo Part Ends ======-->
 
-<!--====== Subscribe Part Start ======-->
-<!-- <section class="subscribe-section pt-70 pb-70 bg-primary-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 mx-auto">
-                    <div class="heading text-center">
-                        <h1 class="heading-1 font-weight-700 text-white mb-10">You are using free lite version</h1>
-                        <p class="gray-3">Please, purchase full version of the template to get all pages, sections, features and permission to remove footer credits.</p>
-                        </br>
-                        <a href="https://rebrand.ly/estore-gg" rel="nofollow" target="_blank" class="main-btn secondary-1-btn">
-                                <img src="{{asset('userpanel/assets/images/icon-svg/cart-7.svg')}}" alt="">
-                                PURCHASE NOW
-                            </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-<!--====== Subscribe Part Ends ======-->
+
 @endsection
 
 @section('scripts')

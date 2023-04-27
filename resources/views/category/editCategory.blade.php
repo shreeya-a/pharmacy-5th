@@ -4,13 +4,22 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper bg-white">
-    <!-- Content Header (Page header) -->
-    <!-- <div class="content-header bg-white">
-        <h1 class="mt-8 text-center"> Category </h1>
-
-    </div> -->
-    <!-- /.content header -->
-    <!-- <div class="container"> -->
+<section class="content-header ">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-sm-6">
+                    <h5>Category</h5>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item active">Category</li>
+                        <li class="breadcrumb-item active">Edit Category</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
     <div class="container d-flex justify-content-center mt-3">
         <div class="card " style=" width: 40rem;height: 17rem;">
             <div class="card-header bg-light">
@@ -29,7 +38,7 @@
                         <label for="category">Category:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" name="category" class="form-control" id="category" placeholder="{{$category->category}}">
+                        <input type="text" name="category" class="form-control" id="category" placeholder="{{$category->category}}" required>
                         <button type="submit" class="btn btn-primary mt-3 mb-3">Save Changes</button>
                     </div>
                 </form>

@@ -28,8 +28,11 @@ $(document).ready(function () {
                 product_qty: product_qty,
             },
             success: function (response) {
-                alert(response.status);
-                // swal(response.status);
+                // window.location.reload();
+
+                // alert(response.status);
+                swal(response.status);
+
                 // sweetalert
             },
         });
@@ -85,7 +88,7 @@ $(document).ready(function () {
                     "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
                 },
             });
-     
+           
         $.ajax({
             method: "POST",
             url: "delete-cart-item",
@@ -94,7 +97,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 window.location.reload();
-                alert(response.status);
+                // alert(response.status);
                 // swal("".response.status."success");
                 // sweetalert
             },

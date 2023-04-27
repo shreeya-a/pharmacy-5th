@@ -24,10 +24,16 @@
 
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                @if(Session::has('fail'))
+                                @if(Session::has('message'))
 
                                 <div class="alert alert-danger" role="alert">
-                                    {{Session::get('fail')}}
+                                    {{Session::get('message')}}
+                                </div>
+                                @endif
+                                @if(Session::has('great'))
+
+                                <div class="alert alert-success" role="alert">
+                                    {{Session::get('great')}}
                                 </div>
                                 @endif
                                 <p class="text-center h1 fw-bold text-black mb-5 mx-1 mx-md-4 mt-4">Login</p>

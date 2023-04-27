@@ -1,6 +1,12 @@
 @extends('user.layouts.main')
 
 @section('content')
+<style>
+    p {
+        color: black;
+    }
+</style>
+
 <section class="breadcrumbs-wrapper pt-2 pb-2">
     <div class="container">
         <div class="row">
@@ -21,90 +27,60 @@
     </div>
 </section>
 
-    <div class="container my-5">
-        <div class="row ">
-            @foreach($product_details as $product)
+<div class="container my-5 ">
+    <div class="row ">
+        @foreach($product_details as $product)
 
-            <div class="col-md-5">
-                <div class="main-img">
-                    <img class="img-fluid" src="{{asset('/storage/'.$product->image)}}" alt="ProductS">
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="main-description product_data px-2 ">
-                    <div class="category text-bold">
-                        Category: {{$product->section->section}}
-                    </div>
-                    <div class="product-title text-bold my-3">
-                        {{$product->product}}
-                    </div>
-                    <div class="price-area my-4">
-                        <p class="new-price  mb-2">Rs {{$product->price}}</p>
-                        <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
-                    </div>
-                    <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
-                    @if($product->prescribed == 0)
-                    <div class="buttons d-flex my-5">
-                        <div class="product-btn mr-10">
-                            <button type="button" class="main-btn primary-btn addToCartBtn">
-                                <!-- <a href="" class="main-btn primary-btn addToCartBtn"> -->
-                                <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
-                                Add to cart
-                                <!-- </a> -->
-                            </button>
-                        </div>
-                        <div class="block quantity">
-                            <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
-                        </div>
-                    </div>
-                    @else
-                    <h5  class="p-3" style="color:red;">*** Presciption required ***</h5>
-                    @endif
-                </div>
-                <div class="product-details my-4">
-                    <p class="details-title text-bold mb-1">Product Details</p>
-                    <p class="description">{{$product->description}} </p>
-                </div>
+        <div class="col-md-6">
+            <div class="">
+                <img class="" src="{{asset('/storage/'.$product->image)}}" alt="ProductS" width="500px" height="400px">
             </div>
         </div>
-        @endforeach
-    </div>
+        <div class="col-md-6 ">
+            <div class="main-description product_data px-2 ">
+                <div class="category text-bold">
+                    Category: {{$product->section->section}}
+                </div>
+                <div class="product-title text-bold my-3">
+                    {{$product->product}}
+                </div>
+                <div class="price-area my-4">
+                    <p class="new-price  mb-2">Rs {{$product->price}}</p>
+                    <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
+                </div>
+                <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
+                @if($product->prescribed == 0)
 
-    <div class="container similar-products my-4">
-        <hr>
-        <p class="display-5">Similar Products</p>
+                <div class="buttons d-flex my-5">
+                    <div class="product-btn mr-10">
+                        <button type="button" class="main-btn primary-btn addToCartBtn">
+                            <!-- <a href="" class="main-btn primary-btn addToCartBtn"> -->
+                            <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
+                            Add to cart
+                            <!-- </a> -->
+                        </button>
+                    </div>
+                    <div class="block quantity">
+                        <input type="number" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1" min="1" max="10">
+                    </div>
+                </div>
 
-        <div class="row">
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/gsKdPcIyeGg" alt="Preview">
-                    <p class="title">Lovely black dress</p>
-                    <p class="price">$100</p>
-                </div>
+                @else
+                <h5 class="p-3" style="color:red;">*** Presciption required ***</h5>
+
+                @endif
             </div>
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/sg_gRhbYXhc" alt="Preview">
-                    <p class="title">Lovely Dress with patterns</p>
-                    <p class="price">$85</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/gJZQcirK8aw" alt="Preview">
-                    <p class="title">Lovely fashion dress</p>
-                    <p class="price">$200</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="similar-product">
-                    <img class="w-100" src="https://source.unsplash.com/qbB_Z2pXLEU" alt="Preview">
-                    <p class="title">Lovely red dress</p>
-                    <p class="price">$120</p>
-                </div>
+            <div class="product-details my-4">
+                <p class="details-title text-bold mb-1" style="color:black;">Product Details</p>
+                <p class="description">{{$product->description}} </p>
             </div>
         </div>
     </div>
+    @endforeach
+</div>
+</div>
+
+
 @endsection
 
 @section('scripts')
