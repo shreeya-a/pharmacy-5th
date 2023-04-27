@@ -26,7 +26,9 @@ class ImageController extends Controller
             return view('user.prescription.create');
         }
         else {
-            return response()->json(['status' =>  "Login to Continue"]);
+            // return response()->with(['status' =>  "Login to Continue"]);
+        return redirect('/')->with('status', 'Login to Continue.');
+
         }
     }
 

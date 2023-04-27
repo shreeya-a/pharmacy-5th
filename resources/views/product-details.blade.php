@@ -27,8 +27,8 @@
     </div>
 </section>
 
-<div class="container my-5 ">
-    <div class="row ">
+<div class="container " style="margin-top: 5rem; margin-bottom:6rem;">
+    <div class="row  ">
         @foreach($product_details as $product)
 
         <div class="col-md-6">

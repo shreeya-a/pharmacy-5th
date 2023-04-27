@@ -97,7 +97,8 @@
 
 
             <div class="footer-copyright text-center">
-            <p><i class="mdi mdi-alert"></i>This website is built for educational purpose. Not in use.</p>
+                <p>©CopyRight2023 <span style="color:#542ded;">Nepharma.</span>All Rights Reserved.</p>
+            <!-- <p><i class="mdi mdi-alert"></i>This website is built for educational purpose. Not in use.</p> -->
             </div>
     </section>
     <!--====== Footer Style 3 Part Ends ======-->

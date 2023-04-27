@@ -3,9 +3,9 @@
 @section('content')
 
 <style>
-    .card:hover{
+    .card:hover {
         border: 1px solid #3E7DC0 !important;
-        
+
     }
 </style>
 <section class="breadcrumbs-wrapper pt-2 pb-2">
@@ -22,13 +22,13 @@
                             @endforeach
                         </ol>
                     </div>
-                 
+
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="container">
+<div class="container my-5">
 
 
     <div class="py-5">
@@ -44,34 +44,34 @@
                             <div class="image">
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img" width="250" height="250">
                             </div>
-<!-- <hr class="m-0 black"> -->
+                            <!-- <hr class="m-0 black"> -->
                             <div class="card-body text-center ">
                                 <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
                                 <h4 class="m-2"> {{$product->product}}</h4>
                                 <p class="m-2">Rs {{$product->price}}</p>
                         </a>
-                            @if($product->prescribed == 0)
-                            <div class="product-btn mt-2 mb-2">
-                                <button type="button" class="main-btn primary-btn addToCartBtn">
-                                    <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
-                                    Add to cart
-                                </button>
-                                <input type="hidden" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1">
-                            </div>
-                            @else
-                            <p class="mt-2 mb-2 p-2" style="color:red;">*** Presciption required ***</p>
-                             <!-- </div> -->
-                            @endif
+                        @if($product->prescribed == 0)
+                        <div class="product-btn mt-2 mb-2">
+                            <button type="button" class="main-btn primary-btn addToCartBtn">
+                                <img src="{{asset('userpanel/assets/images/icon-svg/cart-4.svg')}}" alt="">
+                                Add to cart
+                            </button>
+                            <input type="hidden" class="form-control text-center qty-input" name="prod_qty" id="prod_qty" value="1">
+                        </div>
+                        @else
+                        <p class="mt-2 mb-2 p-2" style="color:red;">*** Presciption required ***</p>
+                        <!-- </div> -->
+                        @endif
                     </div>
                 </div>
             </div>
             @endforeach
-            </div>
-<div class="row">
-    {{$section_product->links()}}
-</div>
+        </div>
+        <div class="row">
+            {{$section_product->links()}}
         </div>
     </div>
+</div>
 </div>
 @endsection
 

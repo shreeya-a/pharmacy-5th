@@ -172,7 +172,7 @@
     <script>
         swal({
             text: "{{session('status')}}",
-            icon: "success",
+            // icon: "success",
             button: "OK!",
         })
     </script>
