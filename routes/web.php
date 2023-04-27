@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,11 +37,14 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::prefix('/dashboard')->middleware(['auth'])->group (function() {
+// admin login
+Route::middleware(['auth', 'isAdmin'])->group (function() {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
+  
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+// Route::get('/product', [ProductController::class,'product'])->name('product');
+
+
 
 
 });
@@ -54,6 +58,7 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 // Route::get('/', [HomeController::class, 'homepage'])->name('homepage')->middleware(['auth']);
+// Route::get('/dashboard',  [AdminController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
 
 
 Route::get('/login',[HomeController::class, 'login'])->name('login');
