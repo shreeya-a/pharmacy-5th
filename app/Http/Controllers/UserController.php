@@ -68,7 +68,15 @@ class UserController extends Controller
             }
 
             // remember me cookie setting ends
-            return redirect()->route('homepage');
+            if (Auth::attempt($req->only('email', 'password'))) {
+                // dd('log in');
+                if(Auth::user()->role == '1' ){
+                    return redirect()->route('dashboard');
+                }else{
+                    return redirect()->route('home.index');
+                }
+            }
+    
         } else {
             return back()->with('fail', 'User not found');
         }
