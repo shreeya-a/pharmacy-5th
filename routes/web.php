@@ -52,7 +52,7 @@ Route::middleware(['auth', 'isAdmin'])->group (function() {
   
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-
+});
 
 
 

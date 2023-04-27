@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Image;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     //
@@ -22,7 +27,8 @@ class AdminController extends Controller
 
         $todayPresorder = Image::whereDate('created_at',$todayDate)->count();
         $thisMonthPresorder = Image::whereDate('created_at',$thisMonth)->count();
-
+        
+        
         $todayUsers = User::whereDate('created_at',$todayDate)->count();
         $thisMonthUsers = User::whereDate('created_at',$thisMonth)->count();
 

@@ -107,7 +107,7 @@ class UserController extends Controller
                 if(Auth::user()->role == '1' ){
                     return redirect()->route('dashboard');
                 }else{
-                    return redirect()->route('home.index');
+                    return redirect()->route('homepage');
                 }
             }
     
