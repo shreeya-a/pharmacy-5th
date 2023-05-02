@@ -13,17 +13,17 @@
                             <li class="breadcrumb-item active" aria-current="page">My Uploads</li>
                         </ol>
                     </div>
-                  
+
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="container my-2">
+<div class="container my-2 ">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-             
+
                 @php
                 $SN=1;
                 @endphp
@@ -52,11 +52,11 @@
                                 @if ($item ->status =='0')
                                 <td>
                                     <a href="{{url('view-prescription-order/'. $item->id)}}" class="btn btn-primary">View</a>
-                                <a href="{{url('cancel-prescription-order/'. $item->id)}}" class="btn btn-danger delete" data-confirm="Are you sure you want to CANCEL?">Cancel</a>
-                            </td>
+                                    <a href="{{url('cancel-prescription-order/'. $item->id)}}" class="btn btn-danger delete" data-confirm="Are you sure you want to CANCEL?">Cancel</a>
+                                </td>
                                 @elseif ($item ->status == '1')
                                 <td><a href="{{url('view-prescription-order/'. $item->id)}}" class="btn btn-primary">View</a></td>
-                                @else 
+                                @else
                                 <td></td>
                                 @endif
                             </tr>
@@ -66,7 +66,7 @@
                     </table>
 
                     @else
-                    <div class="card-body text-center mt-2 mb-5" >
+                    <div class="card-body text-center mt-2 mb-5">
                         <h2 class="mb-5">You have no prescription uploads</h2>
                         <div class="d-flex justify-content-end">
                             <a href="{{url('/upload-prescription')}}" class="btn btn-outline-primary float-end pt-10">Upload prescription</a>

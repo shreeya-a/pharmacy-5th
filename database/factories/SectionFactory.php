@@ -18,7 +18,7 @@ class SectionFactory extends Factory
     {
         return [
             //
-            'section' => $this->faker->unique()->randomElement(['Ayurveda', 'Skin Care','Baby Care','Personal Care','Hair Care','Medicine']),
+            'section' => $this->faker->unique()->randomElement(['Personal Care','Baby Care','Immunity Booster','Devices','Medicine']),
 
 
         ];

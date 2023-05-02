@@ -136,9 +136,7 @@
                                         <!-- sub menu Start -->
                                         <ul class="sub-menu">
                                             @foreach($cats as $cat)
-                                            @if ($cat->section == 'Medicine')
-                                            @continue;
-                                            @endif
+                                           
                                             <li><a href="{{url('/section/'.$cat->section.'/'.$cat->id)}}">{{$cat->section}}</a></li>
                                             @endforeach
                                         </ul>

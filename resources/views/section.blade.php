@@ -47,7 +47,7 @@
                             <!-- <hr class="m-0 black"> -->
                             <div class="card-body text-center ">
                                 <input type="hidden" value="{{$product->id}}" name="prod_id" class="prod_id">
-                                <h4 class="m-2"> {{$product->product}}</h4>
+                                <h5 class="m-2"> {{$product->product}}</h5>
                                 <p class="m-2">Rs {{$product->price}}</p>
                         </a>
                         @if($product->prescribed == 0)

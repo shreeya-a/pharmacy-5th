@@ -184,7 +184,7 @@
                             <tr>
                                 <td class=" col-4 p-1">
                                     <input type="hidden" name="pres_id" value="{{$prescription->id}}">
-                                    <label for="medicine" class="form-label   ">Medicine:</label>
+                                    <label for="medicine" class="form-label   ">Product:</label>
                                     <select class=" form-control" name="prod_id" id="product">
                                         @foreach($product as $product)
                                         <option value="{{$product ->id }}">{{$product ->product }}</option>
@@ -283,8 +283,8 @@
                                 <tbody>
                                     @foreach($presItem as $item)
                                     <tr>
-                                        <td>{{$item->product->product}}</td>
-                                        <td class="col-10 " style="word-wrap: break-word;min-width: 160px;max-width: 160px;">{{$item->message}}</td>
+                                        <td class="col-5">{{$item->product->product}}</td>
+                                        <td class="col-10 " style="word-wrap: break-word;">{{$item->message}}</td>
                                         <!-- <td class="col-10 " style="word-break:break-all; word-break:break-word;  overflow-wrap: break-word;">{{$item->message}}</td> -->
                                         <td>{{$item->qty}}</td>
                                         <td>{{$item->product->price}}</td>

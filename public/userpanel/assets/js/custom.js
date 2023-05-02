@@ -28,10 +28,10 @@ $(document).ready(function () {
                 product_qty: product_qty,
             },
             success: function (response) {
+                swal(response.status);
                 // window.location.reload();
 
                 // alert(response.status);
-                swal(response.status);
 
                 // sweetalert
             },

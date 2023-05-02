@@ -23,7 +23,7 @@ class AdminMiddleware
             if(Auth::user()->role =='1'){
                 return $next($request);
             }else{
-                return redirect('/')->with('success', 'Logged in');
+                return redirect('/');
             }
 
         }

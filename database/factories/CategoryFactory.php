@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             //
-            'category' => $this->faker->unique()->word,
+            'category' => $this->faker->unique()->randomElement(['Serum', 'Tablet','Capsule','Syrup','Device','Supplement','Oral Care']),
 
         ];
     }

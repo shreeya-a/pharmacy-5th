@@ -42,7 +42,7 @@
                         <div class="row checkout-form">
                             <div class="col-md-6">
                                 <label for="">First Name</label>
-                                <input type="text" value="{{ Auth::user()->name}}" name="fname" class="form-control" placeholder="Enter First Name" readonly>
+                                <input type="text" value="{{ Auth::user()->name}}" name="fname" class="form-control" placeholder="Enter First Name" Uppercase readonly>
 
                             </div>
                             <div class="col-md-6 ">

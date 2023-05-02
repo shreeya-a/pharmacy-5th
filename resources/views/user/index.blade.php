@@ -126,7 +126,7 @@
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
                             <div class="card-body justify-content-center mb-3 ">
-                                <h4 class="text-capitalize "> {{$product->product}}</h4>
+                                <h5 class="text-capitalize "> {{$product->product}}</h5>
                                 <p>Rs {{$product->price}}</p>
                         </a>
 
@@ -175,7 +175,7 @@
                                 <img src="{{asset('/storage/'.$product->image)}}" class="d-block w-100" alt="carousel_img">
                             </div>
                             <div class="card-body justify-content-center mb-3 ">
-                                <h4 class="text-capitalize "> {{$product->product}}</h4>
+                                <h5 class="text-capitalize "> {{$product->product}}</h5>
                                 <p>Rs {{$product->price}}</p>
                                 <!-- <div class="mt-4 mb-4">
                                     <a href="#" class="main-btn primary-btn">Add to Cart </a>

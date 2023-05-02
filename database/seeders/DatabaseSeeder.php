@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::factory()->times(10)->create();
-        Category::factory()->times(5)->create();
+        Category::factory()->times(7)->create();
         Section::factory()->times(5)->create();
         Product::factory()->times(20)->create();
 
